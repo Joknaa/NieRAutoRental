@@ -1,11 +1,9 @@
-# NieRAutoRental
-
-Folders Note:
+#Folders Note:
 
 Root folder is for the webpages
 
-CSS: for CSS files
-Database: for exported DB files
-Include: for parts of the pages that are included in others
-JS: for Javascript
-Scripts: for PHP functions
+CSS: for CSS files<br>
+Database: for exported DB files<br>
+Include: for parts of the pages that are included in others<br>
+JS: for Javascript<br>
+Scripts: for PHP functions<br>
