@@ -1,4 +1,4 @@
-#Folders Note:
+# Folders Note:
 
 Root folder is for the webpages
 
