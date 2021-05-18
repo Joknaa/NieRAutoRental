@@ -1,121 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="login.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"> </script>
+<html>
 
-    <title>LOGIN</title>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datetimepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="login.css">
+
 </head>
+
 <body>
-<div class="container">
-            <div class="col-md-6 col-md-offset-3 col-xs-12">
-                <!-- @ Start login box wrapper -->
-                <div class="blmd-wrapp">
-                        <div class="blmd-color-conatiner ripple-effect-All"></div>
-                        <div class="blmd-header-wrapp ">
-                        <div class="blmd-switches">
-                             <button class="btn btn-circle btn-lg btn-blmd ripple-effect btn-success blmd-switch-button">
-                                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                    <path fill="#fff" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                                 </svg>
-                              </button>
-                        </div> 
-                        
-                    </div> 
-                    <div class="blmd-continer">
-                        <!-- @ Login form container -->
-                        <form action="post" class="clearfix" id="login-form">
-                            <h1>Login Page</h1>
-                            <div class="col-md-12">
-                                
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input style="left:37%;"type="text" name="username" autocomplete="off" id="email" class="form-control">
-                                        <label style="left:37%;"class="blmd-label">Email :</label>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="col-md-8 col-lg-6">
+                <div class="login d-flex align-items-center py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9 col-lg-8 mx-auto">
+                                <h3 class="login-heading mb-4">Welcome back!</h3>
+                                <form>
+                                    <div class="form-label-group">
+                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                        <label for="inputEmail">Email address</label>
                                     </div>
-                                </div>
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input style="left:37%;" type="password" name="password" autocomplete="off" id="password" class="form-control">
-                                        <label style="left:37%;" class="blmd-label">Password :</label>
+
+                                    <div class="form-label-group">
+                                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                        <label for="inputPassword">Password</label>
                                     </div>
-                                </div>
+
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                                    <div class="text-center">
+                                        <a class="small" href="#">Forgot password?</a></div>
+                                </form>
                             </div>
-                            <div class="col-sm-12 text-center">
-                                <button type="button" class="btn btn-blmd ripple-effect btn-success btn-lg btn-block">Login</button>
-                            </div>
-                            <br/>
-                        </form>
-                        <!-- @ Login form container -->
-                        <form action="post" class="clearfix form-hidden" id="Register-form">
-                            <div class="col-md-12">
-                            <div class="flex">
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="text" name="fullname" autocomplete="off" id="fullname" class="form-control">
-                                        <label class="blmd-label">Full name :</label>
-                                    </div>
-                                </div>
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="text" name="email" autocomplete="off" id="email" class="form-control">
-                                        <label class="blmd-label">Email :</label>
-                                    </div>
-                                </div>
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="password" name="password" autocomplete="off" id="password" class="form-control">
-                                        <label class="blmd-label">Password :</label>
-                                    </div>
-                                </div>
-                                 <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="password" name="rePassword" autocomplete="off" id="password" class="form-control">
-                                        <label class="blmd-label">Repeat Password :</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex2">
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="text" name="text" autocomplete="off" id="cin" class="form-control">
-                                        <label class="blmd-label">CIN :</label>
-                                    </div>
-                                </div>
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="text" name="text" autocomplete="off" id="status" class="form-control">
-                                        <label class="blmd-label">Status :</label>
-                                    </div>
-                                </div>
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="text" name="text" autocomplete="off" id="ville" class="form-control">
-                                        <label class="blmd-label">Ville :</label>
-                                    </div>
-                                </div>
-                                <div class="input-group blmd-form">
-                                    <div class="blmd-line">
-                                        <input type="text" name="text" autocomplete="off" id="Address" class="form-control">
-                                        <label class="blmd-label">Address :</label>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="col-sm-12 text-center">
-                                <button type="button" class="btn btn-blmd ripple-effect btn-warning btn-lg btn-block">Register</button>
-                            </div>
-                            <br/>
-                        </form>
+                        </div>
                     </div>
                 </div>
-               
             </div>
         </div>
-		<script src="login.js"> </script>
+    </div>
 </body>
+
 </html>
