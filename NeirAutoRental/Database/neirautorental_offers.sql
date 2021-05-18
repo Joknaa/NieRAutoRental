@@ -24,3 +24,4 @@ create index ID_Car
 create index ID_User
     on offers (ID_User);
 
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (1, 1, 1, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
