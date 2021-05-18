@@ -15,32 +15,34 @@ there are 3 type of users to this website:
 <br>_ `Clients`: The users who can take those offers, and the cars for a period of time and pay.
 <br>_ `Admins`: A special user who has the complete authority, he manages and supervises and maintains the functionality of the website.
 
-### Database Diagram:
+## Database Diagram:
 ![Database Diagram](ReadMe/DatabaseDiagram.png)
 
-### Some Mockup pages: 
 <br>
 
-##### Main Page:
+
+## Some Mockup pages: 
+
+### Main Page:
 ![Database Diagram](ReadMe/Index.png)
 
 <br>
 
-##### Partner Space:
+### Partner Space:
 ![Database Diagram](ReadMe/PartnerSpace.png)
 
 <br>
 
-##### Adding an Offer: 
+### Adding an Offer: 
 ![Database Diagram](ReadMe/AddOffer.png)
 
 <br>
 
-##### Offer Info: 
+### Offer Info: 
 ![Database Diagram](ReadMe/OfferInfo.png)
 
 <br>
 
-##### Offer Registration (Client side): 
+### Offer Registration (Client side): 
 ![Database Diagram](ReadMe/OfferRegistration.png)
 
