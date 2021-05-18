@@ -31,14 +31,14 @@ input[type="text"]{
     display: block;
     box-sizing: border-box;
     background: none;
-    color: beige;
+    color: black;
     margin-top: 25px;
     margin-bottom: 30px;
     padding: 4px;
     width: 220px;
     height: 32px;
     border: none;
-    border-bottom: 1px solid #0082e6;
+    border-bottom: 1px solid #acd7f8;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 400;
     font-size: 15px;
@@ -52,9 +52,9 @@ input[type="text"]:focus{
 }
 .btns{
     border: 1px solid #3498db;
-    background-color: rgb(235, 180, 180);
+    background-color: rgb(180, 229, 235);
     color: black;
-    height: 30px;
+    height: 50px;
     width: 100px;
     border-radius: 5px;
     margin: 0px;
@@ -69,7 +69,7 @@ input[type="file"]{
 label{
     box-sizing: border-box;
     font-size: 20px;
-    background-color: rgb(235, 180, 180);
+    background-color: rgb(177, 215, 245);
     color: black;
     border: 1px solid #3498db;
     padding: 2px 15px;
