@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>a70cc421-d6f3-4d44-acec-fe527de4853c.SCHEMA:neirautorental</OriginalElement>
+  <nodes>
+    <node x="0.0" y="686.4777937931598">a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.users</node>
+    <node x="773.5251202342229" y="974.9681574410944">a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.comments</node>
+    <node x="785.9880796457761" y="0.0">a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.cars</node>
+    <node x="543.6072692618086" y="736.5854250706698">a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offercomments</node>
+    <node x="49.553503853515735" y="203.27109471001143">a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.requests</node>
+    <node x="497.10726926180826" y="188.13491333495938">a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offers</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.requests" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.users">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offercomments" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offers">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.requests" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offers">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offers" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.cars">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offercomments" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.users">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offercomments" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.comments">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offers" target="a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.users">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Circular" zoom="1.0" x="534.5" y="286.5" />
+  <SelectedNodes>
+    <node>a70cc421-d6f3-4d44-acec-fe527de4853c.TABLE:neirautorental.offers</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
