@@ -24,3 +24,11 @@ create index ID_Car
 create index ID_User
     on offers (ID_User);
 
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (1, 1, 1, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (2, 2, 20, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (3, 1, 5, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (4, 4, 4, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (5, 1, 3, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (6, 3, 2, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (7, 5, 10, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);
+INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, Date_Start, Date_End, Hour_Start, Hour_End, Description) VALUES (8, 2, 11, 'available', '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', null);

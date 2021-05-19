@@ -6,7 +6,7 @@ create table users
     Password  varchar(50)                         not null,
     FirstName varchar(30)                         null,
     LastName  varchar(30)                         null,
-    CIN       int                                 null,
+    CIN       varchar(20)                         null,
     Phone     int(20)                             null,
     City      varchar(30)                         null,
     Address   varchar(60)                         null,
@@ -16,5 +16,8 @@ create table users
     engine = InnoDB
     charset = utf8mb4;
 
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@.', 'oknaa', null, null, null, null, null, null, 'client', null);
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (2, 'niaa@.', 'niaa', null, null, null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@.', 'oknaa', '', '', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (2, 'niaa@.', 'niaa', '', '', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (3, 'med@.', 'med', '', '', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (4, 'houda@.', 'houda', '', '', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (5, 'ibrahim@.', 'ibrahim', '', '', null, null, null, null, 'client', null);
