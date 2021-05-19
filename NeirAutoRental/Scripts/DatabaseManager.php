@@ -7,35 +7,58 @@ $GLOBALS["Connection"] = mysqli_connect($hostName, $userName, $password, $databa
 
 
 //<editor-fold desc="Edit_Profile">
-function UpdateProfile(){
+function GetProfile($ID_User){
     try {
-        SQL_DisplayProfile($_POST["ID_User"]);
-        SQL_UpdateProfile($_POST["ID_User"]);
+        return SQL_GetProfile($ID_User);
     }catch (Exception $e){
         echo $e;
     }
-}
-function SQL_DisplayProfile($ID_User){
-    $profile_result = SQL_GetProfile($ID_User);
-    if ($profile_result->num_rows > 0) {
-        $profile = $profile_result->fetch_assoc();
-        echo implode("  ", $profile);
-    }
+    return null;
 }
 function SQL_GetProfile($ID_User){
     $stmt = $GLOBALS["Connection"]
         ->prepare("SELECT * FROM neirautorental.users WHERE ID_User = ?");
     $stmt->bind_param("i", $ID_User);
     $stmt->execute();
-    return $stmt->get_result();
+    $profile_result = $stmt->get_result();
+    if ($profile_result->num_rows > 0) {
+        return $profile_result->fetch_assoc();
+    }
+    return null;
 }
-function SQL_UpdateProfile($ID_User){
+function UpdateProfile(){
+    try {
+        SQL_UpdateProfile();
+        if (PasswordUpdated()){
+            echo "insid first if";
+            SQL_UpdatePassword();
+        }
+    }catch (Exception $e){
+        echo $e;
+    }
+}
+function SQL_UpdateProfile(){
     $stmt = $GLOBALS["Connection"]
-        ->prepare("UPDATE neirautorental.users SET FirstName = ? AND LastName = ? AND City = ? 
-                                              AND Address = ? AND CIN = ? AND Phone = ? WHERE ID_User = ?");
-    $stmt->bind_param("ssssiii", $_POST["NOM_CLIENT"], $_POST["PRENOM_CLIENT"], $_POST["VILLE_CLIENT"],
-        $_POST["ADRESSE_CLIENT"], $_POST["CIN"], $_POST["TELEPHONE_CLIENT"], $ID_User);
+        ->prepare("UPDATE neirautorental.users SET FirstName = ?, LastName = ?, City = ?,
+        Address = ?, CIN = ?, Phone = ? WHERE ID_User = ?");
+    $stmt->bind_param("sssssii", $_POST["FirstName"], $_POST["LastName"], $_POST["City"], $_POST["Address"],
+        $_POST["CIN"], $_POST["Phone"], $_POST["ID_User"]);
     $stmt->execute();
+}
+function PasswordUpdated(){
+    if (isset($_POST["Password"]) AND isset($_POST["PasswordRepeat"])){
+        if (($_POST["Password"] == $_POST["PasswordRepeat"]) AND $_POST["Password"] != null){
+            return true;
+        }
+    } else return false;
+}
+function SQL_UpdatePassword(){
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("UPDATE neirautorental.users SET Password = ? WHERE ID_User = ?");
+    $stmt->bind_param("si", $_POST["Password"], $_POST["ID_User"]);
+
+    echo $stmt->execute();
+
 }
 //</editor-fold>
 //<editor-fold desc="Edit_Offer">
@@ -50,8 +73,8 @@ function UpdateOffer(){
 }
 function SQL_UpdateOffer(){
     $stmt = $GLOBALS["Connection"]
-        ->prepare("UPDATE neirautorental.offers SET Availability = ? AND Date_Start = ? AND Date_End = ? AND Hour_Start = ? 
-                                                    AND Hour_End = ? WHERE ID_User = ?");
+        ->prepare("UPDATE neirautorental.offers SET Availability = ?, Date_Start = ?, Date_End = ?, Hour_Start = ?,
+                                                    Hour_End = ? WHERE ID_User = ?");
     $stmt->bind_param("siiiii", $_POST["Availability"], $_POST["Date_Start"], $_POST["Date_End"], $_POST["Hour_Start"],
         $_POST["Hour_End"], $_POST["ID_User"]);
     $stmt->execute();
@@ -65,8 +88,8 @@ function SQL_GetCarID($ID_Car){
 }
 function SQL_UpdateCar($ID_Car){
     $stmt = $GLOBALS["Connection"]
-        ->prepare("UPDATE neirautorental.cars SET Brand = ? AND Model = ? AND Year = ? AND Price = ? AND Mileage = ? 
-                                           AND Color = ? AND VIN = ? AND Category = ?  WHERE ID_Car = ?");
+        ->prepare("UPDATE neirautorental.cars SET Brand = ?, Model = ?, Year = ?, Price = ?, Mileage = ?,
+                                        Color = ?, VIN = ?, Category = ?  WHERE ID_Car = ?");
     $stmt->bind_param("siiiii", $_POST["Brand"], $_POST["Model"], $_POST["Year"], $_POST["Price"],
         $_POST["Mileage"], $_POST["Color"], $_POST["VIN"], $_POST["Category"], $ID_Car);
     $stmt->execute();
