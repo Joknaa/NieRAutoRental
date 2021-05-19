@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/AddOffer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/DatabaseDiagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/Index.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/OfferInfo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/OfferRegistration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/PartnerSpace.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
