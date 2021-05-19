@@ -9,17 +9,32 @@ $GLOBALS["Connection"] = mysqli_connect($hostName, $userName, $password, $databa
 //<editor-fold desc="Edit_Profile">
 function UpdateProfile(){
     try {
-        SQL_UpdateProfile();
+        SQL_DisplayProfile($_POST["ID_User"]);
+        SQL_UpdateProfile($_POST["ID_User"]);
     }catch (Exception $e){
         echo $e;
     }
 }
-function SQL_UpdateProfile(){
+function SQL_DisplayProfile($ID_User){
+    $profile_result = SQL_GetProfile($ID_User);
+    if ($profile_result->num_rows > 0) {
+        $profile = $profile_result->fetch_assoc();
+        echo implode("  ", $profile);
+    }
+}
+function SQL_GetProfile($ID_User){
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("SELECT * FROM neirautorental.users WHERE ID_User = ?");
+    $stmt->bind_param("i", $ID_User);
+    $stmt->execute();
+    return $stmt->get_result();
+}
+function SQL_UpdateProfile($ID_User){
     $stmt = $GLOBALS["Connection"]
         ->prepare("UPDATE neirautorental.users SET FirstName = ? AND LastName = ? AND City = ? 
                                               AND Address = ? AND CIN = ? AND Phone = ? WHERE ID_User = ?");
     $stmt->bind_param("ssssiii", $_POST["NOM_CLIENT"], $_POST["PRENOM_CLIENT"], $_POST["VILLE_CLIENT"],
-        $_POST["ADRESSE_CLIENT"], $_POST["CIN"], $_POST["TELEPHONE_CLIENT"], $_POST["ID_User"]);
+        $_POST["ADRESSE_CLIENT"], $_POST["CIN"], $_POST["TELEPHONE_CLIENT"], $ID_User);
     $stmt->execute();
 }
 //</editor-fold>
@@ -72,7 +87,7 @@ function SQL_UpdateRequest(){
         ->execute();
 }
 //</editor-fold>
-//<editor-fold desc="Show_Offers">
+//<editor-fold desc="Show_Offers_List">
 function DisplayOffers($ID_User){
     try {
         $allOffers_result = SQL_GetAllOffers($ID_User);
@@ -91,7 +106,6 @@ function DisplayOffers($ID_User){
         echo $e;
     }
 }
-
 function SQL_GetAllOffers($ID_User){
     $stmt = $GLOBALS["Connection"]
         ->prepare("SELECT * FROM neirautorental.offers WHERE ID_User = ?");
@@ -148,6 +162,26 @@ function SQL_GetComment($ID_Comment){
     $stmt = $GLOBALS["Connection"]
         ->prepare("SELECT * FROM neirautorental.comments WHERE ID_Comment = ?");
     $stmt->bind_param("i", $ID_Comment);
+    $stmt->execute();
+    return $stmt->get_result();
+}
+//</editor-fold>
+//<editor-fold desc="Show_Offer">
+function DisplayOffer(){
+    try {
+        $profile_result = SQL_GetOffer($_POST["ID_Offer"]);
+        if ($profile_result->num_rows > 0) {
+            $profile = $profile_result->fetch_assoc();
+            echo implode("  ", $profile);
+        }
+    }catch (Exception $e){
+        echo $e;
+    }
+}
+function SQL_GetOffer($ID_Offer){
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("SELECT * FROM neirautorental.offers WHERE ID_Offer = ?");
+    $stmt->bind_param("i", $ID_Offer);
     $stmt->execute();
     return $stmt->get_result();
 }
