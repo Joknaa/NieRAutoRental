@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add an offer</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="NeirAutoRental/CSS/header.css">
+    <link rel="stylesheet" type="text/css" href="NeirAutoRental/CSS/Add_offer.css">
+    <!-- <?php include 'header.php';?>  -->
+</head>
+<!--
+<script>
+    $(function() {
+        $('input[name="datetimes"]').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+    });
+    function button(){
+        document.getElementById('button').style.display='none';
+    }
+    function dontquit(){
+        document.getElementById('button').style.display='block';
+
+    }
+</script>
+-->
+
+<body>
+    <div class="header1">
+        <div>
+            <div class="header-dark">
+                <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                    <div class="container"><a class="navbar-brand" href="up.html">Classy V</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                                <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Categories </a>
+                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                                </li>
+                                <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Brands </a>
+                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                                </li>
+                            </ul>
+                            <form class="form-inline mr-auto" target="_self">
+                                <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
+                            </form><span class="navbar-text"><a href="#" class="login">Sign out</a></span><a class="btn btn-light action-button" role="button" href="#">ADD an offer</a></div>
+                    </div>
+                </nav>
+    
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+   
+  </div>
+<center>
+    <h1><b><i>Add an offer</i></b></h1>
+        <div class="box">
+        
+            <div class="right">
+                <img src=""></image>
+                <input type="file" name="" id="file" accept="image/*" >
+                <label class="Add" for="file">Add a picture</label><br><br>
+                <label class="info" for="textarea">More informations:</label>
+                <textarea id="textarea" name="textarea" rows="4" cols="50"> </textarea>
+            </div>
+
+            <input type="text" name="" placeholder="Brand">
+            <input type="text" name="" placeholder="Price">
+           
+            <label for="City">City :</label>
+            <select name="City" id="City">
+                     <option value="City">TANGER</option>
+                     <option value="City">TETOUAN</option>
+                     <option value="City">RABAT</option>
+                     <option value="City">CASABLANCA</option>
+                     <option value="City">MARRAKECH</option>
+                     <option value="City">AGADIR</option>
+                     <option value="City">AZROU</option>
+                     <option value="City">OUARZAZATE</option>
+                     
+                    
+                     
+            </select> <br><br>
+
+            <label for="Category">Category :</label>
+            <select name="Category" id="Category">
+                <option value="Category">Category 1</option>
+                <option value="Category">Category 2</option>
+                <option value="Category">Category 3</option>
+                <option value="Category">Category 4</option>
+            </select><br><br>
+
+
+            <form>
+                <label for="date">Offer available from:</label>
+                <input type="date" id="date" name="date">
+                <label for="appt">at :</label>
+                <input type="time" id="time" name="time">  <br><br>
+    
+                <label for="appt">to:</label>
+                <input type="date" id="date" name="date">
+                <label for="appt">at:</label>
+                <input type="time" id="appt" name="appt">
+            </form>
+
+         
+            
+
+
+            
+           
+
+              <!--
+            <input type="text" name="datetimes" />
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+                -->
+            
+            <button>ADD</button>
+               
+       
+        </div>
+</center>   
+</body>
+
+</html>
