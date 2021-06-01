@@ -9,7 +9,7 @@
 }
 
 .bg-image {
-    background-image: url('./UPP.jpg');
+    background-image: url('sidepicture.jpg');
     background-size: cover;
     background-position: center;
 }
