@@ -1,0 +1,13 @@
+.carousel-item {
+    height: 65vh;
+    height: 530px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+section {
+    background-color: #e0cfc0!important;
+}

@@ -2,32 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Includes/header2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_comments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offercomments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_profilecomments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Listing_offers.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_offers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/3d5db9a8-e5db-43e1-8766-fc1580d4e3a3_1.e4f57459e5808c4b86d5f7a767d08ba4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/4-40596_orange-truck-low-price-car-in-bangladesh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/54294fad97a6576c0b5c17c72ef58bd6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/6872.png_860.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/7161.png_860.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/AudiQ5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/ClasseA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Giulietta.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/lamborghini_660_140220101539.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/orange-car-hp-right-mercedez.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Audi e-tron.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Audi e-tron.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Camaro SS .png" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Camaro SS .png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Challenger SRT-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Challenger SRT-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Corvette Stingray Z51.png" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Corvette Stingray Z51.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Hyundai Kona Electric.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai Kona Electric.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Hyundai Venue.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai Venue.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Hyundai Verna.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai Verna.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Hyundai creta.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai creta.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Hyundai i20.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai i20.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Jaguar I-Pace.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Jaguar I-Pace.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Kia Seltos.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Kia Seltos.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Kia Sonet.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Kia Sonet.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/MG ZS EV.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/MG ZS EV.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Mahindra Thar.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mahindra Thar.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Mahindra XUV300.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mahindra XUV300.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Mercedes-Benz EQC.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mercedes-Benz EQC.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Mustang GT.png" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mustang GT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Nissan Magnite.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Nissan Magnite.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Tata Nexon EV.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tata Nexon EV.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Tata Nexon.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tata Nexon.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Tata Safari.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tata Safari.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Tesla Model 3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tesla Model 3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Toyota Fortuner.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Toyota Fortuner.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Toyota Innova Crysta .jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Toyota Innova Crysta .jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/venue-exterior-right-front-three-quarter-2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/venue-exterior-right-front-three-quarter-2.jpeg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +76,11 @@
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\CSS" />
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images" />
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images\Cars" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Scripts" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images" />
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
