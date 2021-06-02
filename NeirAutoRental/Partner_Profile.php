@@ -16,7 +16,7 @@ if (isset($_POST["submit_ProfileEdit"])) UpdateProfile();
 <body>
 <center>
     <form class="box" action="#" method="POST">
-        <img src="Ressource/Images/test.png" alt=""/>
+        <img src="Ressources/Images/test.png" alt=""/>
         <input type="file" name="" id="file" accept="image/*">
         <label for="file">Edit profile picture</label>
 <?php $profileData = GetProfile($ID_User); ?>

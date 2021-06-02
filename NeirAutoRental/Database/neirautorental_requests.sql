@@ -19,3 +19,6 @@ create index ID_Offer
 create index ID_User
     on requests (ID_User);
 
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (1, 1, 1, 'Waiting');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (2, 3, 1, 'Denied');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (3, 2, 1, 'Denied');
