@@ -9,17 +9,19 @@ if (isset($_POST["submit_ProfileEdit"])) UpdateProfile();
 <head>
     <title>EDIT PROFILE</title>
     <link rel="stylesheet" type="text/css" href="CSS/Edit_profile.css">
-    <link rel="import" href="Includes/header.html">
+    <link rel="import" href="Includes/header.php">
     <meta charset="UTF-8">
 </head>
+<?php include "Includes/header2.php"; ?>
+
 
 <body>
 <center>
     <form class="box" action="#" method="POST">
+        <?php $profileData = GetProfile($ID_User); ?>
         <img src="Ressources/Images/test.png" alt=""/>
         <input type="file" name="" id="file" accept="image/*">
         <label for="file">Edit profile picture</label>
-<?php $profileData = GetProfile($ID_User); ?>
         <input id="hidden" type="text" name="ID_User" value="<?php echo $profileData["ID_User"] ?>" hidden>
         <input type="text" name="FirstName" placeholder="First name" value="<?php echo $profileData["FirstName"] ?>">
         <input type="text" name="LastName" placeholder="Last name" value="<?php echo $profileData["LastName"]?>">

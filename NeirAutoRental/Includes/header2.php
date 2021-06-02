@@ -1,5 +1,3 @@
-<?php require "Scripts/DatabaseManager.php"; ?>
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -20,7 +18,7 @@
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
                 <div class="container"><a class="navbar-brand" href="up.html">Classy V</a>
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
-                            class="navbar-toggler-icon"></span></button>
+                                class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
@@ -37,17 +35,17 @@
                                                     data-toggle="dropdown" aria-expanded="false" href="#">Brands </a>
                                 <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"
                                                                           href="#">First Item</a><a
-                                        class="dropdown-item" role="presentation" href="#">Second Item</a><a
-                                        class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                                            class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                             </li>
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
                             <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input
-                                    class="form-control search-field" type="search" name="search" id="search-field">
+                                        class="form-control search-field" type="search" name="search" id="search-field">
                             </div>
                         </form>
                         <span class="navbar-text"><a href="#" class="login">Sign out</a></span><a
-                            class="btn btn-light action-button" role="button" href="#">ADD an offer</a></div>
+                                class="btn btn-light action-button" role="button" href="#">ADD an offer</a></div>
                 </div>
             </nav>
 
@@ -57,13 +55,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
 </div>
-
-
-<h2 style="text-align:center">Offers :</h2>
-<p style="text-align:center">Location de voiture au maroc</p>
-
-<?php DisplayOffers(1)?>
-
-
-</body>
-</html>

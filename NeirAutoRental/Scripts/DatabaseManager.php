@@ -97,10 +97,10 @@ function SQL_GetCarID($ID_Car) {
 
 function SQL_UpdateCar($ID_Car) {
     $stmt = $GLOBALS["Connection"]
-        ->prepare("UPDATE neirautorental.cars SET Brand = ?, Model = ?, Year = ?, Price = ?, Mileage = ?,
-                                        Color = ?, VIN = ?, Category = ?  WHERE ID_Car = ?");
-    $stmt->bind_param("siiiii", $_POST["Brand"], $_POST["Model"], $_POST["Year"], $_POST["Price"],
-        $_POST["Mileage"], $_POST["Color"], $_POST["VIN"], $_POST["Category"], $ID_Car);
+        ->prepare("UPDATE neirautorental.cars SET Brand = ?, Model = ?, Price = ?, Mileage = ?,
+                                        Color = ?, Category = ?  WHERE ID_Car = ?");
+    $stmt->bind_param("siii", $_POST["Brand"], $_POST["Model"], $_POST["Price"],
+        $_POST["Mileage"], $_POST["Color"], $_POST["Category"], $ID_Car);
     $stmt->execute();
 }
 
@@ -109,15 +109,15 @@ function SQL_UpdateCar($ID_Car) {
 function DisplayRequests($ID_Partner) {
     try {
         $allRequests_result = SQL_GetAllRequests($ID_Partner);
-
         if ($allRequests_result->num_rows > 0) {
             $rows = $allRequests_result->num_rows;
             do {
                 $requests = $allRequests_result->fetch_assoc();
-
                 $user_result = SQL_GetUser($requests["ID_User"]);
                 if ($user_result->num_rows > 0) {
                     $user = $user_result->fetch_assoc();
+
+                    
 
                     echo '
                     <div class="columns" >
@@ -190,7 +190,7 @@ function DisplayOffers($ID_User) {
                     echo '
                     <div class="columns">
                         <ul class="price">
-                            <li class="header"><img src="Ressources/Images/ClasseA.jpg" alt="Snow" style="width:100%"></li>
+                            <li class="header"><img src="Ressources/Images/'. $car["Image"].'" alt="Snow" style="width:100%"></li>
                             <li class="grey">' . $car["Price"] . ' DH/Hour</li>
                             <li>Brand: ' . $car["Brand"] . ' - ' . $car["Model"] . '</li>
                             <li>' . $offer["Description"] . '</li>
@@ -284,3 +284,49 @@ function SQL_GetOffer($ID_Offer) {
     return $stmt->get_result();
 }
 //</editor-fold>
+
+if (isset($_POST['but_upload'])) {
+
+    $name = $_FILES['file']['name'];
+    $target_dir = "../Ressources/Uploads/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+    // Select file type
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    // Valid file extensions
+    $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+    // Check extension
+    if (in_array($imageFileType, $extensions_arr)) {
+        // Upload file
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name)) {
+            // Insert record
+            //$query = "insert into images(name) values('".$name."')";
+            //mysqli_query($con,$query);
+
+            $stmt = $GLOBALS["Connection"]
+                ->prepare("UPDATE neirautorental.cars SET Image = ? WHERE ID_Car = 1");
+            $stmt->bind_param("s", $name);
+            $stmt->execute();
+        }
+    }
+}
+
+
+$sql = "select Image from neirautorental.cars where ID_Car=1";
+$result = mysqli_query($GLOBALS["Connection"],$sql);
+$row = mysqli_fetch_array($result);
+
+$image = $row['Image'];
+$image_src = "../Ressources/Uploads/".$image;
+
+?>
+<img src='<?php echo $image_src; ?>'>
+
+?>
+
+<form method="post" action="DatabaseManager.php" enctype='multipart/form-data'>
+    <input type='file' name='file'/>
+    <input type='submit' value='Save name' name='but_upload'>
+</form>
