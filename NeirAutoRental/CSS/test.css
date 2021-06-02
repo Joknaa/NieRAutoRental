@@ -1,0 +1,11 @@
+.containerr {
+    width: 1200px;
+    height: 400px;
+    background-color: #e0cfc0;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    border-radius: 30px;
+    font-family: OpenSans;
+}
