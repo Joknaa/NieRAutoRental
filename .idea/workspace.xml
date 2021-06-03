@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_ProfileManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NieRAutoRental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NieRAutoRental.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/CSS/Add_offer.css" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/CSS/Add_offer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/ImageUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/ImageUploader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_offers.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/PostHome.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseManager.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/modify.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/offerslist.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
