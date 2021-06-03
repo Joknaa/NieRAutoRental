@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<?php include_once "Scripts/S_OfferManager.php"?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,37 +19,30 @@
     <link href="bootstrap.bundle.min.js" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
-    <link rel="stylesheet" href="CSS/Home.css">
-    <link rel="stylesheet" href="CSS/nav.css">
 
-    <title>Home</title>
 </head>
-
-<body>
-<div style="height:80px;">
-    <div class="header-dark">
-        <?php require('nav.php'); ?>
-    </div>
-</div>
-
 <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+         style="background-color: #e0cfc0!important;">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
+
+            <--
             <div class="carousel-item active"
-                 style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/9OLHDveHQcKw6ngORY--Nw.1440x700.jpg')">
+                 style="background-image: url('Ressources/Images/Cars/Corvette Stingray Z51.png')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Ford Falcon 1963</h3>
                     <p class="lead">Beautiful and well taken care of 1963 Falcon. Turns heads everywhere you go, Will
                         not disappoint!</p>
                 </div>
             </div>
-            <!-- Slide Two - Set the background image for this slide in the line below -->
+
             <div class="carousel-item"
                  style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/MDzW4ycFQC-kVLeTLLq7YQ.1440x700.jpg')">
                 <div class="carousel-caption d-none d-md-block">
@@ -60,7 +51,7 @@
                         off-roader, a scalding-hot track runner, and a family wagon extraordinaire.</p>
                 </div>
             </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
+
             <div class="carousel-item"
                  style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/myswqN9MSK-APj_61j99XQ.1440x700.jpg')">
                 <div class="carousel-caption d-none d-md-block">
@@ -88,6 +79,7 @@
                         of upgrades that’s sure to draw eyes on any road. </p>
                 </div>
             </div>
+            -->
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -100,105 +92,8 @@
     </div>
 </header>
 
-<!-- Page Content -->
-<section class="py-5">
-    <div class="container">
-        <h1 class="font-weight-light">Trending cars </h1>
-    </div>
-    <br><br>
-    <div class="container bootstrap snipets">
-        <div class="row flow-offset-1">
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2019-chevrolet-corvette.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2019-chevrolet-corvette</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/alfa.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">alfa romeo</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/alfa2.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">alfa romeo</a></h6><span class="price">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2018-audi-r8.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2018-audi-r8</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2019-jaguar-f-type.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2019-jaguar-f-type</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2021-alfa-romeo-giulia.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2021-alfa-romeo-giulia</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2021-mini-countryman.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2021-mini-countryman</a></h6><span class="price">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2010-hummer-h3.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2010-hummer-h3</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2011-tesla-roadster.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2011-tesla-roadster</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</section>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-</script>
 <script type="text/javascript" src="jquery.slim.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-</body>
-
-</html>

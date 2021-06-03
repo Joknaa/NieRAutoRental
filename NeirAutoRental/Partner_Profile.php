@@ -1,42 +1,132 @@
-<?php
-require "Scripts/DatabaseManager.php";
-$ID_User = 1;
-if (isset($_POST["submit_ProfileEdit"])) UpdateProfile();
+<?php include_once 'Scripts/S_ProfileManager.php';
+
+if (!isset($_POST["submit"])) die("No User ID");
+
+$ID_User = $_POST["ID_User"];
 ?>
-
 <!DOCTYPE html>
-<html>
-<head>
-    <title>EDIT PROFILE</title>
-    <link rel="stylesheet" type="text/css" href="CSS/Edit_profile.css">
-    <link rel="import" href="Includes/header.php">
-    <meta charset="UTF-8">
-</head>
-<?php include "Includes/header2.php"; ?>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
 
 <body>
-<center>
-    <form class="box" action="#" method="POST">
-        <?php $profileData = GetProfile($ID_User); ?>
-        <img src="Ressources/Images/test.png" alt=""/>
-        <input type="file" name="" id="file" accept="image/*">
-        <label for="file">Edit profile picture</label>
-        <input id="hidden" type="text" name="ID_User" value="<?php echo $profileData["ID_User"] ?>" hidden>
-        <input type="text" name="FirstName" placeholder="First name" value="<?php echo $profileData["FirstName"] ?>">
-        <input type="text" name="LastName" placeholder="Last name" value="<?php echo $profileData["LastName"]?>">
-        <input type="text" name="CIN" placeholder="CIN" value="<?php echo $profileData["CIN"]?>">
-        <input type="text" name="City" placeholder="City" value="<?php echo $profileData["City"]?>">
-        <input type="text" name="Address" placeholder="Address" value="<?php echo $profileData["Address"]?>">
-        <input type="text" name="Phone" placeholder="Phone" value="<?php echo $profileData["Phone"]?>">
-        <input type="email" name="Email" placeholder="Email" value="<?php echo $profileData["Email"]?>">
-        <input type="password" name="Password">
-        <input type="password" name="PasswordRepeat">
-        <div class="btns">
-            <button type="submit" name="submit_ProfileEdit">Save</button>
-            <button type="reset">Cancel</button>
+<?php
+include 'nav.php';
+
+$Profile = GetProfile($ID_User);
+?>
+<div style="background-color:#e0cfc0;" class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                 alt="Admin"
+                                 class="rounded-circle" width="150">
+
+                            <form action="Partner_Offers.php" method="post" class="mt-3">
+                                <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
+                                <p class="text-secondary mb-1"> <?php echo $Profile["userType"] ?></p>
+                                <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
+                                <br>
+                                <input type="text" class="btn btn-outline-primary" name="ID_User"
+                                       value="<?php echo $Profile["ID_User"] ?>" hidden>
+                                <input type="submit" class="btn btn-outline-primary" name="submit"
+                                       value="Posted offers">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Last Name :</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["FirstName"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">First Name :</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["LastName"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email :</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["Email"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">CIN :</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["CIN"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mobile</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["Phone"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">City :</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["City"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?php echo $Profile["Address"] ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-info " target="__blank" href="Partner_ProfileEdit.php">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-</center>
+
+    </div>
+</div>
 </body>
+
 </html>

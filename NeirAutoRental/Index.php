@@ -133,85 +133,8 @@
     <br><br>
     <div class="container bootstrap snipets">
         <div class="row flow-offset-1">
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2019-chevrolet-corvette.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2019-chevrolet-corvette</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/alfa.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">alfa romeo</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/alfa2.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">alfa romeo</a></h6><span class="price">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2018-audi-r8.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2018-audi-r8</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2019-jaguar-f-type.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2019-jaguar-f-type</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2021-alfa-romeo-giulia.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2021-alfa-romeo-giulia</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2021-mini-countryman.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2021-mini-countryman</a></h6><span class="price">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2010-hummer-h3.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2010-hummer-h3</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="product tumbnail thumbnail-3">
-                    <a href="#"><img src="Ressources/Images/2011-tesla-roadster.jpg" alt=""></a>
-                    <div class="caption">
-                        <h6><a href="#">2011-tesla-roadster</a></h6><span class="price">
-                  <del>$24.99</del></span><span class="price sale">$12.49/hour</span>
-                    </div>
-                </div>
-            </div>
+            <?php include_once "Scripts/S_OfferManager.php";
+            DisplayAllOffers(); ?>
         </div>
     </div>
 
