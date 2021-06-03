@@ -817,7 +817,6 @@ SELECT|sys.sys_config
     <column id="250" parent="241" name="Model">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="251" parent="241" name="Price">
       <Position>4</Position>
@@ -827,7 +826,6 @@ SELECT|sys.sys_config
     <column id="252" parent="241" name="Fuel">
       <Position>5</Position>
       <DataType>enum(&apos;Diesel&apos;, &apos;Gasoline&apos;, &apos;Electricity&apos;)|0e</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="253" parent="241" name="Mileage">
       <Position>6</Position>
@@ -837,7 +835,6 @@ SELECT|sys.sys_config
     <column id="254" parent="241" name="Color">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="255" parent="241" name="Category">
       <Position>8</Position>

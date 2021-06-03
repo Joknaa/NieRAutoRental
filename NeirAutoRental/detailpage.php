@@ -1,3 +1,10 @@
+<?php include_once "Scripts/S_OfferManager.php";
+include_once "Scripts/S_ProfileManager.php";
+if (!isset($_POST["ID_Offer"]) and !isset($_POST["ID_User"])) die("No User ID");
+
+$ID_Offer = $_POST["ID_Offer"];
+$ID_User = $_POST["ID_User"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,22 +41,9 @@
 </section>
 <section>
     <div class="containerr">
-        <div>
-            <img style="width:500px;height:340px;" src="Ressources/Images/2010-hummer-h3.jpg" alt="oups">
-        </div>
-        <div>
-            <h1> here the title</h1>
-            <br>
-            <h4> here the category</h4>
-            <br>
-            <h4> here the brand </h4>
-            <br>
-            <h4>here the price</h4>
-            <br>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem voluptatibus<br>
-                aliquid ipsa eius odio reiciendis quibusdam sit nulla autem quam neque, <br>
-                perferendis reprehenderit omnis vel et dolorum quae delectus quasi.</p>
-        </div>
+        <?php $ID_OfferOwner = DisplayOffer($ID_Offer); ?>
+
+
     </div>
     <br>
 
@@ -68,17 +62,16 @@
                                 <div class="col-12 col-md">
                                     <div class="card-box">
                                         <h1 class="h1">
-                                            <strong>Name here</strong>
+                                            <?php $Profile = GetProfile($ID_OfferOwner); ?>
+                                            <strong><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></strong>
                                         </h1>
                                         <br>
-                                        <h6 class="h6">
-                                            Email here
-                                        </h6>
+                                        <h6 class="h6"> Email:
+                                            <?php echo $Profile["Email"] ?>                                        </h6>
                                         <br>
 
-                                        <h6 class="h6">
-                                            city here
-                                        </h6>
+                                        <h6 class="h6">City:
+                                            <?php echo $Profile["City"] ?>                                        </h6>
                                     </div>
                                 </div>
                             </div>
@@ -113,10 +106,10 @@
             </div>
             <div class="prev-comments">
 
-                        <div class="single-item">
-                            <h4>Name</h4>
-                            <p>Comment</p>
-                        </div>
+                <div class="single-item">
+                    <h4>Name</h4>
+                    <p>Comment</p>
+                </div>
 
             </div>
         </div>

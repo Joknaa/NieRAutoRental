@@ -17,7 +17,11 @@ function DisplayAllOffers() {
                     echo '
                         <div class="col-xs-6 col-md-4">
                             <div class="product tumbnail thumbnail-3">
-                                <a href="#"><img style="width: 100%" src="Ressources/Images/Cars/' . $car["Image"] . '" alt="car image"></a>
+                            <form method="post" action="detailpage.php">
+                            <input type="text" name="ID_User" value="'. $offer["ID_User"] .'" hidden>
+                            <input type="text" name="ID_Offer" value="'. $offer["ID_Offer"] .'" hidden>
+                            <input type="image" alt="car image" name="submit" style="width: 100%" src="Ressources/Images/Cars/' . $car["Image"] . '">
+                            </form>
                                 <div class="caption">
                                     <h6><a href="#">' . $car["Brand"] . ' - ' . $car["Model"] . '</a></h6><span class="price">
                               <del>$24.99</del></span><span class="price sale">' . $car["Price"] . '</span>
@@ -84,12 +88,34 @@ function SQL_GetVIPOffers() {
 //</editor-fold>
 
 //<editor-fold desc="Display Selected Offers">
-function DisplayOffer() {
+function DisplayOffer($ID_Offer) {
     try {
-        $profile_result = SQL_GetOffer($_POST["ID_Offer"]);
-        if ($profile_result->num_rows > 0) {
-            $profile = $profile_result->fetch_assoc();
-            echo implode("  ", $profile);
+        $offer_result = SQL_GetOffer($ID_Offer);
+        if ($offer_result->num_rows > 0) {
+            $offer = $offer_result->fetch_assoc();
+
+            $car_result = SQL_GetCar($offer["ID_Car"]);
+            if ($car_result->num_rows > 0) {
+                $car = $car_result->fetch_assoc();
+                echo '
+                    <div>
+            <img style="width:500px;height:340px;" src="Ressources/Images/Cars/'. $car["Image"] .'" alt="oups">
+        </div>
+        <div>
+            <h1>'. $car["Brand"] . ' ' . $car["Model"] .'</h1>
+           
+            <h4>Category: '. $car["Category"] .'</h4>
+            <h4>Fuel: '. $car["Fuel"] .'</h4>
+            <h4>Color: '. $car["Color"] .'</h4>
+            <h4>Price: '. $car["Price"] .' DH/Hour</h4>
+            <br>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem voluptatibus<br>
+                aliquid ipsa eius odio reiciendis quibusdam sit nulla autem quam neque, <br>
+                perferendis reprehenderit omnis vel et dolorum quae delectus quasi.</p>
+        </div>
+                    ';
+                return $offer["ID_User"];
+            }
         }
     } catch (Exception $e) {
         echo $e;
