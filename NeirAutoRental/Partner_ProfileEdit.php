@@ -18,8 +18,9 @@
     if (isset($_POST["submit"])) {
         UpdateProfile();
         header("Location: Partner_Profile.php");
+        $ID_User = $_POST["ID_User"];
     }
-    $Profile = GetProfile(1);
+    $Profile = GetProfile($ID_User);
     ?>
     <div class="container">
         <div class="main-body">

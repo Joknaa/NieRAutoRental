@@ -1,4 +1,4 @@
-<?php require "Scripts/DatabaseConfig.php" ?>
+<?php require "Scripts/S_RequestManager.php" ?>
 <!DOCTYPE html>
 <html>
 <head>

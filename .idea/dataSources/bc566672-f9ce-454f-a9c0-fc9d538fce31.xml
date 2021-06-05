@@ -947,9 +947,9 @@ SELECT|sys.sys_config
     </column>
     <column id="277" parent="244" name="isVIP">
       <Position>4</Position>
-      <DataType>tinyint(1)|0s</DataType>
+      <DataType>enum(&apos;noVIP&apos;, &apos;1WeekVIP&apos;, &apos;2WeeksVIP&apos;)|0e</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
+      <DefaultExpression>&apos;noVIP&apos;</DefaultExpression>
     </column>
     <column id="278" parent="244" name="Availability">
       <Position>5</Position>

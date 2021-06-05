@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/NeirAutoRental" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NeirAutoRental/Includes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -60,15 +58,13 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Scripts" />
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\CSS" />
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images" />
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images\Cars" />
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -83,7 +79,6 @@
       <workItem from="1621433094745" duration="160000" />
       <workItem from="1622621738667" duration="7260000" />
       <workItem from="1622631465632" duration="18348000" />
-      <workItem from="1622705068522" duration="4391000" />
     </task>
     <servers />
   </component>

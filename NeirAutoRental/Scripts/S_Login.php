@@ -1,4 +1,5 @@
 <?php include_once "DatabaseConfig.php";
+
 function Login(){
     $useremail = $_POST['email'];
     $pass = $_POST['password'];
