@@ -16,8 +16,8 @@ create table users
     engine = InnoDB
     charset = utf8mb4;
 
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@a.a', 'UpmzDy4897PwSMK', 'Mohammad', 'Laadidaoui', 'CIN22222', 303030302, 'city2', 'address22222', 'partner', null);
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (2, 'niaa@.', 'niaa', 'niama', 'mouradi', null, null, null, null, 'client', null);
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (3, 'med@.', 'med', 'mohamed', 'hamouyi', null, null, null, null, 'client', null);
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (4, 'houda@.', 'houda', 'houda', 'mzari', null, null, null, null, 'client', null);
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (5, 'ibrahim@.', 'ibrahim', 'ibrahim', 'lhajj', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@a.a', 'oknaa', 'Mohammad', 'Laadidaoui', 'CIN22222', 303030302, 'city2', 'address22222', 'partner', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (2, 'niaa@a.a', 'niaa', 'niama', 'mouradi', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (3, 'med@a.a', 'med', 'mohamed', 'hamouyi', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (4, 'houda@a.a', 'houda', 'houda', 'mzari', null, null, null, null, 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (5, 'ibrahim@a.a', 'ibrahim', 'ibrahim', 'lhajj', null, null, null, null, 'client', null);
