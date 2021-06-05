@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_UserManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_comments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offercomments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_profilecomments.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe/DatabaseDiagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +80,8 @@
       <workItem from="1622621738667" duration="7260000" />
       <workItem from="1622631465632" duration="18348000" />
       <workItem from="1622907377797" duration="37000" />
-      <workItem from="1622921966289" duration="309000" />
+      <workItem from="1622921966289" duration="581000" />
+      <workItem from="1622929719607" duration="2839000" />
     </task>
     <servers />
   </component>

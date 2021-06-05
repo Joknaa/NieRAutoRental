@@ -15,11 +15,14 @@
     <?php include 'nav.php';
     include_once 'Scripts/S_ProfileManager.php';
 
+    if (!isset($_POST["submit_Profile"])) die("No User ID");
+
     if (isset($_POST["submit"])) {
         UpdateProfile();
         header("Location: Partner_Profile.php");
-        $ID_User = $_POST["ID_User"];
     }
+    $ID_User = $_POST["ID_User"];
+
     $Profile = GetProfile($ID_User);
     ?>
     <div class="container">

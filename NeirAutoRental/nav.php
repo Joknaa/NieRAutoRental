@@ -1,4 +1,6 @@
-<?php $ID_User = 2;?>
+<?php
+include_once "Scripts/S_UserManager.php";
+;?>
 <!DOCTYPE html>
 <html>
 
@@ -39,7 +41,7 @@
                         </div>
                     </form>
                     <form action="Partner_Profile.php" method="post">
-                        <input type="text" name="ID_User" value="<?php echo $ID_User?>" hidden>
+                        <input type="text" name="ID_User" value="<?php echo $_SESSION["ID_User"]?>" hidden>
                         <input type="submit" class="pdp img-circle" name="submit" value="">
                     </form>
                 </div>

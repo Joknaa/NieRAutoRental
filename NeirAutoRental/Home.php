@@ -1,3 +1,7 @@
+<?php
+include_once "Scripts/S_Login.php";
+include_once "Scripts/S_UserManager.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +33,8 @@
 
 <body>
 <?php
-if (isset($_GET["id"])) include_once "nav.php";
+echo $_SESSION["ID_User"];
+if (isset($_SESSION["ID_User"])) include_once "nav.php";
 else include_once "nav_Logout.php"?>
 
 <header>

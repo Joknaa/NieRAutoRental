@@ -117,9 +117,9 @@ $Profile = GetProfile($ID_User);
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form action="Partner_ProfileEdit.php">
+                                <form action="Partner_ProfileEdit.php" method="post">
                                     <input type="text" name="ID_User" value="<?php echo $Profile["ID_User"]?>" hidden>
-                                    <input class="btn btn-info " type="submit" name="submit" value="Edit">
+                                    <input class="btn btn-info " type="submit" name="submit_Profile" value="Edit">
                                 </form>
                             </div>
                         </div>

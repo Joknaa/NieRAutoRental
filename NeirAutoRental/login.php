@@ -35,7 +35,7 @@ require "Scripts/S_Login.php";
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember password</label>
                                     </div>
-                                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" name="submit" value="login">Sign in</button>
+                                    <input class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" name="submit" value="Sign in">
                                     <div class="text-center">
                                         <a class="small" href="register.php">Not a member? Sign up now!</a></div>
                                 </form>
