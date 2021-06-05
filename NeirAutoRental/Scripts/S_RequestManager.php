@@ -21,7 +21,7 @@ function DisplayRequests($ID_Partner) {
                             <li > Clients rate:  </li >
                             <li > Offer ID: ' . $requests["ID_Offer"] . ' </li >
                               <form action="Confirmation.php" method="POST">
-                                <li class="grey" ><input type="input" class="button" name="ID_Request" value="' . $requests["ID_Request"] . '"  ></li>
+                                <li class="grey" ><input type="input" class="button" name="ID_Request" value="' . $requests["ID_Request"] . '"  hidden></li>
                                 <li class="grey" ><input type="submit" class="button" name="Accept" value="Accept"></li >
                                 <li class="grey" ><input type="submit" class="button" name="Deny" value="Deny"></li >
                             </form>

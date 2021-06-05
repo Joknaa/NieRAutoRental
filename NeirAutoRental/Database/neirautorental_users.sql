@@ -16,7 +16,7 @@ create table users
     engine = InnoDB
     charset = utf8mb4;
 
-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@a.a', 'hehe', 'mohammad2222', 'Laadidaoui222', 'CIN22222', 303030302, 'city2', 'address2', 'client', null);
+INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@a.a', 'UpmzDy4897PwSMK', 'Mohammad', 'Laadidaoui', 'CIN22222', 303030302, 'city2', 'address22222', 'partner', null);
 INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (2, 'niaa@.', 'niaa', 'niama', 'mouradi', null, null, null, null, 'client', null);
 INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (3, 'med@.', 'med', 'mohamed', 'hamouyi', null, null, null, null, 'client', null);
 INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (4, 'houda@.', 'houda', 'houda', 'mzari', null, null, null, null, 'client', null);
