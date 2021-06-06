@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_SessionManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Add_offer.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_RequestOffer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Space.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Disconnected.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Disconnected.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +80,16 @@
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="nav_Connected.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.nav_Connected.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -101,7 +105,7 @@
       <workItem from="1622907377797" duration="37000" />
       <workItem from="1622921966289" duration="581000" />
       <workItem from="1622929719607" duration="3924000" />
-      <workItem from="1622973338032" duration="16523000" />
+      <workItem from="1622973338032" duration="18013000" />
     </task>
     <servers />
   </component>

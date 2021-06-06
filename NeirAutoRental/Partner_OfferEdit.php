@@ -3,6 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+
 if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
     header("refresh:1;url=Home.php");
     echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
@@ -16,6 +17,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
         ?>
         <!DOCTYPE html>
         <html lang="en">
+
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,19 +26,9 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
             <link rel="stylesheet" href="CSS/modify.css">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         </head>
+
         <body>
-        <?php
-        include_once "nav_Connected.php";
-        include_once 'Scripts/S_ProfileManager.php';
-
-        if (isset($_POST["submit"])) {
-            UpdateProfile();
-            header("Location: Partner_Profile.php");
-        }
-
-        $ID_User = $_SESSION["ID_User"];
-        $Profile = GetProfile($ID_User);
-        ?>
+        <?php include_once "nav_Connected.php"; ?>
         <div class="container">
             <div class="main-body">
                 <div class="row">
@@ -47,9 +39,9 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                     <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
                                          class="rounded-circle p-1 bg-primary" width="110">
                                     <div class="mt-3">
-                                        <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
-                                        <p class="text-secondary mb-1"> <?php echo $Profile["userType"] ?></p>
-                                        <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
+                                        <h4>John Doe</h4>
+                                        <p class="text-secondary mb-1">Partenaire </p>
+                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                     </div>
                                 </div>
                             </div>
@@ -57,52 +49,61 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form class="card-body" method="post">
+                            <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">First Name :</h6>
+                                        <h6 class="mb-0">Brand :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="ID_User"
-                                               value="<?php echo $Profile["ID_User"] ?>" hidden>
-                                        <input type="text" class="form-control" name="FirstName"
-                                               value="<?php echo $Profile["FirstName"] ?>">
+                                        <input type="text" class="form-control" value="Brand">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Last Name :</h6>
+                                        <h6 class="mb-0">Category :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="LastName"
-                                               value="<?php echo $Profile["LastName"] ?>">
+                                        <input type="text" class="form-control" value="Category">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Email :</h6>
+                                        <h6 class="mb-0">Price :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="email" class="form-control" name="Email"
-                                               value="<?php echo $Profile["Email"] ?>">
+                                        <input type="text" class="form-control" value="Price">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone :</h6>
+                                        <h6 class="mb-0">Date start :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="Phone"
-                                               value="<?php echo $Profile["Phone"] ?>">
+                                        <input type="date" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">CIN :</h6>
+                                        <h6 class="mb-0">Hour start :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="CIN"
-                                               value="<?php echo $Profile["CIN"] ?>">
+                                        <input type="time" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Date End :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Hour End :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="time" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -110,8 +111,18 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                         <h6 class="mb-0">City :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="City"
-                                               value="<?php echo $Profile["City"] ?>">
+
+                                        <select name="City" class="form-control" id="City">
+                                            <option value="City">TANGER</option>
+                                            <option value="City">TETOUAN</option>
+                                            <option value="City">RABAT</option>
+                                            <option value="City">CASABLANCA</option>
+                                            <option value="City">MARRAKECH</option>
+                                            <option value="City">AGADIR</option>
+                                            <option value="City">AZROU</option>
+                                            <option value="City">OUARZAZATE</option>
+                                        </select>
+
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -119,34 +130,34 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                         <h6 class="mb-0">Address</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="Address"
-                                               value="<?php echo $Profile["Address"] ?>">
+                                        <input type="text" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Password</h6>
+                                        <h6 class="mb-0">Picture Car</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="password" class="form-control" name="Password">
+                                        <img src=""></image>
+                                        <input type="file" name="" id="file" accept="image/*">
+                                        <input type="image" class="col-sm-9 text-secondary" value="">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Password Repeat</h6>
+                                        <h6 class="mb-0">More informations :</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="password" class="form-control" name="PasswordRepeat">
+                                        <input type="text" class="form-control" value=" ">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="submit" class="btn btn-primary px-4" name="submit"
-                                               value="Save Changes">
+                                        <input type="button" class="btn btn-primary px-4" value="Modify">
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
                     </div>
