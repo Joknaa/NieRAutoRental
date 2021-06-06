@@ -134,7 +134,7 @@ function DisplayPartnerOffers($ID_User) {
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-3">
                                     <div class="image-wrapper">
-                                        <img src="Ressources/Images/Cars/' . $car["Image"] . '" alt="Car Image" title="">
+                                        <img src="Ressources/Uploads/' . $car["Image"] . '" alt="Car Image" title="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md">

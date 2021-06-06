@@ -1,8 +1,12 @@
 <?php require "Scripts/S_OfferManager.php";
 
-if (!isset($_POST["submit"])) die("No User ID");
+if(!isset($_SESSION)) {
+    session_start();
+}
 
-$ID_User = $_POST["ID_User"];
+if (!isset($_SESSION["ID_User"])) die("No User ID");
+
+$ID_User = $_SESSION["ID_User"];
 
 ?>
 <!DOCTYPE html>
