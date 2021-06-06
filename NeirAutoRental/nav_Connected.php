@@ -1,5 +1,4 @@
 <?php
-include_once "Scripts/S_UserManager.php";
 if(!isset($_SESSION)) {
     session_start();
 }
@@ -7,6 +6,8 @@ if (!isset($_SESSION["ID_User"])) {
     header("refresh:1;url=Home.php");
     echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
 } else {
+    include_once "Scripts/S_ProfileManager.php";
+    $ID_User = $_SESSION["ID_User"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,8 +50,8 @@ if (!isset($_SESSION["ID_User"])) {
                         </div>
                     </form>
                     <form action="<?php GetProfilePage() ?>" method="post">
-                        <input type="text" name="ID_User" value="<?php echo $_SESSION["ID_User"] ?>" hidden>
-                        <input type="submit" class="pdp img-circle" name="submit" value="">
+                        <input type="text" name="ID_User" value="<?php echo $ID_User ?>" hidden>
+                        <input type="submit" class="pdp img-circle" name="submit" style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
                     </form>
                     <form action="Scripts/S_Logout.php" method="post">
                         <input type="submit" name="submit" value="Logout">

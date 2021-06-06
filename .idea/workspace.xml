@@ -2,17 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_SessionManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/2019-chevrolet-corvette.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/avatar7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/facemodal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/CSS/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/CSS/nav.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Confirmation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferAdd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferEdit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_ProfileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_ProfileManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_SessionManager.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_UserManager.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +83,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Uploads" />
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -105,7 +118,7 @@
       <workItem from="1622907377797" duration="37000" />
       <workItem from="1622921966289" duration="581000" />
       <workItem from="1622929719607" duration="3924000" />
-      <workItem from="1622973338032" duration="18013000" />
+      <workItem from="1622973338032" duration="27095000" />
     </task>
     <servers />
   </component>

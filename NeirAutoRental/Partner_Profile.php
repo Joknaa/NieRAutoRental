@@ -21,7 +21,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
+            <title>Partner Profile</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         </head>
         <body>
@@ -36,13 +36,13 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                    <img src="Ressources/Uploads/<?php echo $Profile["Image"] ?>"
                                          alt="Admin"
                                          class="rounded-circle" width="150">
 
                                     <form action="Partner_OfferList.php" method="post" class="mt-3">
                                         <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
-                                        <p class="text-secondary mb-1"> <?php echo $Profile["userType"] ?></p>
+                                        <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
                                         <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
                                         <br>
                                         <input type="text" class="btn btn-outline-primary" name="ID_User"

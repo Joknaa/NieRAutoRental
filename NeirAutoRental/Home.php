@@ -1,6 +1,5 @@
 <?php
 include_once "Scripts/S_Login.php";
-include_once "Scripts/S_UserManager.php";
 if (!isset($_SESSION)) {
     session_start();
 }

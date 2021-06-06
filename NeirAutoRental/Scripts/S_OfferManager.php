@@ -18,8 +18,8 @@ function DisplayAllOffers() {
                         <div class="col-xs-6 col-md-4">
                             <div class="product tumbnail thumbnail-3">
                             <form method="post" action="detailpage.php">
-                            <input type="text" name="ID_User" value="'. $offer["ID_User"] .'" hidden>
-                            <input type="text" name="ID_Offer" value="'. $offer["ID_Offer"] .'" hidden>
+                            <input type="text" name="ID_User" value="' . $offer["ID_User"] . '" hidden>
+                            <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
                             <input type="image" alt="car image" name="submit" style="width: 100%" src="Ressources/Images/Cars/' . $car["Image"] . '">
                             </form>
                                 <div class="caption">
@@ -44,6 +44,7 @@ function SQL_GetAllOffers() {
     $stmt->execute();
     return $stmt->get_result();
 }
+
 //</editor-fold>
 
 //<editor-fold desc="Display VIP Offers">
@@ -60,7 +61,7 @@ function DisplayVIPOffers() {
                 if ($car_result->num_rows > 0) {
                     $car = $car_result->fetch_assoc();
                     $ImageURL = "url('Ressources/Images/Cars/Corvette Stingray Z51.png');";
-                     echo '                   
+                    echo '                   
                         <div class="carousel-item active" style="background-image: ' . $ImageURL . '">
                             <div class="carousel-caption d-none d-md-block">
                                 <h3 class="display-4">' . $car["Brand"] . ' - ' . $car["Model"] . '</h3>
@@ -140,17 +141,20 @@ function DisplayPartnerOffers($ID_User) {
                                 <div class="col-12 col-md">
                                     <div class="card-box">
                                         <div class="row">
-                                            <div class="col-12">
-                                                <div class="top-line">
-                                                    <h4 class="card-title mbr-fonts-style display-5"><strong>' . $car["Brand"] . ' - ' . $car["Model"] . '</strong></h4>
-                                                    <p class="cost mbr-fonts-style display-5">' . $car["Price"] . ' DH/Hour</p>
+                                            <form method="post">
+                                                <div class="col-12">
+                                                    <div class="top-line">
+                                                        <input type="text" name="ID_Offer" value="'. $car["ID_User"] .'">
+                                                        <h4 class="card-title mbr-fonts-style display-5"><strong>' . $car["Brand"] . ' - ' . $car["Model"] . '</strong></h4>
+                                                        <p class="cost mbr-fonts-style display-5">' . $car["Price"] . ' DH/Hour</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="bottom-line">
-                                                    <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p>
+                                                <div class="col-12">
+                                                    <div class="bottom-line">
+                                                        <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +189,7 @@ function SQL_GetCar($ID_Car) {
 
 //</editor-fold>
 
-//<editor-fold desc="Update">
+//<editor-fold desc="Update Offer">
 function UpdateOffer() {
     try {
         $ID_Car = SQL_GetCarID($_POST["ID_Offer"]);

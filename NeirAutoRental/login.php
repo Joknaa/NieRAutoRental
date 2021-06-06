@@ -11,6 +11,7 @@ require "Scripts/S_Login.php";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datetimepicker.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datetimepicker.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="CSS/login.css">
+    <title>Login</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -35,7 +36,7 @@ require "Scripts/S_Login.php";
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember password</label>
                                     </div>
-                                    <input class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" name="submit" value="Sign in">
+                                    <input class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" name="submit_Login" value="Sign in">
                                     <div class="text-center">
                                         <a class="small" href="register.php">Not a member? Sign up now!</a></div>
                                 </form>
@@ -47,5 +48,5 @@ require "Scripts/S_Login.php";
         </div>
     </div>
 </body>
-<?php if (isset($_POST["submit"])) Login(); ?>
+<?php if (isset($_POST["submit_Login"])) Login(); ?>
 </html>

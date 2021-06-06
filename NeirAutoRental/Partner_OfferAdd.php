@@ -52,7 +52,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                          class="rounded-circle p-1 bg-primary" width="110">
                                     <div class="mt-3">
                                         <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
-                                        <p class="text-secondary mb-1"><?php echo $Profile["userType"] ?></p>
+                                        <p class="text-secondary mb-1"><?php echo $Profile["UserType"] ?></p>
                                         <p class="text-muted font-size-sm"><?php echo $Profile["Address"] ?></p>
                                     </div>
 

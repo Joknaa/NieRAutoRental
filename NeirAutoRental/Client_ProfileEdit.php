@@ -46,11 +46,11 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
+                                    <img src="Ressources/Uploads/<?php echo $Profile["Image"] ?>" alt="Admin"
                                          class="rounded-circle p-1 bg-primary" width="110">
                                     <div class="mt-3">
                                         <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
-                                        <p class="text-secondary mb-1"> <?php echo $Profile["userType"] ?></p>
+                                        <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
                                         <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
                                     </div>
                                 </div>

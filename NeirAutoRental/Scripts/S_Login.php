@@ -1,7 +1,5 @@
 <?php
 include_once "DatabaseConfig.php";
-include_once "S_UserManager.php";
-
 
 function Login(){
     $useremail = $_POST['email'];
@@ -18,7 +16,7 @@ function Login(){
             session_start();
 
             $_SESSION["ID_User"] = $result["ID_User"];
-            $_SESSION["UserType"] = $result["userType"];
+            $_SESSION["UserType"] = $result["UserType"];
 
             if ($_SESSION["UserType"] == "partner") header('location: Partner_Index.php');
             else if ($_SESSION["UserType"] == "client") header('location: Client_Index.php');

@@ -1131,7 +1131,7 @@ SELECT|sys.sys_config
       <Position>9</Position>
       <DataType>varchar(60)|0s</DataType>
     </column>
-    <column id="316" parent="247" name="userType">
+    <column id="316" parent="247" name="UserType">
       <Position>10</Position>
       <DataType>enum(&apos;client&apos;, &apos;partner&apos;, &apos;admin&apos;)|0e</DataType>
       <NotNull>1</NotNull>
@@ -1140,7 +1140,11 @@ SELECT|sys.sys_config
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <key id="318" parent="247" name="PRIMARY">
+    <column id="318" parent="247" name="Image">
+      <Position>12</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <key id="319" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_User</ColNames>
       <Primary>1</Primary>
