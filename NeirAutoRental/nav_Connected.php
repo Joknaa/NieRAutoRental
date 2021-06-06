@@ -1,6 +1,9 @@
 <?php
 include_once "Scripts/S_UserManager.php";
-;?>
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -25,13 +28,14 @@ include_once "Scripts/S_UserManager.php";
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
-                                                aria-expanded="false" href="#">Categories </a>
-                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"
-                                                                      href="#">First Item</a><a class="dropdown-item"
-                                                                                                role="presentation"
-                                                                                                href="#">Second Item</a><a
-                                        class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false" href="#">Categories </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" href="#">First Item</a>
+                                <a class="dropdown-item" role="presentation" href="#">Second Item</a>
+                                <a class="dropdown-item" role="presentation" href="#">Third Item</a>
+                            </div>
                         </li>
                     </ul>
                     <form class="form-inline mr-auto" target="_self">
@@ -41,8 +45,11 @@ include_once "Scripts/S_UserManager.php";
                         </div>
                     </form>
                     <form action="Partner_Profile.php" method="post">
-                        <input type="text" name="ID_User" value="<?php echo $_SESSION["ID_User"]?>" hidden>
+                        <input type="text" name="ID_User" value="<?php echo $_SESSION["ID_User"] ?>" hidden>
                         <input type="submit" class="pdp img-circle" name="submit" value="">
+                    </form>
+                    <form action="Scripts/S_Logout.php" method="post">
+                        <input type="submit" name="submit" value="Logout">
                     </form>
                 </div>
         </nav>

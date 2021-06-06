@@ -33,7 +33,7 @@ $ID_User = $_POST["ID_User"];
 </head>
 <body>
 <section style="background-color:#e0cfc0;" class="features10 cid-sz72N5KVZr" id="features11-1">
-    <?php require('nav.php'); ?>
+    <?php require('nav_Connected.php'); ?>
 
     <div class="container">
         <div class="title">

@@ -31,7 +31,7 @@
 <body>
 <div style="height:80px;">
     <div class="header-dark">
-        <?php require('nav.php'); ?>
+        <?php require('nav_Connected.php'); ?>
     </div>
 </div>
 

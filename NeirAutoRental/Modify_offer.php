@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php include 'nav.php';?>
+    <?php include 'nav_Connected.php';?>
     <div class="container">
         <div class="main-body">
             <div class="row">

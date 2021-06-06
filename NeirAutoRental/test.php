@@ -14,7 +14,7 @@
 <body>
 <section>
 <div>
-    <?php include 'nav.php';?>
+    <?php include 'nav_Connected.php';?>
     </div>
     </section>
     <section>

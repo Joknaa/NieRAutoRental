@@ -36,7 +36,7 @@ $ID_User = $_POST["ID_User"];
 <body>
 <section>
     <div>
-        <?php include 'nav.php'; ?>
+        <?php include 'nav_Connected.php'; ?>
     </div>
 </section>
 <section>

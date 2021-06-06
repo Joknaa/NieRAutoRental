@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include 'nav.php';
+    <?php include 'nav_Connected.php';
     include_once 'Scripts/S_ProfileManager.php';
 
     if (!isset($_POST["submit_Profile"])) die("No User ID");

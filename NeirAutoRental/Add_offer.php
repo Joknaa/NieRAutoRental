@@ -13,7 +13,7 @@
 
 <body>
 
-    <?php include 'nav.php';?>
+    <?php include 'nav_Connected.php';?>
     <div class="container">
         <form action="Scripts/S_offerAdd.php" method="post" enctype='multipart/form-data'>
 

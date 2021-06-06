@@ -29,8 +29,8 @@
 
 <body>
 <?php
-if (isset($_GET["id"])) include_once "nav.php";
-else include_once "nav_Logout.php"?>
+if (isset($_GET["id"])) include_once "nav_Connected.php";
+else include_once "nav_Disconnected.php" ?>
 
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

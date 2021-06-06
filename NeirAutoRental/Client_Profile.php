@@ -18,7 +18,7 @@ $ID_User = $_POST["ID_User"];
 
 <body>
 <?php
-include 'nav.php';
+include 'nav_Connected.php';
 
 $Profile = GetProfile($ID_User);
 ?>

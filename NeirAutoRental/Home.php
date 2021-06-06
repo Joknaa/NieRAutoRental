@@ -1,6 +1,9 @@
 <?php
 include_once "Scripts/S_Login.php";
 include_once "Scripts/S_UserManager.php";
+if(!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,9 +36,13 @@ include_once "Scripts/S_UserManager.php";
 
 <body>
 <?php
-echo $_SESSION["ID_User"];
-if (isset($_SESSION["ID_User"])) include_once "nav.php";
-else include_once "nav_Logout.php"?>
+
+if (!isset($_SESSION["ID_User"])) {
+    include_once "nav_Disconnected.php";
+} else {
+    include_once "nav_Connected.php";
+}
+?>
 
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

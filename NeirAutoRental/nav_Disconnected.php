@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
 <div style="height:60px;">
     <div class="header-dark">
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
