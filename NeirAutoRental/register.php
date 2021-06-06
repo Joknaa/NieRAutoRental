@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datetimepicker.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datetimepicker.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="CSS/register.css">
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -19,7 +19,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
-                                <form action="S_register.php" method="post">
+                                <form action="S_register.php" method="post" enctype='multipart/form-data'>
                                     <div class="form-label-group">
                                         <input type="text" id="name" name="username" class="form-control" placeholder="Your full name" required autofocus  >
                                         <label for="inputEmail">Full name :</label>
@@ -49,10 +49,10 @@
                                         <label for="addresse">Addresse :</label>
                                     </div>
                                     <div class="form-label-group">
-                                        <label id='uploadlabel' for="img">Select image:</label>
+                                         <img src=""></image>
+                                        <input type="file" name="file" id="file" style='margin-top:60px;' class="form-control" accept="image/*">
                                         <input type="image" class="col-sm-9 text-secondary" value="">
 
-                                        <input type="file" name="file" style='margin-top:60px;' class="form-control" id="img" accept="image/*">
                                     </div>
                                     <br>
                                     <div class="">
