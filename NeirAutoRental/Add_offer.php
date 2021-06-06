@@ -2,6 +2,10 @@
 if(!isset($_SESSION)) {
     session_start();
 }
+if (!isset($_SESSION["ID_User"])) {
+    header( "refresh:1;url=Home.php" );
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +22,9 @@ if(!isset($_SESSION)) {
 
 <body>
 <?php
-include_once 'nav_Connected.php';
+
+
+include_once "nav_Connected.php";
 include_once 'Scripts/S_ProfileManager.php';
 include_once 'Scripts/S_offerAdd.php';
 $Profile = GetProfile($_SESSION["ID_User"]);
@@ -178,3 +184,6 @@ if (isset($_POST["submit_AddOffer"])) {
 </body>
 
 </html>
+<?php
+}
+?>

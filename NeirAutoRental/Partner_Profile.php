@@ -1,8 +1,14 @@
 <?php include_once 'Scripts/S_ProfileManager.php';
+if (!isset($_SESSION)){
+    session_start();
+}
 
-if (!isset($_POST["submit"])) die("No User ID");
-
-$ID_User = $_POST["ID_User"];
+if (!isset($_SESSION["ID_User"])) {
+    header( "refresh:1;url=Home.php" );
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+    echo " ";
+} else {
+$ID_User = $_SESSION["ID_User"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +19,9 @@ $ID_User = $_POST["ID_User"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
 </head>
-
 <body>
-<?php
-include 'nav_Connected.php';
+<?php include_once "nav_Connected.php";
 
 $Profile = GetProfile($ID_User);
 ?>
@@ -133,3 +136,7 @@ $Profile = GetProfile($ID_User);
 </body>
 
 </html>
+    <?php
+}
+
+?>

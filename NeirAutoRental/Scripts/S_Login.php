@@ -18,8 +18,10 @@ function Login(){
             session_start();
 
             $_SESSION["ID_User"] = $result["ID_User"];
-            header('location: Home.php');
-            echo "login successfully";
+            $_SESSION["UserType"] = $result["userType"];
+
+            if ($_SESSION["UserType"] == "partner") header('location: Partner_Index.php');
+            else if ($_SESSION["UserType"] == "client") header('location: Client_Index.php');
         } else echo "invalide email or password";
     } else echo "invalide email or pass";
 }

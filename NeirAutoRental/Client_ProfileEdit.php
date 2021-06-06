@@ -1,3 +1,12 @@
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION["ID_User"])) {
+    header( "refresh:1;url=Home.php" );
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,14 +21,15 @@
 </head>
 
 <body>
-    <?php include 'nav_Connected.php';
+    <?php
+    include_once "nav_Connected.php";
     include_once 'Scripts/S_ProfileManager.php';
 
     if (isset($_POST["submit"])) {
         UpdateProfile();
-        header("Location: Partner_Profile.php");
-        $ID_User = $_POST["ID_User"];
+        header("Location: Client_Profile.php");
     }
+    $ID_User = $_SESSION["ID_User"];
     $Profile = GetProfile($ID_User);
     ?>
     <div class="container">
@@ -131,3 +141,6 @@
 </body>
 
 </html>
+    <?php
+}
+?>

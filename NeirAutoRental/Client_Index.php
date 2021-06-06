@@ -1,10 +1,7 @@
 <?php
-include_once "Scripts/S_Login.php";
-include_once "Scripts/S_UserManager.php";
-if (!isset($_SESSION)) {
+if(!isset($_SESSION)) {
     session_start();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +11,7 @@ if (!isset($_SESSION)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -37,10 +33,13 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
-
 <?php
-if (!isset($_SESSION["ID_User"])) include_once "nav_Disconnected.php";
-else include_once "nav_Connected.php" ?>
+if (!isset($_SESSION["ID_User"])) {
+    include_once "nav_Disconnected.php";
+} else {
+    include_once "nav_Connected.php";
+}
+?>
 
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -55,8 +54,7 @@ else include_once "nav_Connected.php" ?>
                  style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/9OLHDveHQcKw6ngORY--Nw.1440x700.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Ford Falcon 1963</h3>
-                    <p class="lead">Beautiful and well taken care of 1963 Falcon. Turns heads everywhere you go,
-                        Will
+                    <p class="lead">Beautiful and well taken care of 1963 Falcon. Turns heads everywhere you go, Will
                         not disappoint!</p>
                 </div>
             </div>
@@ -65,8 +63,7 @@ else include_once "nav_Connected.php" ?>
                  style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/MDzW4ycFQC-kVLeTLLq7YQ.1440x700.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Jeep Grand Cherokee 2017</h3>
-                    <p class="lead">The 2017 Jeep Grand Cherokee is a benchmark SUV; it's a luxury vehicle, a
-                        talented
+                    <p class="lead">The 2017 Jeep Grand Cherokee is a benchmark SUV; it's a luxury vehicle, a talented
                         off-roader, a scalding-hot track runner, and a family wagon extraordinaire.</p>
                 </div>
             </div>
@@ -75,10 +72,8 @@ else include_once "nav_Connected.php" ?>
                  style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/myswqN9MSK-APj_61j99XQ.1440x700.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">Porsche 911 2017</h3>
-                    <p class="lead">This car is immaculate and stunning. The 911.2 Carrera 4s is incredibly quick
-                        and
-                        agile on the back roads, and at the same time is so very comfortable and luxurious when
-                        cruising
+                    <p class="lead">This car is immaculate and stunning. The 911.2 Carrera 4s is incredibly quick and
+                        agile on the back roads, and at the same time is so very comfortable and luxurious when cruising
                         around town. This is the perfect car for a weekend
                         getaway in Napa or for a fun day out to the beach.</p>
                 </div>
@@ -88,8 +83,7 @@ else include_once "nav_Connected.php" ?>
                  style="background-image: url('https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/ONqN10CBToapUeM_4GxfZw.1440x700.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">BMW i8 2014</h3>
-                    <p class="lead">Check out this unique "Batmobile" BMW i8 with custom matte finishes + a laundry
-                        list
+                    <p class="lead">Check out this unique "Batmobile" BMW i8 with custom matte finishes + a laundry list
                         of upgrades that’s sure to draw eyes on any road. </p>
                 </div>
             </div>
@@ -97,8 +91,7 @@ else include_once "nav_Connected.php" ?>
                  style="background-image: url('https://images.hgmsites.net/lrg/bmw_100170631_l.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="display-4">BMW Z4 2011</h3>
-                    <p class="lead">Check out this unique "Batmobile" BMW i8 with custom matte finishes + a laundry
-                        list
+                    <p class="lead">Check out this unique "Batmobile" BMW i8 with custom matte finishes + a laundry list
                         of upgrades that’s sure to draw eyes on any road. </p>
                 </div>
             </div>

@@ -1,8 +1,12 @@
 <?php include_once 'Scripts/S_ProfileManager.php';
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-if (!isset($_POST["submit"])) die("No User ID");
-
-$ID_User = $_POST["ID_User"];
+if (!isset($_SESSION["ID_User"])) {
+    header( "refresh:1;url=Home.php" );
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +22,9 @@ $ID_User = $_POST["ID_User"];
 
 <body>
 <?php
-include 'nav_Connected.php';
+include_once "nav_Connected.php";
 
-$Profile = GetProfile($ID_User);
+$Profile = GetProfile($_SESSION["ID_User"]);
 ?>
 <div style="background-color:#e0cfc0;" class="container">
     <div class="main-body">
@@ -117,7 +121,7 @@ $Profile = GetProfile($ID_User);
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form action="Partner_ProfileEdit.php">
+                                <form action="Client_ProfileEdit.php">
                                     <input type="text" name="ID_User" value="<?php echo $Profile["ID_User"]?>" hidden>
                                     <input class="btn btn-info " type="submit" name="submit" value="Edit">
                                 </form>
@@ -133,3 +137,6 @@ $Profile = GetProfile($ID_User);
 </body>
 
 </html>
+    <?php
+}
+?>
