@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Client_RequestOffer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReadMe/AddOffer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReadMe/PartnerOffers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReadMe/Profile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe/AddOffer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe/Index.png" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe/Index.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe/OfferInfo.png" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe/OfferInfo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_RequestOffer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_RequestOffer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
       <workItem from="1622907377797" duration="37000" />
       <workItem from="1622921966289" duration="581000" />
       <workItem from="1622929719607" duration="3924000" />
-      <workItem from="1622973338032" duration="4177000" />
+      <workItem from="1622973338032" duration="6251000" />
     </task>
     <servers />
   </component>

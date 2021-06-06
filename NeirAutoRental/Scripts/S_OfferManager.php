@@ -97,24 +97,7 @@ function DisplayOffer($ID_Offer) {
             $car_result = SQL_GetCar($offer["ID_Car"]);
             if ($car_result->num_rows > 0) {
                 $car = $car_result->fetch_assoc();
-                echo '
-                    <div>
-            <img style="width:500px;height:340px;" src="Ressources/Images/Cars/'. $car["Image"] .'" alt="oups">
-        </div>
-        <div>
-            <h1>'. $car["Brand"] . ' ' . $car["Model"] .'</h1>
-           
-            <h4>Category: '. $car["Category"] .'</h4>
-            <h4>Fuel: '. $car["Fuel"] .'</h4>
-            <h4>Color: '. $car["Color"] .'</h4>
-            <h4>Price: '. $car["Price"] .' DH/Hour</h4>
-            <br>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem voluptatibus<br>
-                aliquid ipsa eius odio reiciendis quibusdam sit nulla autem quam neque, <br>
-                perferendis reprehenderit omnis vel et dolorum quae delectus quasi.</p>
-        </div>
-                    ';
-                return $offer["ID_User"];
+                return array($offer, $car);
             }
         }
     } catch (Exception $e) {

@@ -1,5 +1,6 @@
 <?php require "DatabaseConfig.php";
 
+//<editor-fold desc="Display Requests">
 function DisplayRequests($ID_Partner) {
     try {
         $allRequests_result = SQL_GetAllRequests($ID_Partner);
@@ -10,9 +11,6 @@ function DisplayRequests($ID_Partner) {
                 $user_result = SQL_GetUser($requests["ID_User"]);
                 if ($user_result->num_rows > 0) {
                     $user = $user_result->fetch_assoc();
-
-
-
                     echo '
                     <div class="columns" >
                         <ul class="price" >
@@ -51,7 +49,9 @@ function SQL_GetUser($ID_User) {
     $stmt->execute();
     return $stmt->get_result();
 }
+//</editor-fold>
 
+//<editor-fold desc="Confirm Request">
 function ConfirmRequest($ID_Request, $Status) {
     try {
         SQL_UpdateRequest($ID_Request, $Status);
@@ -66,3 +66,21 @@ function SQL_UpdateRequest($ID_Request, $Status) {
     $stmt->bind_param("si", $Status, $ID_Request);
     $stmt->execute();
 }
+//</editor-fold>
+
+//<editor-fold desc="Add Request">
+function AddRequest($ID_Offer, $ID_User) {
+    try {
+        SQL_AddRequest($ID_Offer, $ID_User);
+    } catch (Exception $e) {
+        echo $e;
+    }
+}
+
+function SQL_AddRequest($ID_Offer, $ID_User) {
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("INSERT INTO neirautorental.requests(ID_User, ID_Offer, Status) VALUES(?, ?, 'Waiting')");
+    $stmt->bind_param("ii", $ID_User, $ID_Offer);
+    $stmt->execute();
+}
+//</editor-fold>

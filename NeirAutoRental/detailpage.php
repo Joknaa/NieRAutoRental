@@ -1,9 +1,14 @@
-<?php include_once "Scripts/S_OfferManager.php";
+<?php
+include_once "Scripts/S_OfferManager.php";
 include_once "Scripts/S_ProfileManager.php";
-if (!isset($_POST["ID_Offer"]) and !isset($_POST["ID_User"])) die("No User ID");
+include_once "Scripts/S_RequestManager.php";
+//if (!isset($_POST["ID_Offer"]) and !isset($_POST["ID_User"])) die("No User ID");
 
+if(!isset($_SESSION)) {
+    session_start();
+}
 $ID_Offer = $_POST["ID_Offer"];
-$ID_User = $_POST["ID_User"];
+$ID_User = $_SESSION["ID_User"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +46,30 @@ $ID_User = $_POST["ID_User"];
 </section>
 <section>
     <div class="containerr">
-        <?php $ID_OfferOwner = DisplayOffer($ID_Offer); ?>
+        <?php
+        list($offer, $car) = DisplayOffer($ID_Offer);
+        if (isset($_POST["submit_RequestOffer"])) {
+            AddRequest($ID_Offer, $ID_User);
+            echo $ID_Offer;
+        }
+        ?>
+
+        <div>
+            <img style="width:500px;height:340px;" src="Ressources/Images/Cars/<?php echo $car["Image"] ?>" alt="oups">
+        </div>
+        <form method="post">
+            <input type="text" name="ID_Offer" value="<?php echo $offer["ID_Offer"] ?>" hidden>
+            <h1><?php echo $car["Brand"] . ' ' . $car["Model"] ?></h1>
+            <h4>Category: <?php echo $car["Category"] ?></h4>
+            <h4>Fuel: <?php echo $car["Fuel"] ?></h4>
+            <h4>Color: <?php echo $car["Color"] ?></h4>
+            <h4>Price: <?php echo $car["Price"] ?> DH/Hour</h4>
+            <br>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem voluptatibus<br>
+                aliquid ipsa eius odio reiciendis quibusdam sit nulla autem quam neque, <br>
+                perferendis reprehenderit omnis vel et dolorum quae delectus quasi.</p>
+            <input type="submit" name="submit_RequestOffer" value="Request Offer">
+        </form>
 
 
     </div>
@@ -62,7 +90,7 @@ $ID_User = $_POST["ID_User"];
                                 <div class="col-12 col-md">
                                     <div class="card-box">
                                         <h1 class="h1">
-                                            <?php $Profile = GetProfile($ID_OfferOwner); ?>
+                                            <?php $Profile = GetProfile($offer["ID_User"]); ?>
                                             <strong><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></strong>
                                         </h1>
                                         <br>
