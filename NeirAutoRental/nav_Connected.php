@@ -45,13 +45,12 @@ if (!isset($_SESSION["ID_User"])) {
                     </ul>
                     <form class="form-inline mr-auto" target="_self">
                         <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label>
-                            <input
-                                    class="form-control search-field" type="search" name="search" id="search-field">
+                            <input class="form-control search-field" type="search" name="search" id="search-field">
                         </div>
                     </form>
                     <form action="<?php GetProfilePage() ?>" method="post">
                         <input type="text" name="ID_User" value="<?php echo $ID_User ?>" hidden>
-                        <input type="submit" class="pdp img-circle" name="submit" style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
+                        <input type="submit" class="pdp img-circle" value="" name="submit" style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
                     </form>
                     <form action="Scripts/S_Logout.php" method="post">
                         <input type="submit" name="submit" value="Logout">
