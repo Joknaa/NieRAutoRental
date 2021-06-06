@@ -21,25 +21,20 @@ there are 3 type of users to this website:
 <br>
 
 
-## Some Mockup pages: 
+## Some Mockup pages: (Work in Progress)
 
 ### Main Page:
 ![Database Diagram](ReadMe/Index.png)
 
 <br>
 
-### Partner Space:
-![Database Diagram](ReadMe/PartnerSpace.png)
-
-<br>
-
-### Adding an Offer: 
-![Database Diagram](ReadMe/AddOffer.png)
-
-<br>
-
-### Offer Info: 
+### Offer Info:
 ![Database Diagram](ReadMe/OfferInfo.png)
+
+<br>
+
+### Profile:
+![Database Diagram](ReadMe/Profile.png)
 
 <br>
 

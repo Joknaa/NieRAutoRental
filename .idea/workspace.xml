@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Logout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Client_RequestOffer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/AddOffer2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/PartnerOffers.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReadMe/Profile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Space.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Space.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/detailpage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Disconnected.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe/AddOffer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe/Index.png" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe/Index.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe/OfferInfo.png" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe/OfferInfo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +20,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +52,9 @@
     <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -91,7 +93,7 @@
       <workItem from="1622907377797" duration="37000" />
       <workItem from="1622921966289" duration="581000" />
       <workItem from="1622929719607" duration="3924000" />
-      <workItem from="1622973338032" duration="2357000" />
+      <workItem from="1622973338032" duration="4177000" />
     </task>
     <servers />
   </component>
@@ -109,5 +111,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
