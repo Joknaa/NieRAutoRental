@@ -1,16 +1,13 @@
 <?php
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
-if (!isset($_SESSION["ID_User"])) {
-    header("refresh:1;url=Home.php");
-    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
-} else {
-    include_once "Scripts/S_ProfileManager.php";
-    $ID_User = $_SESSION["ID_User"];
+
+include_once "Scripts/S_ProfileManager.php";
+$ID_User = $_SESSION["ID_User"];
 ?>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
 <head>
     <meta charset="utf-8">
@@ -50,7 +47,8 @@ if (!isset($_SESSION["ID_User"])) {
                     </form>
                     <form action="<?php GetProfilePage() ?>" method="post">
                         <input type="text" name="ID_User" value="<?php echo $ID_User ?>" hidden>
-                        <input type="submit" class="pdp img-circle" value="" name="submit" style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
+                        <input type="submit" class="pdp img-circle" value="" name="submit"
+                               style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
                     </form>
                     <form action="Scripts/S_Logout.php" method="post">
                         <input type="submit" name="submit" value="Logout">
@@ -65,14 +63,16 @@ if (!isset($_SESSION["ID_User"])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html><?php
-}
-function GetHomePage(){
+    </html><?php
+
+function GetHomePage() {
     if ($_SESSION["UserType"] == "partner") echo 'Partner_Index.php';
     else if ($_SESSION["UserType"] == "client") echo 'Client_Index.php';
 }
-function GetProfilePage(){
+
+function GetProfilePage() {
     if ($_SESSION["UserType"] == "partner") echo 'Partner_Profile.php';
     else if ($_SESSION["UserType"] == "client") echo 'Client_Profile.php';
 }
+
 ?>

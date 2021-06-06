@@ -32,11 +32,11 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
         include_once "nav_Connected.php";
         include_once 'Scripts/S_ProfileManager.php';
         include_once 'Scripts/S_offerAdd.php';
-        $Profile = GetProfile($_SESSION["ID_User"]);
+        $Profile = GetProfile($ID_User);
 
         if (isset($_POST["submit_AddOffer"])) {
             //todo: Edit Offer
-            AddOffer($_SESSION["ID_User"]);
+            UpdateOffer($ID_User);
             header("Location: Partner_Offers.php");
         }
         ?>

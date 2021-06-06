@@ -3,9 +3,11 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION["ID_User"])) {
-    header("refresh:1;url=Home.php");
-    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
-} else {
+    $_SESSION["UserType"] = "Visiter";
+    include_once "nav_Disconnected.php";
+} else
+    include_once "nav_Connected.php";
+
     include_once "Scripts/S_OfferManager.php";
     include_once "Scripts/S_ProfileManager.php";
     include_once "Scripts/S_RequestManager.php";
@@ -44,7 +46,6 @@ if (!isset($_SESSION["ID_User"])) {
     <body>
     <section>
         <div>
-            <?php include_once "nav_Connected.php"; ?>
         </div>
     </section>
     <section>
@@ -77,6 +78,7 @@ if (!isset($_SESSION["ID_User"])) {
 
         </div>
         <br>
+        <?php $Profile = GetProfile($offer["ID_User"]); ?>
 
         <div class="wrapperr">
             <div>
@@ -87,22 +89,15 @@ if (!isset($_SESSION["ID_User"])) {
                                 <div class="row align-items-center">
                                     <div class="col-12 col-md-4">
                                         <div class="image-wrapperrr">
-                                            <img src="Ressources/Images/facemodal.png" alt="profile">
+                                            <img src="Ressources/Uploads/<?php echo $Profile["Image"] ?>" alt="profile">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md">
                                         <div class="card-box">
                                             <h1 class="h1">
-                                                <?php $Profile = GetProfile($offer["ID_User"]); ?>
                                                 <strong><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></strong>
                                             </h1>
                                             <br>
-                                            <h6 class="h6"> Email:
-                                                <?php echo $Profile["Email"] ?>                                        </h6>
-                                            <br>
-
-                                            <h6 class="h6">City:
-                                                <?php echo $Profile["City"] ?>                                        </h6>
                                         </div>
                                     </div>
                                 </div>
@@ -179,5 +174,5 @@ if (!isset($_SESSION["ID_User"])) {
     </body>
     </html>
     <?php
-}
+
 ?>

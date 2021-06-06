@@ -17,14 +17,15 @@ function DisplayAllOffers() {
                     echo '
                         <div class="col-xs-6 col-md-4">
                             <div class="product tumbnail thumbnail-3">
-                            <form method="post" action="detailpage.php">
+                            <form method="post" action="Partner_OfferInfo.php">
                             <input type="text" name="ID_User" value="' . $offer["ID_User"] . '" hidden>
                             <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
                             <input type="image" alt="car image" name="submit" style="width: 100%" src="Ressources/Images/Cars/' . $car["Image"] . '">
                             </form>
                                 <div class="caption">
-                                    <h6><a href="#">' . $car["Brand"] . ' - ' . $car["Model"] . '</a></h6><span class="price">
-                              <del>$24.99</del></span><span class="price sale">' . $car["Price"] . '</span>
+                                    <p><a href="#">' . $car["Brand"] . ' - ' . $car["Model"] . '</a></p>
+                                    <span class="price"><del>'. $car["Price"] * 1.5 .' DH/Hour</del></span>
+                                    <span class="price sale"><b>' . $car["Price"] . ' DH/Hour</b></span>
                                 </div>
                             </div>
                         </div>

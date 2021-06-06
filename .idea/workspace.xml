@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/IMG_6439(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/IMG_6439.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Uploads/ME.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/CSS/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/CSS/nav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/car1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/card2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +103,7 @@
       <workItem from="1622907377797" duration="37000" />
       <workItem from="1622921966289" duration="581000" />
       <workItem from="1622929719607" duration="3924000" />
-      <workItem from="1622973338032" duration="27894000" />
+      <workItem from="1622973338032" duration="30368000" />
     </task>
     <servers />
   </component>
