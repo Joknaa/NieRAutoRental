@@ -1094,11 +1094,11 @@ SELECT|sys.sys_config
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="307" parent="247" name="FirstName">
+    <column id="307" parent="247" name="Firstname">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <column id="308" parent="247" name="LastName">
+    <column id="308" parent="247" name="Lastname">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
@@ -1118,7 +1118,7 @@ SELECT|sys.sys_config
       <Position>9</Position>
       <DataType>varchar(60)|0s</DataType>
     </column>
-    <column id="313" parent="247" name="userType">
+    <column id="313" parent="247" name="UserType">
       <Position>10</Position>
       <DataType>enum(&apos;client&apos;, &apos;partner&apos;, &apos;admin&apos;)|0e</DataType>
       <NotNull>1</NotNull>

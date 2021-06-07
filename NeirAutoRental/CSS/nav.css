@@ -1,8 +1,8 @@
 .header-dark {
-    background-color: #A62E44;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
     background-size: cover;
-    padding-bottom: 80px;
-    height: 10px;
+    padding-bottom: 0;
+    height: 70px;
 }
 
 @media (min-width:800px) {}
@@ -163,4 +163,13 @@
     border-color: #37434d;
     background-image: url('../Ressources/Images/pdp.png');
     border-radius: 50%;
+}
+
+.container-fluid {
+    padding: 0px!important;
+}
+
+.fa-sign-out-alt {
+    color: #37434d;
+    font-size: 30px;
 }

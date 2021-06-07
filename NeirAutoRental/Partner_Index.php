@@ -31,7 +31,14 @@
 <body>
 <div style="height:80px;">
     <div class="header-dark">
-        <?php require('nav.php'); ?>
+    <?php
+
+if (!isset($_SESSION["ID_User"])) {
+    include_once "nav_Disconnected.php";
+} else {
+    include_once "nav_Connected.php";
+}
+?>
     </div>
 </div>
 

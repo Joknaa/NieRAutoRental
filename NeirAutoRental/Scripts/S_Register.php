@@ -1,16 +1,16 @@
-
 <?php
 include_once 'DatabaseConfig.php';
 if (isset($_POST["submit"]));
 {
-    $username =$_POST['username'];
+    $firstname =$_POST['Firstname'];
+    $lastname =$_POST['Lastname'];
     $email = $_POST['email'];
-    $password = $_POST['pass'];
-    $Repassword = $_POST['Repass'];
-    $cin = $_POST['cin'];
-    $ville =  $_POST['ville'];
-    $adresse =$_POST['adresse'];
-    $usertype=$_POST['type'];
+    $password = $_POST['password'];
+    $Repassword = $_POST['Repassword'];
+    $cin = $_POST['CIN'];
+    $city =  $_POST['City'];
+    $address =$_POST['Address'];
+    $UserType=$_POST['type'];
   
 
     $user_check_query = "SELECT * FROM neirautorental.users WHERE 	Email='$email' LIMIT 1";
@@ -25,8 +25,8 @@ if (isset($_POST["submit"]));
        
 
  
-    $query = "INSERT INTO neirautorental.users (FirstName, email, Password, CIN, City, Address,userType ) 
-              VALUES('$username', '$email','$password', '$cin','$ville','$adresse','$usertype')";
+    $query = "INSERT INTO neirautorental.users (firstname,lastname, email, password, cin, city, Address,UserType, ID_User ) 
+              VALUES('$Firstname','$Lastname', '$email','$Password', '$CIN','$City','$Address','$UserType')";
     if (mysqli_query($GLOBALS["Connection"], $query)) {
       header('location: login.php');
 		

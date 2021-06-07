@@ -1,4 +1,8 @@
-<?php include_once "DatabaseConfig.php";
+<?php
+include_once "DatabaseConfig.php";
+include_once "S_UserManager.php";
+
+
 function Login(){
     $useremail = $_POST['email'];
     $pass = $_POST['password'];
@@ -11,7 +15,10 @@ function Login(){
     if ($stmt_result->num_rows > 0) {
         $result = $stmt_result->fetch_assoc();
         if ($result['Password'] === $pass) {
-            header('location: Home.php?id=' . $result["ID_User"]);
+            session_start();
+
+            $_SESSION["ID_User"] = $result["ID_User"];
+            header('location: Home.php');
             echo "login successfully";
         } else echo "invalide email or password";
     } else echo "invalide email or pass";

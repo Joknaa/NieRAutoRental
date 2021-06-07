@@ -34,9 +34,9 @@ function UpdateProfile() {
 
 function SQL_UpdateProfile() {
     $stmt = $GLOBALS["Connection"]
-        ->prepare("UPDATE neirautorental.users SET FirstName = ?, LastName = ?, City = ?,
+        ->prepare("UPDATE neirautorental.users SET Firstname = ?, Lastname = ?, City = ?,
         Address = ?, CIN = ?, Phone = ? WHERE ID_User = ?");
-    $stmt->bind_param("sssssii", $_POST["FirstName"], $_POST["LastName"], $_POST["City"], $_POST["Address"],
+    $stmt->bind_param("sssssii", $_POST["Firstname"], $_POST["Lastname"], $_POST["City"], $_POST["Address"],
         $_POST["CIN"], $_POST["Phone"], $_POST["ID_User"]);
     $stmt->execute();
 }

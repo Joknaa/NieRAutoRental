@@ -1,14 +1,13 @@
 
 <html>
-
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datetimepicker.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datetimepicker.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="register.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datetimepicker.css" rel="stylesheet"  />
+    <link rel="stylesheet" href="./CSS/register.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -19,7 +18,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
-                                <form action="S_register.php" method="post">
+                                <form action="Scripts/S_register.php" method="post">
                                     <div class="form-label-group">
                                         <input type="text" id="name" name="username" class="form-control" placeholder="Your full name" required autofocus  >
                                         <label for="inputEmail">Full name :</label>

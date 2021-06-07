@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Client_ProfileEdit</title>
     <link rel="stylesheet" href="CSS/modify.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -15,26 +15,21 @@
     <?php include 'nav_Connected.php';
     include_once 'Scripts/S_ProfileManager.php';
 
-    if (!isset($_POST["submit_Profile"])) die("No User ID");
-
     if (isset($_POST["submit"])) {
         UpdateProfile();
         header("Location: Partner_Profile.php");
+        $ID_User = $_POST["ID_User"];
     }
-    $ID_User = $_POST["ID_User"];
-
     $Profile = GetProfile($ID_User);
     ?>
-    <div style="margin-top:20px;" class="container">
+    <div class="container">
         <div class="main-body">
             <div class="row">
                 <div class="col-lg-4">
-                    <div style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);" class="card">
+                    <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img style="cursor:pointer;" src="./Ressources/Images/facemodal.png" alt="Admin" class="rounded-circle p-1 bg-primary" id="profile-image1" width="110" height="120">
-                                <input style="visibility:hidden;" id="profile-image-upload" class="hidden" type="file" onchange="previewFile()" >
-                        
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                 <div class="mt-3">
                                     <h4><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></h4>
                                     <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
@@ -133,27 +128,6 @@
             </div>
         </div>
     </div>
-    <script>
-                    function previewFile() {
-            var preview = document.querySelector('img');
-            var file    = document.querySelector('input[type=file]').files[0];
-            var reader  = new FileReader();
-
-            reader.addEventListener("load", function () {
-                preview.src = reader.result;
-            }, false);
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-            }
-                                $(function() {
-                        $('#profile-image1').on('click', function() {
-                            $('#profile-image-upload').click();
-                        });
-                    });
-        
-    </script>
 </body>
 
 </html>

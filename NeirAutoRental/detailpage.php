@@ -1,9 +1,14 @@
-<?php include_once "Scripts/S_OfferManager.php";
+<?php
+include_once "Scripts/S_OfferManager.php";
 include_once "Scripts/S_ProfileManager.php";
-if (!isset($_POST["ID_Offer"]) and !isset($_POST["ID_User"])) die("No User ID");
+include_once "Scripts/S_RequestManager.php";
+//if (!isset($_POST["ID_Offer"]) and !isset($_POST["ID_User"])) die("No User ID");
 
+if(!isset($_SESSION)) {
+    session_start();
+}
 $ID_Offer = $_POST["ID_Offer"];
-$ID_User = $_POST["ID_User"];
+$ID_User = $_SESSION["ID_User"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,12 +41,34 @@ $ID_User = $_POST["ID_User"];
 <body>
 <section>
     <div>
-        <?php include 'nav.php'; ?>
+        <?php include 'nav_Connected.php'; ?>
     </div>
 </section>
 <section>
     <div class="containerr">
-        <?php $ID_OfferOwner = DisplayOffer($ID_Offer); ?>
+        <?php
+        list($offer, $car) = DisplayOffer($ID_Offer);
+        if (isset($_POST["submit_RequestOffer"])) {
+            AddRequest($ID_Offer, $ID_User);
+            echo $ID_Offer;
+        }
+        ?>
+
+        <div>
+            <img style="width:500px;height:340px;" src="Ressources/Images/Cars/<?php echo $car["Image"] ?>" alt="oups">
+        </div>
+        <form method="post">
+            <input type="text" name="ID_Offer" value="<?php echo $offer["ID_Offer"] ?>" hidden>
+            <h1><?php echo $car["Brand"] . ' ' . $car["Model"] ?></h1>
+            <br>
+
+            <h5><strong>Category :</strong> <?php echo $car["Category"] ?></h5>
+            <h5><strong>Fuel: </strong> <?php echo $car["Fuel"] ?></h5>
+            <h5><strong>Color:</strong> <?php echo $car["Color"] ?></h5>
+            <h5 style="color:red;"><strong>Price:</strong> <?php echo $car["Price"] ?> DH/Hour</h5>
+            <p style="width:70%;"><h5><strong>Description :</strong></h5><?php echo $offer["Description"] ?> </p>
+            <input type="submit" name="submit_RequestOffer" value="Request Offer">
+        </form>
 
 
     </div>
@@ -62,8 +89,8 @@ $ID_User = $_POST["ID_User"];
                                 <div class="col-12 col-md">
                                     <div class="card-box">
                                         <h1 class="h1">
-                                            <?php $Profile = GetProfile($ID_OfferOwner); ?>
-                                            <strong><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></strong>
+                                            <?php $Profile = GetProfile($offer["ID_User"]); ?>
+                                            <strong><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></strong>
                                         </h1>
                                         <br>
                                         <h6 class="h6"> Email:
@@ -84,25 +111,11 @@ $ID_User = $_POST["ID_User"];
             <br><br>
             <div style="margin-left:60px;">
                 <div>
-                    <h3 style="width:300px;margin-left:100px;">If you got a good review, please leave a comment below
-                        :</h3>
-                    <img style="width:100px;height:40px;margin-left:150px;" src="Ressources/Images/goodreview.png"
-                         alt="good">
+                    
+                   
                 </div>
                 <br><br>
-                <form action="" method="POST" class="form">
-                    <div class="input-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Enter your Name" required>
-                    </div>
-                    <div class="input-group textarea">
-                        <label for="comment">Comment</label>
-                        <textarea id="comment" name="comment" placeholder="Enter your Comment" required></textarea>
-                    </div>
-                    <div class="input-group">
-                        <button name="submit" class="btn">Post Comment</button>
-                    </div>
-                </form>
+              
             </div>
             <div class="prev-comments">
 
@@ -114,26 +127,8 @@ $ID_User = $_POST["ID_User"];
             </div>
         </div>
         <div class="flex2">
-            <div style="margin-top:-150px;">
-                <h3 style="width:300px;margin-left:100px;margin-top:-30px;">If you got a good review, please leave a
-                    comment below :</h3>
-                <img style="width:100px;height:40px;margin-left:150px;" src="Ressources/Images/badreview.png"
-                     alt="good">
-            </div>
-            <br><br>
-            <form action="" method="POST" class="form">
-                <div class="input-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Enter your Name" required>
-                </div>
-                <div class="input-group textarea">
-                    <label for="comment">Comment</label>
-                    <textarea id="comment" name="comment" placeholder="Enter your Comment" required></textarea>
-                </div>
-                <div class="input-group">
-                    <button name="submit" class="btn">Post Comment</button>
-                </div>
-            </form>
+            
+            
             <div class="prev-comments">
                 <div class="single-item">
                     <h4>Name</h4>

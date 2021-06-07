@@ -1,4 +1,9 @@
-<div style="height:70px;">
+<?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+<div style="height:60px;">
     <div class="header-dark">
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
             <div class="container"><a class="navbar-brand" href="Home.php">RentalX V</a>
