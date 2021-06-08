@@ -49,7 +49,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                          height="120">
                                     <input style="visibility:visible;" id="profile-image-upload" class="hidden"
                                            type="file" name="file"
-                                           onchange="previewFile()">
+                                           onchange="previewFile()" >
                                     <div class="mt-3">
                                         <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
                                         <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>

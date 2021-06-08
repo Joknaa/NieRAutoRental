@@ -41,13 +41,18 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
         ?>
         <div class="container">
             <div class="main-body">
-                <div class="row">
+                <form class="row" enctype='multipart/form-data' method="post">
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="Ressources/Uploads/<?php echo $Profile["Image"] ?>" alt="Admin"
-                                         class="rounded-circle p-1 bg-primary" width="110">
+                                    <img style="cursor:pointer;"
+                                         src="Ressources/Uploads/<?php echo $Profile["Image"] ?>" alt="Admin"
+                                         class="rounded-circle p-1 bg-primary" id="profile-image1" width="110"
+                                         height="120">
+                                    <input style="visibility:visible;" id="profile-image-upload" class="hidden"
+                                           type="file" name="file"
+                                           onchange="previewFile()" hidden>
                                     <div class="mt-3">
                                         <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
                                         <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
@@ -59,7 +64,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form class="card-body" method="post">
+                            <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">First Name :</h6>
@@ -148,15 +153,34 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                                value="Save Changes">
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         </body>
+        <script>
+            function previewFile() {
+                var preview = document.querySelector('img');
+                var file = document.querySelector('input[type=file]').files[0];
+                var reader = new FileReader();
 
+                reader.addEventListener("load", function () {
+                    preview.src = reader.result;
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            $(function () {
+                $('#profile-image1').on('click', function () {
+                    $('#profile-image-upload').click();
+                });
+            });
+        </script>
         </html>
         <?php
     }

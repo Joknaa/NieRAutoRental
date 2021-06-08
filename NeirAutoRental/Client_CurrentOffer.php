@@ -4,17 +4,17 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+
 if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
     header("refresh:1;url=Home.php");
     echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
 } else {
     $UserType = $_SESSION["UserType"];
     $ID_User = $_SESSION["ID_User"];
-    if ($UserType != "partner") {
+    if ($UserType != "client") {
         header("refresh:1;url=Home.php");
         echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
     } else {
-
         ?>
         <!DOCTYPE html>
         <html>
@@ -54,7 +54,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                 <div class="title">
                     <h3 class="mbr-section-title mbr-fonts-style mb-4 display-2"><strong>Posted offers </strong></h3>
                 </div>
-                <?php DisplayPartnerOffers($ID_User) ?>
+                <?php DisplayClientCurrentOffers($ID_User) ?>
 
             </div>
         </section>

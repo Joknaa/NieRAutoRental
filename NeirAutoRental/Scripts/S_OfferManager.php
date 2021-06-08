@@ -25,7 +25,7 @@ function DisplayAllOffers() {
                             </form>
                                 <div class="caption">
                                     <p><a href="#">' . $car["Brand"] . ' - ' . $car["Model"] . '</a></p>
-                                    <span class="price"><del>'. $car["Price"] * 1.5 .' DH/Hour</del></span>
+                                    <span class="price"><del>' . $car["Price"] * 1.5 . ' DH/Hour</del></span>
                                     <span class="price sale"><b>' . $car["Price"] . ' DH/Hour</b></span>
                                 </div>
                             </div>
@@ -49,10 +49,9 @@ function SQL_GetAllOffers() {
 
 //</editor-fold>
 
-
 //<editor-fold desc="Display Searched Offers">
 function DisplaySearchedOffers() {
-    if ($_POST["Fuel"] == "All" AND $_POST["Brand"] == "All" AND $_POST["Category"] == "All" AND $_POST["Availability"] == "All"){
+    if ($_POST["Fuel"] == "All" and $_POST["Brand"] == "All" and $_POST["Category"] == "All" and $_POST["Availability"] == "All") {
         DisplayAllOffers();
         return;
     }
@@ -81,7 +80,7 @@ function DisplaySearchedOffers() {
                             </form>
                                 <div class="caption">
                                     <p><a href="#">' . $car["Brand"] . ' - ' . $car["Model"] . '</a></p>
-                                    <span class="price"><del>'. $car["Price"] * 1.5 .' DH/Hour</del></span>
+                                    <span class="price"><del>' . $car["Price"] * 1.5 . ' DH/Hour</del></span>
                                     <span class="price sale"><b>' . $car["Price"] . ' DH/Hour</b></span>
                                 </div>
                             </div>
@@ -102,15 +101,16 @@ function SQL_GetSearchedOffers() {
     $stmt->execute();
     return $stmt->get_result();
 }
+
 function SQL_GetSearchedCar($ID_Car, $Brand, $Category, $Fuel) {
-    $Query = "SELECT * FROM neirautorental.cars WHERE ID_Car = ". $ID_Car;
+    $Query = "SELECT * FROM neirautorental.cars WHERE ID_Car = " . $ID_Car;
     if ($Brand) $Query = $Query . " AND Brand = '" . $Brand . "'";
     if ($Category) $Query = $Query . " AND Category = '" . $Category . "'";
     if ($Fuel) $Query = $Query . " AND Fuel = '" . $Fuel . "'";
 
     $stmt = $GLOBALS["Connection"]->prepare($Query);
-    if(!$stmt){
-        echo "Prepare failed: (". $GLOBALS["Connection"]->errno.") ".$GLOBALS["Connection"]->error."<br>";
+    if (!$stmt) {
+        echo "Prepare failed: (" . $GLOBALS["Connection"]->errno . ") " . $GLOBALS["Connection"]->error . "<br>";
     }
     $stmt->execute();
     return $stmt->get_result();
@@ -212,10 +212,10 @@ function DisplayPartnerOffers($ID_User) {
                                 <div class="col-12 col-md">
                                     <div class="card-box">
                                         <div class="row">
-                                            <form action="../Partner_OfferInfo.php" method="post">
+                                            <form method="post">
                                                 <div class="col-12">
                                                     <div class="top-line">
-                                                        <input type="text" name="ID_Offer" value="'. $offer["ID_Offer"] .'" hidden>
+                                                        <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
                                                         <h4 class="card-title mbr-fonts-style display-5"><strong>' . $car["Brand"] . ' - ' . $car["Model"] . '</strong></h4>
                                                         <p class="cost mbr-fonts-style display-5">' . $car["Price"] . ' DH/Hour</p>
                                                     </div>
@@ -225,14 +225,16 @@ function DisplayPartnerOffers($ID_User) {
                                                         <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p>
                                                     </div>
                                                 </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                                <br>
+                                                <input type="submit" name="submit_MoreInfo" value="More Info">';
+                            if ($offer["Availability"] == 'unavailable') echo '<input type="submit" name="submit_TerminateContract" value="Terminate this contract">';
+                    echo '</form>
                         </div>
                     </div>
-                    ';
+                </div>
+            </div>
+        </div>
+    </div>';
                 }
                 $rows--;
             } while ($rows > 0);
@@ -256,6 +258,60 @@ function SQL_GetCar($ID_Car) {
     $stmt->bind_param("i", $ID_Car);
     $stmt->execute();
     return $stmt->get_result();
+}
+
+//</editor-fold>
+
+//<editor-fold desc="Display Client Current Offer">
+function DisplayClientCurrentOffers($ID_User) {
+    try {
+        $requests_result = SQL_GetClientCurrentRequests($ID_User);
+        if ($requests_result->num_rows > 0) {
+            $rows = $requests_result->num_rows;
+            do {
+                $request = $requests_result->fetch_assoc();
+
+                $offer_result = SQL_GetOffer($request["ID_Offer"]);
+                if ($offer_result->num_rows > 0) {
+                    $offer = $offer_result->fetch_assoc();
+
+                    $car_result = SQL_GetCar($offer["ID_Car"]);
+                    if ($car_result->num_rows > 0) {
+                        $car = $car_result->fetch_assoc();
+                        echo '<div class="card"><div class="card-wrapper"><div class="row align-items-center"><div class="col-12 col-md-3">
+                            <div class="image-wrapper">
+                            <img src="Ressources/Uploads/' . $car["Image"] . '" alt="Car Image" title="">
+                            </div></div><div class="col-12 col-md"><div class="card-box"><div class="row"><form method="post"><div class="col-12"><div class="top-line">
+                            <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" >
+                            <h4 class="card-title mbr-fonts-style display-5"><strong>' . $car["Brand"] . ' - ' . $car["Model"] . '</strong></h4>
+                            <p class="cost mbr-fonts-style display-5">' . $car["Price"] . ' DH/Hour</p></div></div><div class="col-12"><div class="bottom-line">
+                            <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p></div></div><br>
+                            <input type="submit" name="submit_MoreInfo" value="More Info">';
+                        if ($offer["Availability"] == 'unavailable' AND $request["Status"] == 'InUse') echo '<input type="submit" name="submit_TerminateContract" value="Terminate this contract">';
+                        echo '<label>Status: <strong>' . SQL_GetRequestStatus($offer["ID_Offer"])["Status"] . ' </strong></label></form></div></div></div></div>';
+                    }
+                }
+                $rows--;
+            } while ($rows > 0);
+        }
+    } catch (Exception $e) {
+        echo $e;
+    }
+}
+
+function SQL_GetClientCurrentRequests($ID_User) {
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("SELECT * FROM neirautorental.requests r JOIN neirautorental.offers o on o.ID_Offer = r.ID_Offer  WHERE r.ID_User = ?");
+    $stmt->bind_param("i", $ID_User);
+    $stmt->execute();
+    return $stmt->get_result();
+}
+function SQL_GetRequestStatus($ID_Offer) {
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("SELECT Status FROM neirautorental.requests WHERE ID_Offer = ?");
+    $stmt->bind_param("i", $ID_Offer);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
 }
 
 //</editor-fold>
@@ -296,24 +352,25 @@ function SQL_UpdateCar($ID_Car) {
         $_POST["Mileage"], $_POST["Color"], $_POST["Category"], $ID_Car);
     $stmt->execute();
 }
+
 //</editor-fold>
 
-
-function GetAllCarBrands(){
+//<editor-fold desc="Display Search By Brand">
+function GetAllCarBrands() {
     try {
         $allBrands_result = SQL_GetAllCarBrands();
 
         if ($allBrands_result->num_rows > 0) {
             $rows = $allBrands_result->num_rows;
             $Brands = array();
-            do{
+            do {
                 $brand = $allBrands_result->fetch_assoc()["Brand"];
                 array_push($Brands, $brand);
                 $rows--;
             } while ($rows > 0);
             return array_unique($Brands);
         }
-    }catch (Exception $e){
+    } catch (Exception $e) {
         echo $e;
     }
     return null;
@@ -322,6 +379,25 @@ function GetAllCarBrands(){
 function SQL_GetAllCarBrands() {
     $stmt = $GLOBALS["Connection"]
         ->prepare("SELECT Brand FROM neirautorental.cars");
+    $stmt->execute();
+    return $stmt->get_result();
+}
+//</editor-fold>
+
+function TerminateContract($UserType, $ID_Offer){
+    try {
+        SQL_TerminateContract($UserType, $ID_Offer);
+    } catch (Exception $e){
+        echo $e;
+    }
+}
+
+function SQL_TerminateContract($UserType, $ID_Offer) {
+    if ($UserType == "partner") $columnName = 'Terminated_Partner';
+    if ($UserType == "client") $columnName = 'Terminated_Client';
+
+    $stmt = $GLOBALS["Connection"]
+        ->prepare("UPDATE neirautorental.offers SET ".$columnName." = 1 WHERE ID_Offer = ". $ID_Offer);
     $stmt->execute();
     return $stmt->get_result();
 }

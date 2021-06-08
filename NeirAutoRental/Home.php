@@ -165,15 +165,12 @@ else include_once "nav_Connected.php" ?>
             <?php include_once "Scripts/S_OfferManager.php";
             if (isset($_POST["submit_Search"])) DisplaySearchedOffers();
             else DisplayAllOffers();
-
             ?>
         </div>
     </div>
 
 
 </section>
-
-
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
