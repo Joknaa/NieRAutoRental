@@ -839,7 +839,6 @@ SELECT|sys.sys_config
     <column id="255" parent="241" name="Category">
       <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
       <DefaultExpression>&apos;car&apos;</DefaultExpression>
     </column>
     <column id="256" parent="241" name="Image">

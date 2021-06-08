@@ -74,12 +74,9 @@ if (!isset($_SESSION["ID_User"])) {
                     perferendis reprehenderit omnis vel et dolorum quae delectus quasi.</p>
                 <input type="submit" name="submit_RequestOffer" value="Request Offer">
             </form>
-
-
         </div>
         <br>
         <?php $Profile = GetProfile($offer["ID_User"]); ?>
-
         <div class="wrapperr">
             <div>
                 <div>

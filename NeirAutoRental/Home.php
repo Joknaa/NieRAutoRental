@@ -1,4 +1,5 @@
 <?php
+include_once "Scripts/S_OfferManager.php";
 include_once "Scripts/S_Login.php";
 if (!isset($_SESSION)) {
     session_start();
@@ -34,7 +35,6 @@ if (!isset($_SESSION)) {
 
     <title>Home</title>
 </head>
-
 <body>
 
 <?php
@@ -113,21 +113,67 @@ else include_once "nav_Connected.php" ?>
     </div>
 </header>
 
+
 <!-- Page Content -->
 <section class="py-5">
+    <center>
+        <form method="post">
+            <label for="Brand">Brand</label>
+            <select name="Brand" id="Brand">
+                <option value="All">All</option>
+                <?php
+                $Brands = GetAllCarBrands();
+                foreach ($Brands as $brand) {
+                    echo '<option value="' . $brand . '">' . $brand . '</option>';
+                }
+                ?>
+            </select>
+
+            <label for="Category">Category</label>
+            <select name="Category" id="Category">
+                <option value="All">All</option>
+                <option value="FamilyCar">Family Car</option>
+                <option value="SportsCar">Sports Car</option>
+                <option value="Van">Van</option>
+            </select>
+
+            <label for="Availability">Availability</label>
+            <select name="Availability" id="Availability">
+                <option value="All">All</option>
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+            </select>
+
+            <label for="Fuel">Fuel</label>
+            <select name="Fuel" id="Fuel">
+                <option value="All">All</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Gasoline">Gasoline</option>
+                <option value="Electricity">Electricity</option>
+            </select>
+            -
+            <input type="submit" name="submit_Search" value="Search">
+            <input type="submit" name="reset_Search" value="Reset">
+        </form>
+    </center>
     <div class="container">
-        <h1 class="font-weight-light">Trending cars </h1>
+        <h1 class="font-weight-light">Trending cars</h1>
     </div>
     <br><br>
     <div class="container bootstrap snipets">
         <div class="row flow-offset-1">
             <?php include_once "Scripts/S_OfferManager.php";
-            DisplayAllOffers(); ?>
+            if (isset($_POST["submit_Search"])) DisplaySearchedOffers();
+            else DisplayAllOffers();
+
+            ?>
         </div>
     </div>
 
 
 </section>
+
+
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">

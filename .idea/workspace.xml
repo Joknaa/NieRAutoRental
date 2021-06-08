@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/car1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/card2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,9 @@
       <workItem from="1622907377797" duration="37000" />
       <workItem from="1622921966289" duration="581000" />
       <workItem from="1622929719607" duration="3924000" />
-      <workItem from="1622973338032" duration="30368000" />
+      <workItem from="1622973338032" duration="30715000" />
+      <workItem from="1623103217469" duration="557000" />
+      <workItem from="1623146285847" duration="11387000" />
     </task>
     <servers />
   </component>
