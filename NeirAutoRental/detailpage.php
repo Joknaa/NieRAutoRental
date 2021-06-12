@@ -32,6 +32,13 @@ $ID_User = $_SESSION["ID_User"];
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap">
     </noscript>
+    <link rel="stylesheet" href="assets2/tether/tether.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets2/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets2/theme/css/style.css">
+  <link rel="preload" as="style" href="assets2/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets2/mobirise/css/mbr-additional.css" type="text/css">
     <link rel="preload" as="style" href="assetss/mobirise/css/mbr-additional.css">
     <link rel="stylesheet" href="assetss/mobirise/css/mbr-additional.css" type="text/css">
 
@@ -72,11 +79,6 @@ $ID_User = $_SESSION["ID_User"];
 
 
     </div>
-    <br>
-
-    <div class="wrapperr">
-        <div>
-            <div>
                 <div class="wrapperrr">
                     <div class="card">
                         <div class="card-wrapperrr">
@@ -102,21 +104,9 @@ $ID_User = $_SESSION["ID_User"];
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
+                       
             </div>
-            <br><br>
-            <br><br>
-            <div style="margin-left:60px;">
-                <div>
-                    
-                   
-                </div>
-                <br><br>
-              
-            </div>
+          <div class="flex">
             <div class="prev-comments">
 
                 <div class="single-item">
@@ -125,7 +115,7 @@ $ID_User = $_SESSION["ID_User"];
                 </div>
 
             </div>
-        </div>
+        
         <div class="flex2">
             
             
@@ -135,6 +125,8 @@ $ID_User = $_SESSION["ID_User"];
                     <p>Comment</p>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </div>
     <br><br><br></section>

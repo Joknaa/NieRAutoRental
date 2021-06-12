@@ -8,6 +8,13 @@
     <title>Add an offer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets2/tether/tether.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets2/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets2/theme/css/style.css">
+  <link rel="preload" as="style" href="assets2/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets2/mobirise/css/mbr-additional.css" type="text/css">
 
 </head>
 <style>
@@ -257,6 +264,8 @@ body{
         </div>
         </form>  
     </div>
+    <?php include 'footer.php';?>
+
     <script>
         function readURL(input) {
   if (input.files && input.files[0]) {

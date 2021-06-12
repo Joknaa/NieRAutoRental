@@ -3,6 +3,16 @@ if(!isset($_SESSION)) {
     session_start();
 }
 ?>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="CSS/navv.css">
+
+</head>
 <div style="height:60px;">
     <div class="header-dark">
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
@@ -11,7 +21,7 @@ if(!isset($_SESSION)) {
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="./About.php">About</a></li>
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
                                                 aria-expanded="false" href="#">Categories </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"

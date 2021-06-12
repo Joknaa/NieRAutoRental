@@ -1,159 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/modify.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
+    header("refresh:1;url=Home.php");
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
+    $UserType = $_SESSION["UserType"];
+    $ID_User = $_SESSION["ID_User"];
+    if ($UserType != "partner") {
+        header("refresh:1;url=Home.php");
+        echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+    } else {
+        ?>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="CSS/modify.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        </head>
+        <body>
+        <?php
+        include_once 'Scripts/S_ProfileManager.php';
+        include 'nav_Connected.php';
 
-</head>
-
-<body>
-    <?php include 'nav_Connected.php';
-    include_once 'Scripts/S_ProfileManager.php';
-
-    if (!isset($_POST["submit_Profile"])) die("No User ID");
-
-    if (isset($_POST["submit"])) {
-        UpdateProfile();
-        header("Location: Partner_Profile.php");
-    }
-    $ID_User = $_POST["ID_User"];
-
-    $Profile = GetProfile($ID_User);
-    ?>
-    <div style="margin-top:20px;" class="container">
-        <div class="main-body">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);" class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
-                                <img style="cursor:pointer;" src="./Ressources/Images/facemodal.png" alt="Admin" class="rounded-circle p-1 bg-primary" id="profile-image1" width="110" height="120">
-                                <input style="visibility:hidden;" id="profile-image-upload" class="hidden" type="file" onchange="previewFile()" >
-                        
-                                <div class="mt-3">
-                                    <h4><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></h4>
-                                    <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
-                                    <p class="text-secondary mb-1"> <?php echo $Profile["City"]?></p>
+        if (isset($_POST["submit"])) {
+            UpdateProfile();
+            header("Location: Partner_Profile.php");
+        }
+        $ID_User = $_SESSION["ID_User"];
+        $Profile = GetProfile($ID_User);
+        ?>
+        <div style="margin-top:20px;" class="container">
+            <div class="main-body">
+                <form class="row" enctype='multipart/form-data' method="post">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);" class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img style="cursor:pointer;"
+                                         src="Ressources/Uploads/<?php echo $Profile["Image"] ?>" alt="Admin"
+                                         class="rounded-circle p-1 bg-primary" id="profile-image1" width="110"
+                                         height="120">
+                                    <input style="visibility:visible;" id="profile-image-upload" class="hidden"
+                                           type="file" name="file"
+                                           onchange="previewFile()" >
+                                    <div class="mt-3">
+                                        <h4><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></h4>
+                                        <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
+                                        <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card">
-                        <form class="card-body" method="post">
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">First Name :</h6>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">First Name :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="ID_User"
+                                               value="<?php echo $Profile["ID_User"] ?>" hidden>
+                                        <input type="text" class="form-control" name="Firstname"
+                                               value="<?php echo $Profile["Firstname"] ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="ID_User" value="<?php echo $Profile["ID_User"] ?>" hidden>
-                                    <input type="text" class="form-control" name="Firstname" value="<?php echo $Profile["Firstname"] ?>">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Last Name :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="Lastname"
+                                               value="<?php echo $Profile["Lastname"] ?>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="email" class="form-control" name="Email"
+                                               value="<?php echo $Profile["Email"] ?>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Phone :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="Phone"
+                                               value="<?php echo $Profile["Phone"] ?>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">CIN :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="CIN"
+                                               value="<?php echo $Profile["CIN"] ?>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">City :</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="City"
+                                               value="<?php echo $Profile["City"] ?>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Address</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="Address"
+                                               value="<?php echo $Profile["Address"] ?>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Password</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" name="Password">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Password Repeat</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" name="PasswordRepeat">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="submit" class="btn btn-primary px-4" name="submit"
+                                               value="Save Changes">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Last Name :</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="Lastname" value="<?php echo $Profile["Lastname"] ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email :</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="email" class="form-control" name="Email" value="<?php echo $Profile["Email"] ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Phone :</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="Phone" value="<?php echo $Profile["Phone"] ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">CIN :</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="CIN" value="<?php echo $Profile["CIN"] ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">City :</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="City" value="<?php echo $Profile["City"] ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Address</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="Address" value="<?php echo $Profile["Address"] ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Password</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="Password">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Password Repeat</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="PasswordRepeat">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="submit" class="btn btn-primary px-4" name="submit" value="Save Changes">
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-
-                </div>
+                </form>
             </div>
         </div>
-    </div>
-    <script>
-                    function previewFile() {
-            var preview = document.querySelector('img');
-            var file    = document.querySelector('input[type=file]').files[0];
-            var reader  = new FileReader();
+        <script>
+            function previewFile() {
+                var preview = document.querySelector('img');
+                var file = document.querySelector('input[type=file]').files[0];
+                var reader = new FileReader();
 
-            reader.addEventListener("load", function () {
-                preview.src = reader.result;
-            }, false);
+                reader.addEventListener("load", function () {
+                    preview.src = reader.result;
+                }, false);
 
-            if (file) {
-                reader.readAsDataURL(file);
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
             }
-            }
-                                $(function() {
-                        $('#profile-image1').on('click', function() {
-                            $('#profile-image-upload').click();
-                        });
-                    });
-        
-    </script>
-</body>
 
-</html>
+            $(function () {
+                $('#profile-image1').on('click', function () {
+                    $('#profile-image-upload').click();
+                });
+            });
+        </script>
+        </body>
+
+        </html>
+        <?php
+    }
+}

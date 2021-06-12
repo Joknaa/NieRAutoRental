@@ -1,8 +1,19 @@
 <?php include_once 'Scripts/S_ProfileManager.php';
 
-if (!isset($_POST["submit"])) die("No User ID");
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-$ID_User = $_POST["ID_User"];
+if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
+    header("refresh:1;url=Home.php");
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
+$UserType = $_SESSION["UserType"];
+$ID_User = $_SESSION["ID_User"];
+if ($UserType != "partner") {
+    header("refresh:1;url=Home.php");
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +22,15 @@ $ID_User = $_POST["ID_User"];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Partner_Profile</title>
+    <link rel="stylesheet" href="assets2/tether/tether.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets2/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets2/theme/css/style.css">
+  <link rel="preload" as="style" href="assets2/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="assets2/mobirise/css/mbr-additional.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 </head>
@@ -29,14 +48,14 @@ $Profile = GetProfile($ID_User);
                 <div class="card">
                     <div style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);"class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="./Ressources/Images/facemodal.png"
+                            <img src="Ressources/Uploads/<?php echo $Profile["Image"] ?>"
                                  alt="Admin"
-                                 class="rounded-circle" height="100" width="100">
+                                 class="rounded-circle" style="width: 100px;height:100px;">
 
                             <form action="Partner_Offers.php" method="post" class="mt-3">
                                 <h4><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></h4>
-                                <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
-                                <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
+                                <h5 class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></h5>
+                                <h5 class="text-secondary mb-1"> Ville: <?php echo $Profile["City"] ?></h5>
                                 <br>
                                 <input type="text" class="btn btn-outline-primary" name="ID_User"
                                        value="<?php echo $Profile["ID_User"] ?>" hidden>
@@ -119,7 +138,7 @@ $Profile = GetProfile($ID_User);
                             <div class="col-sm-12">
                                 <form action="Partner_ProfileEdit.php" method="post">
                                     <input type="text" name="ID_User" value="<?php echo $Profile["ID_User"]?>" hidden>
-                                    <input style="background-color:#66AAA7;color:white;" class="btn" type="submit" name="submit_Profile" value="Edit">
+                                    <input style="background-color:#66AAA7;color:white;width: 150px;" class="btn" type="submit" name="submit_Profile" value="Edit">
                                 </form>
                             </div>
                         </div>
@@ -130,6 +149,10 @@ $Profile = GetProfile($ID_User);
 
     </div>
 </div>
+<?php include 'footer.php';?>
+
 </body>
 
 </html>
+<?php
+}}

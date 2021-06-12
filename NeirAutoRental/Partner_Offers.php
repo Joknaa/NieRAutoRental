@@ -1,9 +1,24 @@
 <?php require "Scripts/S_OfferManager.php";
 
-if (!isset($_POST["submit"])) die("No User ID");
+if (!isset($_SESSION)) {
+    session_start();
+}
 
+if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
+    header("refresh:1;url=Home.php");
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
+$UserType = $_SESSION["UserType"];
+$ID_User = $_SESSION["ID_User"];
+if ($UserType != "partner") {
+    header("refresh:1;url=Home.php");
+    echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+} else {
 $ID_User = $_POST["ID_User"];
+if (isset($_POST["submit_EditOffer"])){
+    header("location: Modify_Offer.php");
 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,6 +36,13 @@ $ID_User = $_POST["ID_User"];
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets2/tether/tether.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets2/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets2/theme/css/style.css">
+  <link rel="preload" as="style" href="assets2/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets2/mobirise/css/mbr-additional.css" type="text/css">
     <link rel="preload"
           href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap"
           as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -32,7 +54,7 @@ $ID_User = $_POST["ID_User"];
 
 </head>
 <body>
-<section style="background-color:#e0cfc0;" class="features10 cid-sz72N5KVZr" id="features11-1">
+<section class="features10 cid-sz72N5KVZr" id="features11-1">
     <?php require('nav_Connected.php'); ?>
 
     <div class="container">
@@ -44,7 +66,7 @@ $ID_User = $_POST["ID_User"];
     </div>
 </section>
 <section
-        style="background-color: #e0cfc0;section:#e0cfc0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"></section>
+        style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"></section>
 <script src="assets/web/assets/jquery/jquery.min.js"></script>
 <script src="assets/popper/popper.min.js"></script>
 <script src="assets/tether/tether.min.js"></script>
@@ -55,3 +77,4 @@ $ID_User = $_POST["ID_User"];
 
 </body>
 </html>
+<?php }}

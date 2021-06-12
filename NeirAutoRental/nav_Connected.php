@@ -1,10 +1,12 @@
 <?php
-include_once "Scripts/S_UserManager.php";
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
+
+include_once "Scripts/S_ProfileManager.php";
+$ID_User = $_SESSION["ID_User"];
 ?>
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html>
 
 <head>
@@ -23,12 +25,12 @@ if(!isset($_SESSION)) {
 <div style="height:40px;" class="container-fluid">
     <div class="header-dark">
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-            <div class="container"><a class="navbar-brand" href="Partner_Index.php">RentalX</a>
+            <div class="container"><a class="navbar-brand" href="<?php GetHomePage() ?>">RentalX</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                             class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="./About.php">About</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
                                aria-expanded="false" href="#">Categories </a>
@@ -46,9 +48,10 @@ if(!isset($_SESSION)) {
                                     class="form-control search-field" type="search" name="search" id="search-field">
                         </div>
                     </form>
-                    <form action="Partner_Profile.php" method="post">
+                    <form action="<?php GetProfilePage() ?>" method="post">
                         <input type="text" name="ID_User" value="<?php echo $_SESSION["ID_User"] ?>" hidden>
-                        <input type="submit" class="pdp img-circle" name="submit" value="">
+                        <input type="submit" class="pdp img-circle" value="" name="submit"
+                               style="width:50px;height:50px;background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
                     </form>
                     
                     <form action="Scripts/S_Logout.php" method="post">
@@ -56,7 +59,6 @@ if(!isset($_SESSION)) {
                     </form> 
                 </div>
         </nav>
-
     </div>
 </div>
 '
@@ -65,4 +67,15 @@ if(!isset($_SESSION)) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</html>>
+<?php
+
+function GetHomePage() {
+    if ($_SESSION["UserType"] == "partner") echo 'Partner_Index.php';
+    else if ($_SESSION["UserType"] == "client") echo 'Client_Index.php';
+}
+
+function GetProfilePage() {
+    if ($_SESSION["UserType"] == "partner") echo 'Partner_Profile.php';
+    else if ($_SESSION["UserType"] == "client") echo 'Client_Profile.php';
+}
