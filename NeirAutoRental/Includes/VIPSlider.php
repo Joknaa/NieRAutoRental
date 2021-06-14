@@ -1,7 +1,7 @@
 <?php include_once "Scripts/S_OfferManager.php"?>
 <?php
 //condb
-$con= mysqli_connect("localhost","root","1234","neirautorental") or die("Error: " . mysqli_error($con));
+$con= mysqli_connect("localhost","root","oknaa","neirautorental") or die("Error: " . mysqli_error($con));
 mysqli_query($con, "SET NAMES 'utf8' ");
 //query
 $query = "SELECT * FROM slider ORDER BY ID DESC" or die("Error:" . mysqli_error());

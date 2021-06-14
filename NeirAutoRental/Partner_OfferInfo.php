@@ -16,6 +16,7 @@ if (!isset($_POST["ID_Offer"])) {
     include_once "Scripts/S_OfferManager.php";
     include_once "Scripts/S_ProfileManager.php";
     include_once "Scripts/S_RequestManager.php";
+    include_once "Scripts/S_CommentsManager.php";
     $ID_User = $_SESSION["ID_User"];
     $ID_Offer = $_POST["ID_Offer"];
     ?>
@@ -96,106 +97,119 @@ if (!isset($_POST["ID_Offer"])) {
                 <p style="width:70%;"><h5><strong>Description :</strong>
                 </h5><?php echo $offer["Description"] ?> </p>
                 <?php
-                if ($_SESSION["UserType"] != "partner"){
-                    if (!Check_OfferOngoing($ID_Offer, $ID_User)){
+                if ($_SESSION["UserType"] != "partner") {
+                    if (!Check_OfferOngoing($ID_Offer, $ID_User)) {
                         ?>
                         <input type="submit" name="submit_RequestOffer" value="Request Offer">
                         <?php
                     }
-                }?>
+                } ?>
             </form>
 
 
         </div>
         <br>
 
-        <div style="width: 100%"  class="wrapperr">
+        <div style="width: 100%" class="wrapperr">
 
-                <div style="width: 100%" class="row">
-                    <div class="col-md-6">
-                <div class="card">
-                    <div class="card-wrapperrr">
-                        <div class="row align-items-center">
-                            <div class="col-12 col-md-4">
-                                <div class="image-wrapperrr">
-                                    <img src="Ressources/Images/facemodal.png" alt="profile">
+            <div style="width: 100%" class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-wrapperrr">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4">
+                                    <div class="image-wrapperrr">
+                                        <img src="Ressources/Images/facemodal.png" alt="profile">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-md">
-                                <div class="card-box">
-                                    <h1 class="h1">
-                                        <?php $Profile = GetProfile($offer["ID_User"]); ?>
-                                        <strong><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></strong>
-                                    </h1>
-                                    <br>
-                                    <h6 class="h6"> Email:
-                                        <?php echo $Profile["Email"] ?>                                        </h6>
-                                    <br>
+                                <div class="col-12 col-md">
+                                    <div class="card-box">
+                                        <h1 class="h1">
+                                            <?php $Profile = GetProfile($offer["ID_User"]); ?>
+                                            <strong><?php echo $Profile["Firstname"] . ' ' . $Profile["Lastname"] ?></strong>
+                                        </h1>
+                                        <?php if ($_SESSION["UserType"] == "partner") {
+                                            ?>
+                                            <br>
+                                            <h6 class="h6"> Email:
+                                                <?php echo $Profile["Email"] ?>                                        </h6>
+                                            <br>
 
-                                    <h6 class="h6">City:
-                                        <?php echo $Profile["City"] ?>                                        </h6>
+                                            <h6 class="h6">City:
+                                                <?php echo $Profile["City"] ?>                                        </h6>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                 </div>
 
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-                    <div style="width: 100%" class="col-md-6">
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+                      rel="stylesheet"
+                      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+                      crossorigin="anonymous">
+                <div style="width: 100%" class="col-md-6">
                     <div class="col-lg-12">
                         <div class="card g-mb-30 card-comment">
 
-                            <div style="height:30px;font-family: 'Open Sans';background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);" class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
-                                <h2 style="font-family: 'Open Sans';font-size: 30px;text-align: center;margin-top:-10px;color: White;">Clients Comments :</h2>
+                            <div style="height:30px;font-family: 'Open Sans';background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);"
+                                 class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
+                                <h2 style="font-family: 'Open Sans';font-size: 30px;text-align: center;margin-top:-10px;color: White;">
+                                    Clients Comments :</h2>
                             </div>
                         </div>
                     </div>
-        <div class="col-lg-12">
-            <div class="card g-mb-30 card-comment">
-                <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
-                    <div class="g-mb-15">
-                        <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                        <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
-                    </div>
 
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-                        felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                    <?php
+                    try {
+                        $commentIDs_Result = SQL_GetOfferCommentID(1);
+                        if ($commentIDs_Result->num_rows > 0) {
+                            $rows = $commentIDs_Result->num_rows;
+                            do {
+                                $commentIDs = $commentIDs_Result->fetch_assoc();
 
+                                $comment_result = SQL_GetComment($commentIDs["ID_Comment"]);
+                                if ($comment_result->num_rows > 0) {
+                                    $comment = $comment_result->fetch_assoc();
+                                    $commentColor = 0;
+                                    if ($comment["Type"] == "positive") $commentColor = 'style="color: #7aba57"';
+                                    if ($comment["Type"] == "negative") $commentColor = 'style="color: #ba5757"';
+                                    ?>
+                                    <div class="col-lg-12" >
+                                        <div class="card g-mb-30 card-comment" >
+                                            <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
+                                                <div class="g-mb-15" >
+                                                    <h5 class="h5 g-color-gray-dark-v1 mb-0" <?php echo $commentColor; ?>>
+                                                        <b><?php echo $comment["fname"] . ' ' . $comment["lname"] ?></b>
+                                                    </h5>
+                                                </div>
+                                                <br>
+                                                <p <?php echo $commentColor; ?>><?php echo $comment["Content"] ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                $rows--;
+                            } while ($rows > 0);
+                        }
+                    } catch (Exception $e) {
+                        echo $e;
+                    }
+                    ?>
 
                 </div>
+
             </div>
         </div>
 
-
-
-                    <div class="col-lg-12">
-            <div class="card g-mb-30 card-comment">
-
-                <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
-                    <div class="g-mb-15">
-                        <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                        <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
-                    </div>
-
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-                        felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-                </div>
-            </div>
-
-<br><br><br>
+        <br><br><br>
         <br><br><br><br><br><br>
     </section>
-    <script type="text/javascript" ></script>
+    <script type="text/javascript"></script>
     <?php include 'footer.php'; ?>
 
     </body>

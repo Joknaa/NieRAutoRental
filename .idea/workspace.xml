@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="" />
+    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Database/conments.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/Exception.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/OAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/PHPMailer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/POP3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/SMTP.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/client_comment_email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/offer_comment_email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/send_client_Email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/send_offer_Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_comments.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offercomments.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_profilecomments.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/database.php" afterDir="false" />
+    </list>
+    <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +39,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Houda2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -46,6 +79,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="io.unthrottled.amii.config.ui.PluginSettingsUI" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -75,6 +109,7 @@
       <workItem from="1622631465632" duration="18348000" />
       <workItem from="1622705068522" duration="4391000" />
       <workItem from="1623663180560" duration="48000" />
+      <workItem from="1623703569082" duration="753000" />
     </task>
     <servers />
   </component>
@@ -92,5 +127,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
