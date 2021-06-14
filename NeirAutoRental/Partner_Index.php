@@ -48,7 +48,61 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
 
             <title>Partner's Index</title>
         </head>
+<style>
+    .noselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
 
+    .noselect {
+        width: 300px;
+        height: 70px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #7f5a83;
+        background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+        background-size: 200% 100%;
+        background-position: left;
+        background-repeat: no-repeat;
+        transition: 500ms;
+        margin-bottom: 50px;
+    }
+
+    .noselect:before {
+        content: 'Create your own offer from here';
+        color: rgba(255,255,255,0.5);
+        font-size: 20px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 290px;
+        height: 60px;
+        background-color: #1b2845;
+        background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+        transition: 500ms;
+    }
+
+    .noselect:hover {
+        background-position: right;
+    }
+
+    .noselect:hover:before {
+        color: rgba(255,255,255,0.8);
+    }
+
+    .noselect:focus {
+        outline: none;
+    }
+</style>
         <body>
         <div style="height:70px;">
             <div class="header-dark">
@@ -61,7 +115,7 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
         <!-- Page Content -->
         <section class="py-5">
             <center>
-                <button onclick="location.href='Add_offer.php'" type="submit">HERE</button>
+                <button class="noselect" onclick="location.href='Add_offer.php'" type="submit">HERE</button>
                 <form method="post">
                     <label for="Brand">Brand</label>
                     <select name="Brand" id="Brand">
