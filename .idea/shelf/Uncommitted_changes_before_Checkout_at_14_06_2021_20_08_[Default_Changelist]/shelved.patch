@@ -1,0 +1,692 @@
+Index: NeirAutoRental/Partner_OfferInfo.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\nif (!isset($_SESSION[\"ID_User\"])) {\r\n    $_SESSION[\"UserType\"] = \"Visiter\";\r\n    include_once \"nav_Disconnected.php\";\r\n} else\r\n    include_once \"nav_Connected.php\";\r\n\r\n    include_once \"Scripts/S_OfferManager.php\";\r\n    include_once \"Scripts/S_ProfileManager.php\";\r\n    include_once \"Scripts/S_RequestManager.php\";\r\n\r\n    $ID_Offer = $_POST[\"ID_Offer\"];\r\n    $ID_User = $_SESSION[\"ID_User\"];\r\n    ?>\r\n    <!DOCTYPE html>\r\n    <html lang=\"en\">\r\n\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Document</title>\r\n        <link rel=\"stylesheet\" href=\"CSS/test2.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/tether/tether.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/bootstrap/css/bootstrap.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/bootstrap/css/bootstrap-grid.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/bootstrap/css/bootstrap-reboot.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/socicon/css/styles.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/theme/css/style.css\">\r\n        <link rel=\"preload\"\r\n              href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\"\r\n              as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\">\r\n        <noscript>\r\n            <link rel=\"stylesheet\"\r\n                  href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\">\r\n        </noscript>\r\n        <link rel=\"preload\" as=\"style\" href=\"assetss/mobirise/css/mbr-additional.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/mobirise/css/mbr-additional.css\" type=\"text/css\">\r\n\r\n        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\r\n    </head>\r\n\r\n    <body>\r\n    <section>\r\n        <div>\r\n        </div>\r\n    </section>\r\n    <section>\r\n        <div class=\"containerr\">\r\n            <?php\r\n            list($offer, $car) = DisplayOffer($ID_Offer);\r\n            if (isset($_POST[\"submit_RequestOffer\"])) {\r\n                AddRequest($ID_Offer, $ID_User);\r\n            }\r\n            ?>\r\n\r\n            <div>\r\n                <img style=\"width:500px;height:340px;\" src=\"Ressources/Images/Cars/<?php echo $car[\"Image\"] ?>\"\r\n                     alt=\"oups\">\r\n            </div>\r\n            <form method=\"post\">\r\n                <input type=\"text\" name=\"ID_Offer\" value=\"<?php echo $offer[\"ID_Offer\"] ?>\" hidden>\r\n                <h1><?php echo $car[\"Brand\"] . ' ' . $car[\"Model\"] ?></h1>\r\n                <h4>Category: <?php echo $car[\"Category\"] ?></h4>\r\n                <h4>Fuel: <?php echo $car[\"Fuel\"] ?></h4>\r\n                <h4>Color: <?php echo $car[\"Color\"] ?></h4>\r\n                <h4>Price: <?php echo $car[\"Price\"] ?> DH/Hour</h4>\r\n                <br>\r\n                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem voluptatibus<br>\r\n                    aliquid ipsa eius odio reiciendis quibusdam sit nulla autem quam neque, <br>\r\n                    perferendis reprehenderit omnis vel et dolorum quae delectus quasi.</p>\r\n                <input type=\"submit\" name=\"submit_RequestOffer\" value=\"Request Offer\">\r\n            </form>\r\n        </div>\r\n        <br>\r\n        <?php $Profile = GetProfile($offer[\"ID_User\"]); ?>\r\n        <div class=\"wrapperr\">\r\n            <div>\r\n                <div>\r\n                    <div class=\"wrapperrr\">\r\n                        <div class=\"card\">\r\n                            <div class=\"card-wrapperrr\">\r\n                                <div class=\"row align-items-center\">\r\n                                    <div class=\"col-12 col-md-4\">\r\n                                        <div class=\"image-wrapperrr\">\r\n                                            <img src=\"Ressources/Uploads/<?php echo $Profile[\"Image\"] ?>\" alt=\"profile\">\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-12 col-md\">\r\n                                        <div class=\"card-box\">\r\n                                            <h1 class=\"h1\">\r\n                                                <strong><?php echo $Profile[\"FirstName\"] . ' ' . $Profile[\"LastName\"] ?></strong>\r\n                                            </h1>\r\n                                            <br>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n                <br><br>\r\n                <br><br>\r\n                <div style=\"margin-left:60px;\">\r\n                    <div>\r\n                        <h3 style=\"width:300px;margin-left:100px;\">If you got a good review, please leave a comment\r\n                            below\r\n                            :</h3>\r\n                        <img style=\"width:100px;height:40px;margin-left:150px;\" src=\"Ressources/Images/goodreview.png\"\r\n                             alt=\"good\">\r\n                    </div>\r\n                    <br><br>\r\n                    <form action=\"\" method=\"POST\" class=\"form\">\r\n                        <div class=\"input-group\">\r\n                            <label for=\"name\">Name</label>\r\n                            <input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Enter your Name\" required>\r\n                        </div>\r\n                        <div class=\"input-group textarea\">\r\n                            <label for=\"comment\">Comment</label>\r\n                            <textarea id=\"comment\" name=\"comment\" placeholder=\"Enter your Comment\" required></textarea>\r\n                        </div>\r\n                        <div class=\"input-group\">\r\n                            <button name=\"submit\" class=\"btn\">Post Comment</button>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n                <div class=\"prev-comments\">\r\n\r\n                    <div class=\"single-item\">\r\n                        <h4>Name</h4>\r\n                        <p>Comment</p>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n            <div class=\"flex2\">\r\n                <div style=\"margin-top:-150px;\">\r\n                    <h3 style=\"width:300px;margin-left:100px;margin-top:-30px;\">If you got a good review, please leave a\r\n                        comment below :</h3>\r\n                    <img style=\"width:100px;height:40px;margin-left:150px;\" src=\"Ressources/Images/badreview.png\"\r\n                         alt=\"good\">\r\n                </div>\r\n                <br><br>\r\n                <form action=\"\" method=\"POST\" class=\"form\">\r\n                    <div class=\"input-group\">\r\n                        <label for=\"name\">Name</label>\r\n                        <input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Enter your Name\" required>\r\n                    </div>\r\n                    <div class=\"input-group textarea\">\r\n                        <label for=\"comment\">Comment</label>\r\n                        <textarea id=\"comment\" name=\"comment\" placeholder=\"Enter your Comment\" required></textarea>\r\n                    </div>\r\n                    <div class=\"input-group\">\r\n                        <button name=\"submit\" class=\"btn\">Post Comment</button>\r\n                    </div>\r\n                </form>\r\n                <div class=\"prev-comments\">\r\n                    <div class=\"single-item\">\r\n                        <h4>Name</h4>\r\n                        <p>Comment</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <br><br><br></section>\r\n\r\n    </body>\r\n    </html>\r\n    <?php\r\n\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Partner_OfferInfo.php b/NeirAutoRental/Partner_OfferInfo.php
+--- a/NeirAutoRental/Partner_OfferInfo.php	
++++ b/NeirAutoRental/Partner_OfferInfo.php	
+@@ -1,19 +1,25 @@
+ <?php
+-if (!isset($_SESSION)) {
+-    session_start();
+-}
+-if (!isset($_SESSION["ID_User"])) {
+-    $_SESSION["UserType"] = "Visiter";
+-    include_once "nav_Disconnected.php";
+-} else
+-    include_once "nav_Connected.php";
++if (!isset($_SESSION)) session_start();
++
++if (!isset($_POST["ID_Offer"])) {
++    header("refresh:1;url=Home.php");
++    echo "You shouldn't be here ! Redirecting to the Home page in a Sec ..";
++} else {
++    if (!isset($_SESSION["ID_User"])) {
++        $_SESSION["UserType"] = "visitor";
++        include_once "nav_Disconnected.php";
++    } else
++        include_once "nav_Connected.php";
+ 
++
+     include_once "Scripts/S_OfferManager.php";
+     include_once "Scripts/S_ProfileManager.php";
+     include_once "Scripts/S_RequestManager.php";
+ 
++
+     $ID_Offer = $_POST["ID_Offer"];
+     $ID_User = $_SESSION["ID_User"];
++
+     ?>
+     <!DOCTYPE html>
+     <html lang="en">
+@@ -53,7 +59,12 @@
+             <?php
+             list($offer, $car) = DisplayOffer($ID_Offer);
+             if (isset($_POST["submit_RequestOffer"])) {
+-                AddRequest($ID_Offer, $ID_User);
++                if ($_SESSION["UserType"] == "visiter") {
++                    header("refresh:1;url=Login.php");
++                } else {
++                    AddRequest($ID_Offer, $ID_User);
++                    $_POST["submit_RequestOffer"] = null;
++                }
+             }
+             ?>
+ 
+@@ -171,5 +182,5 @@
+     </body>
+     </html>
+     <?php
+-
++}
+ ?>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8698f0cb-7ed8-4f75-a68a-75cb2d2616d8\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/Client_CurrentOffer.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Home.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Home.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/24417-chocolat-au-lait-avec-amandes1.jpg\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"HARD\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP 8.0\" />\r\n  <component name=\"ProjectId\" id=\"1skmqXM9gIEW0zZCcurykism59y\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showExcludedFiles\" value=\"false\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"sortByType\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"DefaultHtmlFileTemplate\" value=\"HTML File\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"database.data.extractors.current.export.id\" value=\"SQL Inserts\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/NeirAutoRental\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Ressources\\Uploads\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Includes\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Scripts\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Ressources\\Images\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Ressources\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"nav_Connected.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/NeirAutoRental/nav_Connected.php\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"PHP Script.nav_Connected.php\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8698f0cb-7ed8-4f75-a68a-75cb2d2616d8\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1621425152705</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1621425152705</updated>\r\n      <workItem from=\"1621425153974\" duration=\"6409000\" />\r\n      <workItem from=\"1621433094745\" duration=\"160000\" />\r\n      <workItem from=\"1622621738667\" duration=\"7260000\" />\r\n      <workItem from=\"1622631465632\" duration=\"18348000\" />\r\n      <workItem from=\"1622907377797\" duration=\"37000\" />\r\n      <workItem from=\"1622921966289\" duration=\"581000\" />\r\n      <workItem from=\"1622929719607\" duration=\"3924000\" />\r\n      <workItem from=\"1622973338032\" duration=\"30715000\" />\r\n      <workItem from=\"1623103217469\" duration=\"557000\" />\r\n      <workItem from=\"1623146285847\" duration=\"13053000\" />\r\n      <workItem from=\"1623169188548\" duration=\"2973000\" />\r\n      <workItem from=\"1623179121338\" duration=\"3800000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -2,16 +2,24 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Client_CurrentOffer.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/NeirAutoRental/JS/ajaxTest.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_CurrentOffer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_CurrentOffer.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_Profile.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_comments.sql" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offercomments.sql" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_profilecomments.sql" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/JS/Home.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/24417-chocolat-au-lait-avec-amandes1.jpg" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php" afterDir="false" />
+     </list>
++    <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -24,6 +32,7 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="HTML File" />
++        <option value="JavaScript File" />
+       </list>
+     </option>
+   </component>
+@@ -52,11 +61,13 @@
+   </component>
+   <component name="PropertiesComponent">
+     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
++    <property name="ChangesTree.GroupingKeys" value="directory" />
+     <property name="DatabaseDriversLRU" value="mysql" />
+     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/NeirAutoRental" />
+     <property name="node.js.detected.package.eslint" value="true" />
+@@ -64,6 +75,8 @@
+     <property name="node.js.path.for.package.tslint" value="project" />
+     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+     <property name="node.js.selected.package.tslint" value="(autodetect)" />
++    <property name="nodejs_package_manager_path" value="npm" />
++    <property name="settings.editor.selected.configurable" value="io.unthrottled.amii.config.ui.PluginSettingsUI" />
+     <property name="vue.rearranger.settings.migration" value="true" />
+   </component>
+   <component name="RecentsManager">
+@@ -73,11 +86,18 @@
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\JS" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Scripts" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources" />
+     </key>
++  </component>
++  <component name="RunAnythingCache">
++    <option name="myCommands">
++      <command value="cmd" />
++      <command value="ipconfig" />
++    </option>
+   </component>
+   <component name="RunManager">
+     <configuration name="nav_Connected.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/NeirAutoRental/nav_Connected.php">
+@@ -108,7 +128,13 @@
+       <workItem from="1623103217469" duration="557000" />
+       <workItem from="1623146285847" duration="13053000" />
+       <workItem from="1623169188548" duration="2973000" />
+-      <workItem from="1623179121338" duration="3800000" />
++      <workItem from="1623179121338" duration="7119000" />
++      <workItem from="1623190984186" duration="298000" />
++      <workItem from="1623191485060" duration="3821000" />
++      <workItem from="1623228017129" duration="8136000" />
++      <workItem from="1623241964654" duration="10461000" />
++      <workItem from="1623691454287" duration="16000" />
++      <workItem from="1623692890101" duration="617000" />
+     </task>
+     <servers />
+   </component>
+@@ -130,4 +156,8 @@
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+   </component>
++  <component name="XSLT-Support.FileAssociations.UIState">
++    <expand />
++    <select />
++  </component>
+ </project>
+\ No newline at end of file
+Index: NeirAutoRental/Client_CurrentOffer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php require \"Scripts/S_OfferManager.php\";\r\n\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\n\r\nif (!isset($_SESSION[\"ID_User\"]) || !isset($_SESSION[\"UserType\"])) {\r\n    header(\"refresh:1;url=Home.php\");\r\n    echo \"You have to Login to see this page ! Redirecting to the Home page in a Sec ..\";\r\n} else {\r\n    $UserType = $_SESSION[\"UserType\"];\r\n    $ID_User = $_SESSION[\"ID_User\"];\r\n    if ($UserType != \"client\") {\r\n        header(\"refresh:1;url=Home.php\");\r\n        echo \"You have to Login to see this page ! Redirecting to the Home page in a Sec ..\";\r\n    } else {\r\n        ?>\r\n        <!DOCTYPE html>\r\n        <html>\r\n        <head>\r\n            <!-- Site made with Mobirise Website Builder v5.3.5, https://mobirise.com -->\r\n            <meta charset=\"UTF-8\">\r\n            <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1\">\r\n            <meta name=\"description\" content=\"\">\r\n\r\n\r\n            <title>Offers list</title>\r\n            <link rel=\"stylesheet\" href=\"assets/tether/tether.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap-grid.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap-reboot.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/theme/css/style.css\">\r\n            <link rel=\"preload\"\r\n                  href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\"\r\n                  as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\">\r\n            <noscript>\r\n                <link rel=\"stylesheet\"\r\n                      href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\">\r\n            </noscript>\r\n\r\n\r\n        </head>\r\n        <body>\r\n        <section style=\"background-color:#e0cfc0;\" class=\"features10 cid-sz72N5KVZr\" id=\"features11-1\">\r\n            <?php\r\n            include_once \"nav_Connected.php\";\r\n            if (isset($_POST[\"submit_MoreInfo\"])) header(\"Location: Partner_OfferInfo.php\");\r\n            if (isset($_POST[\"submit_TerminateContract\"])) TerminateContract($UserType, $_POST[\"ID_Offer\"]);\r\n            ?>\r\n\r\n            <div class=\"container\">\r\n                <div class=\"title\">\r\n                    <h3 class=\"mbr-section-title mbr-fonts-style mb-4 display-2\"><strong>Posted offers </strong></h3>\r\n                </div>\r\n                <?php DisplayClientCurrentOffers($ID_User) ?>\r\n\r\n            </div>\r\n        </section>\r\n        <section\r\n                style=\"background-color: #e0cfc0;section:#e0cfc0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;\"></section>\r\n        <script src=\"assets/web/assets/jquery/jquery.min.js\"></script>\r\n        <script src=\"assets/popper/popper.min.js\"></script>\r\n        <script src=\"assets/tether/tether.min.js\"></script>\r\n        <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\r\n        <script src=\"assets/smoothscroll/smooth-scroll.js\"></script>\r\n        <script src=\"assets/theme/js/script.js\"></script>\r\n\r\n\r\n        </body>\r\n        </html>\r\n    <?php }\r\n} ?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Client_CurrentOffer.php b/NeirAutoRental/Client_CurrentOffer.php
+--- a/NeirAutoRental/Client_CurrentOffer.php	
++++ b/NeirAutoRental/Client_CurrentOffer.php	
+@@ -11,9 +11,12 @@
+ } else {
+     $UserType = $_SESSION["UserType"];
+     $ID_User = $_SESSION["ID_User"];
++
++    if (isset($_POST["submit_TerminateContract"])) TerminateContract($UserType, $_POST["ID_Offer"]);
++
+     if ($UserType != "client") {
+-        header("refresh:1;url=Home.php");
+-        echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
++        header("refresh:2;url=Home.php");
++        echo "This place is private, only for the Clients ! Redirecting to the Home page in a Sec ..";
+     } else {
+         ?>
+         <!DOCTYPE html>
+@@ -25,7 +28,6 @@
+             <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+             <meta name="description" content="">
+ 
+-
+             <title>Offers list</title>
+             <link rel="stylesheet" href="assets/tether/tether.min.css">
+             <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+@@ -39,15 +41,11 @@
+                 <link rel="stylesheet"
+                       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap">
+             </noscript>
+-
+-
+         </head>
+         <body>
+         <section style="background-color:#e0cfc0;" class="features10 cid-sz72N5KVZr" id="features11-1">
+             <?php
+             include_once "nav_Connected.php";
+-            if (isset($_POST["submit_MoreInfo"])) header("Location: Partner_OfferInfo.php");
+-            if (isset($_POST["submit_TerminateContract"])) TerminateContract($UserType, $_POST["ID_Offer"]);
+             ?>
+ 
+             <div class="container">
+@@ -55,7 +53,6 @@
+                     <h3 class="mbr-section-title mbr-fonts-style mb-4 display-2"><strong>Posted offers </strong></h3>
+                 </div>
+                 <?php DisplayClientCurrentOffers($ID_User) ?>
+-
+             </div>
+         </section>
+         <section
+Index: NeirAutoRental/Scripts/S_OfferManager.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php require \"DatabaseConfig.php\";\r\n\r\n\r\n//<editor-fold desc=\"Display All Offers\">\r\nfunction DisplayAllOffers() {\r\n\r\n    try {\r\n        $allOffers_result = SQL_GetAllOffers();\r\n\r\n        if ($allOffers_result->num_rows > 0) {\r\n            $rows = $allOffers_result->num_rows;\r\n            do {\r\n                $offer = $allOffers_result->fetch_assoc();\r\n\r\n                $car_result = SQL_GetCar($offer[\"ID_Car\"]);\r\n                if ($car_result->num_rows > 0) {\r\n                    $car = $car_result->fetch_assoc();\r\n                    echo '\r\n                        <div class=\"col-xs-6 col-md-4\">\r\n                            <div class=\"product tumbnail thumbnail-3\">\r\n                            <form method=\"post\" action=\"Partner_OfferInfo.php\">\r\n                            <input type=\"text\" name=\"ID_User\" value=\"' . $offer[\"ID_User\"] . '\" hidden>\r\n                            <input type=\"text\" name=\"ID_Offer\" value=\"' . $offer[\"ID_Offer\"] . '\" hidden>\r\n                            <input type=\"image\" alt=\"car image\" name=\"submit\" style=\"width: 100%\" src=\"Ressources/Images/Cars/' . $car[\"Image\"] . '\">\r\n                            </form>\r\n                                <div class=\"caption\">\r\n                                    <p><a href=\"#\">' . $car[\"Brand\"] . ' - ' . $car[\"Model\"] . '</a></p>\r\n                                    <span class=\"price\"><del>' . $car[\"Price\"] * 1.5 . ' DH/Hour</del></span>\r\n                                    <span class=\"price sale\"><b>' . $car[\"Price\"] . ' DH/Hour</b></span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    ';\r\n                }\r\n                $rows--;\r\n            } while ($rows > 0);\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_GetAllOffers() {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.offers\");\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Display Searched Offers\">\r\nfunction DisplaySearchedOffers() {\r\n    if ($_POST[\"Fuel\"] == \"All\" and $_POST[\"Brand\"] == \"All\" and $_POST[\"Category\"] == \"All\" and $_POST[\"Availability\"] == \"All\") {\r\n        DisplayAllOffers();\r\n        return;\r\n    }\r\n\r\n    $Brand = $_POST[\"Brand\"] == \"All\" ? false : $_POST[\"Brand\"];\r\n    $Fuel = $_POST[\"Fuel\"] == \"All\" ? false : $_POST[\"Fuel\"];\r\n    $Category = $_POST[\"Category\"] == \"All\" ? false : $_POST[\"Category\"];\r\n\r\n    try {\r\n        $allOffers_result = $_POST[\"Availability\"] == \"All\" ? SQL_GetAllOffers() : SQL_GetSearchedOffers();\r\n\r\n        if ($allOffers_result->num_rows > 0) {\r\n            $rows = $allOffers_result->num_rows;\r\n            do {\r\n                $offer = $allOffers_result->fetch_assoc();\r\n\r\n                $car_result = SQL_GetSearchedCar($offer[\"ID_Car\"], $Brand, $Category, $Fuel);\r\n                if ($car_result->num_rows > 0) {\r\n                    $car = $car_result->fetch_assoc();\r\n                    echo '<div class=\"col-xs-6 col-md-4\">\r\n                            <div class=\"product tumbnail thumbnail-3\">\r\n                            <form method=\"post\" action=\"Partner_OfferInfo.php\">\r\n                            <input type=\"text\" name=\"ID_User\" value=\"' . $offer[\"ID_User\"] . '\" hidden>\r\n                            <input type=\"text\" name=\"ID_Offer\" value=\"' . $offer[\"ID_Offer\"] . '\" hidden>\r\n                            <input type=\"image\" alt=\"car image\" name=\"submit\" style=\"width: 100%\" src=\"Ressources/Images/Cars/' . $car[\"Image\"] . '\">\r\n                            </form>\r\n                                <div class=\"caption\">\r\n                                    <p><a href=\"#\">' . $car[\"Brand\"] . ' - ' . $car[\"Model\"] . '</a></p>\r\n                                    <span class=\"price\"><del>' . $car[\"Price\"] * 1.5 . ' DH/Hour</del></span>\r\n                                    <span class=\"price sale\"><b>' . $car[\"Price\"] . ' DH/Hour</b></span>\r\n                                </div>\r\n                            </div>\r\n                        </div>';\r\n                }\r\n                $rows--;\r\n            } while ($rows > 0);\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_GetSearchedOffers() {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.offers WHERE Availability = ?\");\r\n    $stmt->bind_param(\"s\", $_POST[\"Availability\"]);\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\nfunction SQL_GetSearchedCar($ID_Car, $Brand, $Category, $Fuel) {\r\n    $Query = \"SELECT * FROM neirautorental.cars WHERE ID_Car = \" . $ID_Car;\r\n    if ($Brand) $Query = $Query . \" AND Brand = '\" . $Brand . \"'\";\r\n    if ($Category) $Query = $Query . \" AND Category = '\" . $Category . \"'\";\r\n    if ($Fuel) $Query = $Query . \" AND Fuel = '\" . $Fuel . \"'\";\r\n\r\n    $stmt = $GLOBALS[\"Connection\"]->prepare($Query);\r\n    if (!$stmt) {\r\n        echo \"Prepare failed: (\" . $GLOBALS[\"Connection\"]->errno . \") \" . $GLOBALS[\"Connection\"]->error . \"<br>\";\r\n    }\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Display VIP Offers\">\r\nfunction DisplayVIPOffers() {\r\n    try {\r\n        $allOffers_result = SQL_GetVIPOffers();\r\n\r\n        if ($allOffers_result->num_rows > 0) {\r\n            $rows = $allOffers_result->num_rows;\r\n            do {\r\n                $offer = $allOffers_result->fetch_assoc();\r\n\r\n                $car_result = SQL_GetCar($offer[\"ID_Car\"]);\r\n                if ($car_result->num_rows > 0) {\r\n                    $car = $car_result->fetch_assoc();\r\n                    $ImageURL = \"url('Ressources/Images/Cars/Corvette Stingray Z51.png');\";\r\n                    echo '                   \r\n                        <div class=\"carousel-item active\" style=\"background-image: ' . $ImageURL . '\">\r\n                            <div class=\"carousel-caption d-none d-md-block\">\r\n                                <h3 class=\"display-4\">' . $car[\"Brand\"] . ' - ' . $car[\"Model\"] . '</h3>\r\n                                <p class=\"lead\">Beautiful and well taken care of 1963 Falcon. Turns heads everywhere you go</p>\r\n                            </div>\r\n                        </div>\r\n                    ';\r\n                }\r\n                $rows--;\r\n            } while ($rows > 0);\r\n\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_GetVIPOffers() {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.offers\");\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Display Selected Offers\">\r\nfunction DisplayOffer($ID_Offer) {\r\n    try {\r\n        $offer_result = SQL_GetOffer($ID_Offer);\r\n        if ($offer_result->num_rows > 0) {\r\n            $offer = $offer_result->fetch_assoc();\r\n\r\n            $car_result = SQL_GetCar($offer[\"ID_Car\"]);\r\n            if ($car_result->num_rows > 0) {\r\n                $car = $car_result->fetch_assoc();\r\n                return array($offer, $car);\r\n            }\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_GetOffer($ID_Offer) {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.offers WHERE ID_Offer = ?\");\r\n    $stmt->bind_param(\"i\", $ID_Offer);\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Display Partner Offers\">\r\nfunction DisplayPartnerOffers($ID_User) {\r\n    try {\r\n        $allOffers_result = SQL_GetPartnerOffers($ID_User);\r\n\r\n        if ($allOffers_result->num_rows > 0) {\r\n            $rows = $allOffers_result->num_rows;\r\n            do {\r\n                $offer = $allOffers_result->fetch_assoc();\r\n\r\n                $car_result = SQL_GetCar($offer[\"ID_Car\"]);\r\n                if ($car_result->num_rows > 0) {\r\n                    $car = $car_result->fetch_assoc();\r\n                    echo '\r\n                    <div class=\"card\">\r\n                        <div class=\"card-wrapper\">\r\n                            <div class=\"row align-items-center\">\r\n                                <div class=\"col-12 col-md-3\">\r\n                                    <div class=\"image-wrapper\">\r\n                                        <img src=\"Ressources/Uploads/' . $car[\"Image\"] . '\" alt=\"Car Image\" title=\"\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-12 col-md\">\r\n                                    <div class=\"card-box\">\r\n                                        <div class=\"row\">\r\n                                            <form method=\"post\">\r\n                                                <div class=\"col-12\">\r\n                                                    <div class=\"top-line\">\r\n                                                        <input type=\"text\" name=\"ID_Offer\" value=\"' . $offer[\"ID_Offer\"] . '\" hidden>\r\n                                                        <h4 class=\"card-title mbr-fonts-style display-5\"><strong>' . $car[\"Brand\"] . ' - ' . $car[\"Model\"] . '</strong></h4>\r\n                                                        <p class=\"cost mbr-fonts-style display-5\">' . $car[\"Price\"] . ' DH/Hour</p>\r\n                                                    </div>\r\n                                                </div>\r\n                                                <div class=\"col-12\">\r\n                                                    <div class=\"bottom-line\">\r\n                                                        <p class=\"mbr-text mbr-fonts-style m-0 display-7\">' . $offer[\"Description\"] . '</p>\r\n                                                    </div>\r\n                                                </div>\r\n                                                <br>\r\n                                                <input type=\"submit\" name=\"submit_MoreInfo\" value=\"More Info\">';\r\n                            if ($offer[\"Availability\"] == 'unavailable') echo '<input type=\"submit\" name=\"submit_TerminateContract\" value=\"Terminate this contract\">';\r\n                    echo '</form>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>';\r\n                }\r\n                $rows--;\r\n            } while ($rows > 0);\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_GetPartnerOffers($ID_User) {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.offers WHERE ID_User = ?\");\r\n    $stmt->bind_param(\"i\", $ID_User);\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\nfunction SQL_GetCar($ID_Car) {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.cars WHERE ID_Car = ?\");\r\n    $stmt->bind_param(\"i\", $ID_Car);\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Display Client Current Offer\">\r\nfunction DisplayClientCurrentOffers($ID_User) {\r\n    try {\r\n        $requests_result = SQL_GetClientCurrentRequests($ID_User);\r\n        if ($requests_result->num_rows > 0) {\r\n            $rows = $requests_result->num_rows;\r\n            do {\r\n                $request = $requests_result->fetch_assoc();\r\n\r\n                $offer_result = SQL_GetOffer($request[\"ID_Offer\"]);\r\n                if ($offer_result->num_rows > 0) {\r\n                    $offer = $offer_result->fetch_assoc();\r\n\r\n                    $car_result = SQL_GetCar($offer[\"ID_Car\"]);\r\n                    if ($car_result->num_rows > 0) {\r\n                        $car = $car_result->fetch_assoc();\r\n                        echo '<div class=\"card\"><div class=\"card-wrapper\"><div class=\"row align-items-center\"><div class=\"col-12 col-md-3\">\r\n                            <div class=\"image-wrapper\">\r\n                            <img src=\"Ressources/Uploads/' . $car[\"Image\"] . '\" alt=\"Car Image\" title=\"\">\r\n                            </div></div><div class=\"col-12 col-md\"><div class=\"card-box\"><div class=\"row\"><form method=\"post\"><div class=\"col-12\"><div class=\"top-line\">\r\n                            <input type=\"text\" name=\"ID_Offer\" value=\"' . $offer[\"ID_Offer\"] . '\" >\r\n                            <h4 class=\"card-title mbr-fonts-style display-5\"><strong>' . $car[\"Brand\"] . ' - ' . $car[\"Model\"] . '</strong></h4>\r\n                            <p class=\"cost mbr-fonts-style display-5\">' . $car[\"Price\"] . ' DH/Hour</p></div></div><div class=\"col-12\"><div class=\"bottom-line\">\r\n                            <p class=\"mbr-text mbr-fonts-style m-0 display-7\">' . $offer[\"Description\"] . '</p></div></div><br>\r\n                            <input type=\"submit\" name=\"submit_MoreInfo\" value=\"More Info\">';\r\n                        if ($offer[\"Availability\"] == 'unavailable' AND $request[\"Status\"] == 'InUse') echo '<input type=\"submit\" name=\"submit_TerminateContract\" value=\"Terminate this contract\">';\r\n                        echo '<label>Status: <strong>' . SQL_GetRequestStatus($offer[\"ID_Offer\"])[\"Status\"] . ' </strong></label></form></div></div></div></div>';\r\n                    }\r\n                }\r\n                $rows--;\r\n            } while ($rows > 0);\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_GetClientCurrentRequests($ID_User) {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT * FROM neirautorental.requests r JOIN neirautorental.offers o on o.ID_Offer = r.ID_Offer  WHERE r.ID_User = ?\");\r\n    $stmt->bind_param(\"i\", $ID_User);\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\nfunction SQL_GetRequestStatus($ID_Offer) {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT Status FROM neirautorental.requests WHERE ID_Offer = ?\");\r\n    $stmt->bind_param(\"i\", $ID_Offer);\r\n    $stmt->execute();\r\n    return $stmt->get_result()->fetch_assoc();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Update Offer\">\r\nfunction UpdateOffer() {\r\n    try {\r\n        $ID_Car = SQL_GetCarID($_POST[\"ID_Offer\"]);\r\n        SQL_UpdateCar($ID_Car);\r\n        SQL_UpdateOffer();\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_UpdateOffer() {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"UPDATE neirautorental.offers SET Availability = ?, Date_Start = ?, Date_End = ?, Hour_Start = ?,\r\n                                                    Hour_End = ? WHERE ID_User = ?\");\r\n    $stmt->bind_param(\"siiiii\", $_POST[\"Availability\"], $_POST[\"Date_Start\"], $_POST[\"Date_End\"], $_POST[\"Hour_Start\"],\r\n        $_POST[\"Hour_End\"], $_POST[\"ID_User\"]);\r\n    $stmt->execute();\r\n}\r\n\r\nfunction SQL_GetCarID($ID_Car) {\r\n    $stmt = $GLOBALS[\"Connection\"]->prepare(\"SELECT ID_CAR FROM neirautorental.offers WHERE ID_Offer = ?\");\r\n    $stmt->bind_param(\"i\", $ID_Car);\r\n    $stmt->execute();\r\n    $stmt_result = $stmt->get_result();\r\n    return $stmt_result->fetch_assoc()[\"ID_Car\"];\r\n}\r\n\r\nfunction SQL_UpdateCar($ID_Car) {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"UPDATE neirautorental.cars SET Brand = ?, Model = ?, Price = ?, Mileage = ?,\r\n                                        Color = ?, Category = ?  WHERE ID_Car = ?\");\r\n    $stmt->bind_param(\"siii\", $_POST[\"Brand\"], $_POST[\"Model\"], $_POST[\"Price\"],\r\n        $_POST[\"Mileage\"], $_POST[\"Color\"], $_POST[\"Category\"], $ID_Car);\r\n    $stmt->execute();\r\n}\r\n\r\n//</editor-fold>\r\n\r\n//<editor-fold desc=\"Display Search By Brand\">\r\nfunction GetAllCarBrands() {\r\n    try {\r\n        $allBrands_result = SQL_GetAllCarBrands();\r\n\r\n        if ($allBrands_result->num_rows > 0) {\r\n            $rows = $allBrands_result->num_rows;\r\n            $Brands = array();\r\n            do {\r\n                $brand = $allBrands_result->fetch_assoc()[\"Brand\"];\r\n                array_push($Brands, $brand);\r\n                $rows--;\r\n            } while ($rows > 0);\r\n            return array_unique($Brands);\r\n        }\r\n    } catch (Exception $e) {\r\n        echo $e;\r\n    }\r\n    return null;\r\n}\r\n\r\nfunction SQL_GetAllCarBrands() {\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"SELECT Brand FROM neirautorental.cars\");\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n//</editor-fold>\r\n\r\nfunction TerminateContract($UserType, $ID_Offer){\r\n    try {\r\n        SQL_TerminateContract($UserType, $ID_Offer);\r\n    } catch (Exception $e){\r\n        echo $e;\r\n    }\r\n}\r\n\r\nfunction SQL_TerminateContract($UserType, $ID_Offer) {\r\n    if ($UserType == \"partner\") $columnName = 'Terminated_Partner';\r\n    if ($UserType == \"client\") $columnName = 'Terminated_Client';\r\n\r\n    $stmt = $GLOBALS[\"Connection\"]\r\n        ->prepare(\"UPDATE neirautorental.offers SET \".$columnName.\" = 1 WHERE ID_Offer = \". $ID_Offer);\r\n    $stmt->execute();\r\n    return $stmt->get_result();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Scripts/S_OfferManager.php b/NeirAutoRental/Scripts/S_OfferManager.php
+--- a/NeirAutoRental/Scripts/S_OfferManager.php	
++++ b/NeirAutoRental/Scripts/S_OfferManager.php	
+@@ -225,10 +225,13 @@
+                                                         <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p>
+                                                     </div>
+                                                 </div>
+-                                                <br>
+-                                                <input type="submit" name="submit_MoreInfo" value="More Info">';
++                                                <br>';
+                             if ($offer["Availability"] == 'unavailable') echo '<input type="submit" name="submit_TerminateContract" value="Terminate this contract">';
+                     echo '</form>
++                            <form action="Partner_OfferInfo.php" method="post">
++                                <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
++                                <input type="submit" name="submit_MoreInfo" value="More Info">
++                            </form>
+                         </div>
+                     </div>
+                 </div>
+@@ -282,13 +285,16 @@
+                             <div class="image-wrapper">
+                             <img src="Ressources/Uploads/' . $car["Image"] . '" alt="Car Image" title="">
+                             </div></div><div class="col-12 col-md"><div class="card-box"><div class="row"><form method="post"><div class="col-12"><div class="top-line">
+-                            <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" >
++                            <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
+                             <h4 class="card-title mbr-fonts-style display-5"><strong>' . $car["Brand"] . ' - ' . $car["Model"] . '</strong></h4>
+                             <p class="cost mbr-fonts-style display-5">' . $car["Price"] . ' DH/Hour</p></div></div><div class="col-12"><div class="bottom-line">
+-                            <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p></div></div><br>
+-                            <input type="submit" name="submit_MoreInfo" value="More Info">';
++                            <p class="mbr-text mbr-fonts-style m-0 display-7">' . $offer["Description"] . '</p></div></div><br>';
+                         if ($offer["Availability"] == 'unavailable' AND $request["Status"] == 'InUse') echo '<input type="submit" name="submit_TerminateContract" value="Terminate this contract">';
+-                        echo '<label>Status: <strong>' . SQL_GetRequestStatus($offer["ID_Offer"])["Status"] . ' </strong></label></form></div></div></div></div>';
++                        echo '<label>Status: <strong>' . SQL_GetRequestStatus($offer["ID_Offer"])["Status"] . ' </strong></label></form>
++                              <form action="Partner_OfferInfo.php" method="post">
++                                <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
++                                <input type="submit" name="submit_MoreInfo" value="More Info">
++                            </form></div></div></div></div>';
+                     }
+                 }
+                 $rows--;
+@@ -387,6 +393,10 @@
+ function TerminateContract($UserType, $ID_Offer){
+     try {
+         SQL_TerminateContract($UserType, $ID_Offer);
++        list($Terminated_Partner, $Terminated_Client) = CheckContractStatus($ID_Offer);
++        if ($Terminated_Partner == 1 AND $Terminated_Client == 1){
++            echo "Contract Officially Terminated !";
++        }
+     } catch (Exception $e){
+         echo $e;
+     }
+@@ -397,7 +407,27 @@
+     if ($UserType == "client") $columnName = 'Terminated_Client';
+ 
+     $stmt = $GLOBALS["Connection"]
+-        ->prepare("UPDATE neirautorental.offers SET ".$columnName." = 1 WHERE ID_Offer = ". $ID_Offer);
++        ->prepare("UPDATE neirautorental.offers SET ". $columnName. " = 1 WHERE ID_Offer = ". $ID_Offer);
+     $stmt->execute();
+     return $stmt->get_result();
+ }
++
++function CheckContractStatus($ID_Offer){
++    try {
++        $offerStatus = SQL_ContractStatus($ID_Offer);
++        if ($offerStatus->num_rows > 0) {
++            $offer = $offerStatus->fetch_assoc();
++            return array($offer["Terminated_Partner"], $offer["Terminated_Client"]);
++        }
++    } catch (Exception $e){
++        echo $e;
++    }
++    return array(0, 0);
++}
++
++function SQL_ContractStatus($ID_Offer){
++    $stmt = $GLOBALS["Connection"]
++        ->prepare("SELECT Terminated_Partner, Terminated_Client FROM neirautorental.offers WHERE ID_Offer = ". $ID_Offer);
++    $stmt->execute();
++    return $stmt->get_result();
++}
+\ No newline at end of file
+Index: NeirAutoRental/Partner_OfferList.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php require \"Scripts/S_OfferManager.php\";\r\n\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\nif (!isset($_SESSION[\"ID_User\"]) || !isset($_SESSION[\"UserType\"])) {\r\n    header(\"refresh:1;url=Home.php\");\r\n    echo \"You have to Login to see this page ! Redirecting to the Home page in a Sec ..\";\r\n} else {\r\n    $UserType = $_SESSION[\"UserType\"];\r\n    $ID_User = $_SESSION[\"ID_User\"];\r\n    if ($UserType != \"partner\") {\r\n        header(\"refresh:1;url=Home.php\");\r\n        echo \"You have to Login to see this page ! Redirecting to the Home page in a Sec ..\";\r\n    } else {\r\n\r\n        ?>\r\n        <!DOCTYPE html>\r\n        <html>\r\n        <head>\r\n            <!-- Site made with Mobirise Website Builder v5.3.5, https://mobirise.com -->\r\n            <meta charset=\"UTF-8\">\r\n            <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1\">\r\n            <meta name=\"description\" content=\"\">\r\n\r\n\r\n            <title>Offers list</title>\r\n            <link rel=\"stylesheet\" href=\"assets/tether/tether.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap-grid.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap-reboot.min.css\">\r\n            <link rel=\"stylesheet\" href=\"assets/theme/css/style.css\">\r\n            <link rel=\"preload\"\r\n                  href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\"\r\n                  as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\">\r\n            <noscript>\r\n                <link rel=\"stylesheet\"\r\n                      href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\">\r\n            </noscript>\r\n\r\n\r\n        </head>\r\n        <body>\r\n        <section style=\"background-color:#e0cfc0;\" class=\"features10 cid-sz72N5KVZr\" id=\"features11-1\">\r\n            <?php\r\n            include_once \"nav_Connected.php\";\r\n            if (isset($_POST[\"submit_MoreInfo\"])) header(\"Location: Partner_OfferInfo.php\");\r\n            if (isset($_POST[\"submit_TerminateContract\"])) TerminateContract($UserType, $_POST[\"ID_Offer\"]);\r\n            ?>\r\n\r\n            <div class=\"container\">\r\n                <div class=\"title\">\r\n                    <h3 class=\"mbr-section-title mbr-fonts-style mb-4 display-2\"><strong>Posted offers </strong></h3>\r\n                </div>\r\n                <?php DisplayPartnerOffers($ID_User) ?>\r\n\r\n            </div>\r\n        </section>\r\n        <section\r\n                style=\"background-color: #e0cfc0;section:#e0cfc0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;\"></section>\r\n        <script src=\"assets/web/assets/jquery/jquery.min.js\"></script>\r\n        <script src=\"assets/popper/popper.min.js\"></script>\r\n        <script src=\"assets/tether/tether.min.js\"></script>\r\n        <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\r\n        <script src=\"assets/smoothscroll/smooth-scroll.js\"></script>\r\n        <script src=\"assets/theme/js/script.js\"></script>\r\n\r\n\r\n        </body>\r\n        </html>\r\n    <?php }\r\n} ?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Partner_OfferList.php b/NeirAutoRental/Partner_OfferList.php
+--- a/NeirAutoRental/Partner_OfferList.php	
++++ b/NeirAutoRental/Partner_OfferList.php	
+@@ -10,6 +10,11 @@
+ } else {
+     $UserType = $_SESSION["UserType"];
+     $ID_User = $_SESSION["ID_User"];
++
++    if (isset($_POST["submit_TerminateContract"])) {
++        TerminateContract($UserType, $_POST["ID_Offer"]);
++    }
++
+     if ($UserType != "partner") {
+         header("refresh:1;url=Home.php");
+         echo "You have to Login to see this page ! Redirecting to the Home page in a Sec ..";
+@@ -40,14 +45,12 @@
+                       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap">
+             </noscript>
+ 
+-
+         </head>
+         <body>
+         <section style="background-color:#e0cfc0;" class="features10 cid-sz72N5KVZr" id="features11-1">
+             <?php
+             include_once "nav_Connected.php";
+-            if (isset($_POST["submit_MoreInfo"])) header("Location: Partner_OfferInfo.php");
+-            if (isset($_POST["submit_TerminateContract"])) TerminateContract($UserType, $_POST["ID_Offer"]);
++
+             ?>
+ 
+             <div class="container">
+Index: NeirAutoRental/JS/ajaxTest.js
+===================================================================
+diff --git a/NeirAutoRental/JS/ajaxTest.js b/NeirAutoRental/JS/ajaxTest.js
+new file mode 100644
+--- /dev/null	
++++ b/NeirAutoRental/JS/ajaxTest.js	
+@@ -0,0 +1,27 @@
++var counter1 = 0;
++var counter2 = 0;
++setInterval(function () {
++    const objectXHR = new XMLHttpRequest();
++
++    objectXHR.onreadystatechange = function () {
++        if (this.readyState === 4 && this.status === 200) {
++            document.getElementById("result2").innerHTML = "N°" + counter1++ + ": " + objectXHR.responseText;
++        }
++    };
++    objectXHR.open("get", "Message.txt", true);
++    objectXHR.send(null);
++}, 5000)
++
++
++
++function RecupText() {
++    const objectXHR = new XMLHttpRequest();
++
++    objectXHR.onreadystatechange = function () {
++        if (this.readyState === 4 && this.status === 200) {
++            document.getElementById("result").innerHTML = "N°" + counter2++ + ": " + objectXHR.responseText;
++        }
++    };
++    objectXHR.open("get", "RecentSignatures.php", true);
++    objectXHR.send(null);
++}
+\ No newline at end of file
+Index: NeirAutoRental/Database/neirautorental_cars.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>create table cars\r\n(\r\n    ID_Car   int auto_increment\r\n        primary key,\r\n    Brand    varchar(50)                                not null,\r\n    Model    varchar(50)                                null,\r\n    Price    float                                      not null,\r\n    Fuel     enum ('Diesel', 'Gasoline', 'Electricity') null,\r\n    Mileage  int         default 0                      null,\r\n    Color    varchar(50)                                null,\r\n    Category varchar(50) default 'car'                  not null,\r\n    Image    longtext                                   null\r\n)\r\n    engine = InnoDB\r\n    charset = utf8mb4;\r\n\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (1, 'Audi', 'E_Tron', 300, 'Electricity', 0, 'Blue', 'FamilyCar', 'Audi e-tron.jpg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (2, 'Chevrolet', 'Camaro SS', 599, 'Diesel', 0, 'Red', 'FamilyCar', 'Camaro SS .png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (3, 'Challenger', 'SRT-8', 500, 'Diesel', 0, 'Orange', 'FamilyCar', 'Challenger SRT-8.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (4, 'Corvette', 'Stingray Z51', 600, 'Diesel', 0, 'Black', 'FamilyCar', 'Corvette Stingray Z51.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (5, 'Hyundai', 'i20', 150, 'Diesel', 0, 'Red', 'FamilyCar', 'Hyundai i20.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (6, 'Hyundai', 'Kona Electric', 200, 'Diesel', 0, 'White', 'FamilyCar', 'Hyundai Kona Electric.jpg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (7, 'Hyundai', 'Venue', 200, 'Diesel', 0, 'Dark-Blue', 'FamilyCar', 'Hyundai Venue.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (8, 'Hyundai', 'Verna', 200, 'Diesel', 0, 'Dark-Blue', 'FamilyCar', 'Hyundai Verna.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (9, 'Hyundai', 'Creta', 200, 'Diesel', 0, 'Black', 'FamilyCar', 'Hyundai creta.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (10, 'Jaguar', 'I-Pace', 400, 'Electricity', 0, 'Silver', 'FamilyCar', 'Jaguar I-Pace.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (11, 'Mahindra', 'Thar', 300, 'Gasoline', 0, 'Red', 'FamilyCar', 'Mahindra Thar.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (12, 'Mahindra', 'XUV300', 300, 'Gasoline', 0, 'Red', 'FamilyCar', 'Mahindra XUV300.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (13, 'Mercedes-Benz', 'EQC', 300, 'Electricity', 0, 'Silver', 'FamilyCar', 'Mercedes-Benz EQC.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (14, 'MG', 'ZS EV', 150, 'Electricity', 0, 'Sky-Blue', 'FamilyCar', 'MG ZS EV.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (15, 'Mustang', 'GT', 599, 'Diesel', 0, 'Gray', 'FamilyCar', 'Mustang GT.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (16, 'Nissan', 'Magnite', 300, 'Diesel', 0, 'Red', 'FamilyCar', 'Nissan Magnite.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (17, 'Tata', 'Nexon', 150, 'Diesel', 0, 'Red', 'FamilyCar', 'Tata Nexon.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (18, 'Tata', 'Nexon EV', 150, 'Diesel', 0, 'Blue', 'FamilyCar', 'Tata Nexon EV.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (19, 'Tata', 'Safari', 250, 'Diesel', 0, 'Blue', 'FamilyCar', 'Tata Safari.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (20, 'Tesla', 'Model 3', 450, 'Electricity', 0, 'Red', 'FamilyCar', 'Tesla Model 3.jpg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (21, 'Toyota', 'Fortuner', 350, 'Electricity', 0, 'Red', 'FamilyCar', 'Toyota Fortuner.jpeg');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (22, 'Brand', null, 1, null, 0, null, 'Category', 'car3.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (23, 'Brand', null, 1, null, 0, null, 'Category', 'card2.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (24, 'Brand', null, 1, null, 0, null, 'Category', 'card2.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (25, 'Brand', null, 1, null, 0, null, 'Category', 'card2.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (26, 'Brand', null, 1, null, 0, null, 'Category', 'car3.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (31, 'Brand', null, 1, null, 0, null, 'Category', 'car3.png');\r\nINSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (32, 'Brand', null, 1, null, 0, null, 'Category', '2011-tesla-roadster.jpg');
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_cars.sql b/NeirAutoRental/Database/neirautorental_cars.sql
+--- a/NeirAutoRental/Database/neirautorental_cars.sql	
++++ b/NeirAutoRental/Database/neirautorental_cars.sql	
+@@ -1,44 +1,21 @@
+-create table cars
+-(
+-    ID_Car   int auto_increment
+-        primary key,
+-    Brand    varchar(50)                                not null,
+-    Model    varchar(50)                                null,
+-    Price    float                                      not null,
+-    Fuel     enum ('Diesel', 'Gasoline', 'Electricity') null,
+-    Mileage  int         default 0                      null,
+-    Color    varchar(50)                                null,
+-    Category varchar(50) default 'car'                  not null,
+-    Image    longtext                                   null
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (1, 'Audi', 'E_Tron', 300, 'Electricity', 0, 'Blue', 'FamilyCar', 'Audi e-tron.jpg');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (2, 'Chevrolet', 'Camaro SS', 599, 'Diesel', 0, 'Red', 'FamilyCar', 'Camaro SS .png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (3, 'Challenger', 'SRT-8', 500, 'Diesel', 0, 'Orange', 'FamilyCar', 'Challenger SRT-8.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (4, 'Corvette', 'Stingray Z51', 600, 'Diesel', 0, 'Black', 'FamilyCar', 'Corvette Stingray Z51.png');
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (2, 'Chevrolet', 'Camaro SS', 599, 'Diesel', 0, 'Red', 'SportsCar', 'Camaro SS .png');
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (3, 'Challenger', 'SRT-8', 500, 'Diesel', 0, 'Orange', 'SportsCar', 'Challenger SRT-8.png');
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (4, 'Corvette', 'Stingray Z51', 600, 'Diesel', 0, 'Black', 'SportsCar', 'Corvette Stingray Z51.png');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (5, 'Hyundai', 'i20', 150, 'Diesel', 0, 'Red', 'FamilyCar', 'Hyundai i20.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (6, 'Hyundai', 'Kona Electric', 200, 'Diesel', 0, 'White', 'FamilyCar', 'Hyundai Kona Electric.jpg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (7, 'Hyundai', 'Venue', 200, 'Diesel', 0, 'Dark-Blue', 'FamilyCar', 'Hyundai Venue.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (8, 'Hyundai', 'Verna', 200, 'Diesel', 0, 'Dark-Blue', 'FamilyCar', 'Hyundai Verna.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (9, 'Hyundai', 'Creta', 200, 'Diesel', 0, 'Black', 'FamilyCar', 'Hyundai creta.jpeg');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (10, 'Jaguar', 'I-Pace', 400, 'Electricity', 0, 'Silver', 'FamilyCar', 'Jaguar I-Pace.jpeg');
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (10, 'Jaguar', 'I-Pace', 400, 'Electricity', 0, 'Silver', 'SportsCar', 'Jaguar I-Pace.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (11, 'Mahindra', 'Thar', 300, 'Gasoline', 0, 'Red', 'FamilyCar', 'Mahindra Thar.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (12, 'Mahindra', 'XUV300', 300, 'Gasoline', 0, 'Red', 'FamilyCar', 'Mahindra XUV300.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (13, 'Mercedes-Benz', 'EQC', 300, 'Electricity', 0, 'Silver', 'FamilyCar', 'Mercedes-Benz EQC.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (14, 'MG', 'ZS EV', 150, 'Electricity', 0, 'Sky-Blue', 'FamilyCar', 'MG ZS EV.jpeg');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (15, 'Mustang', 'GT', 599, 'Diesel', 0, 'Gray', 'FamilyCar', 'Mustang GT.png');
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (15, 'Mustang', 'GT', 599, 'Diesel', 0, 'Gray', 'SportsCar', 'Mustang GT.png');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (16, 'Nissan', 'Magnite', 300, 'Diesel', 0, 'Red', 'FamilyCar', 'Nissan Magnite.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (17, 'Tata', 'Nexon', 150, 'Diesel', 0, 'Red', 'FamilyCar', 'Tata Nexon.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (18, 'Tata', 'Nexon EV', 150, 'Diesel', 0, 'Blue', 'FamilyCar', 'Tata Nexon EV.jpeg');
+ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (19, 'Tata', 'Safari', 250, 'Diesel', 0, 'Blue', 'FamilyCar', 'Tata Safari.jpeg');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (20, 'Tesla', 'Model 3', 450, 'Electricity', 0, 'Red', 'FamilyCar', 'Tesla Model 3.jpg');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (21, 'Toyota', 'Fortuner', 350, 'Electricity', 0, 'Red', 'FamilyCar', 'Toyota Fortuner.jpeg');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (22, 'Brand', null, 1, null, 0, null, 'Category', 'car3.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (23, 'Brand', null, 1, null, 0, null, 'Category', 'card2.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (24, 'Brand', null, 1, null, 0, null, 'Category', 'card2.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (25, 'Brand', null, 1, null, 0, null, 'Category', 'card2.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (26, 'Brand', null, 1, null, 0, null, 'Category', 'car3.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (31, 'Brand', null, 1, null, 0, null, 'Category', 'car3.png');
+-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (32, 'Brand', null, 1, null, 0, null, 'Category', '2011-tesla-roadster.jpg');
+\ No newline at end of file
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (20, 'Tesla', 'Model 3', 450, 'Electricity', 0, 'Red', 'SportsCar', 'Tesla Model 3.jpg');
++INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (21, 'Toyota', 'Fortuner', 350, 'Electricity', 0, 'Red', 'FamilyCar', 'Toyota Fortuner.jpeg');
+\ No newline at end of file
+Index: NeirAutoRental/Client_Profile.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php include_once 'Scripts/S_ProfileManager.php';\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\nif (!isset($_SESSION[\"ID_User\"]) || !isset($_SESSION[\"UserType\"])) {\r\n    header(\"refresh:1;url=Home.php\");\r\n    echo \"You have to Login to see this page ! Redirecting to the Home page in a Sec ..\";\r\n} else {\r\n    $UserType = $_SESSION[\"UserType\"];\r\n    $ID_User = $_SESSION[\"ID_User\"];\r\n    if ($UserType != \"client\") {\r\n        header(\"refresh:1;url=Home.php\");\r\n        echo \"You have to Login to see this page ! Redirecting to the Home page in a Sec ..\";\r\n    } else {\r\n        ?>\r\n        <!DOCTYPE html>\r\n        <html lang=\"en\">\r\n\r\n        <head>\r\n            <meta charset=\"UTF-8\">\r\n            <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n            <title>Client Profile</title>\r\n            <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\r\n\r\n        </head>\r\n\r\n        <body>\r\n        <?php\r\n        include_once \"nav_Connected.php\";\r\n\r\n        $Profile = GetProfile($_SESSION[\"ID_User\"]);\r\n        ?>\r\n        <div style=\"background-color:#e0cfc0;\" class=\"container\">\r\n            <div class=\"main-body\">\r\n                <div class=\"row gutters-sm\">\r\n                    <div class=\"col-md-4 mb-3\">\r\n                        <div class=\"card\">\r\n                            <div class=\"card-body\">\r\n                                <div class=\"d-flex flex-column align-items-center text-center\">\r\n                                    <img src=\"Ressources/Uploads/<?php echo $Profile[\"Image\"] ?>\"\r\n                                         alt=\"Admin\"\r\n                                         class=\"rounded-circle\" width=\"150\">\r\n\r\n                                    <form action=\"Partner_OfferList.php\" method=\"post\" class=\"mt-3\">\r\n                                        <h4><?php echo $Profile[\"FirstName\"] . ' ' . $Profile[\"LastName\"] ?></h4>\r\n                                        <p class=\"text-secondary mb-1\"> <?php echo $Profile[\"UserType\"] ?></p>\r\n                                        <p class=\"text-secondary mb-1\"> <?php echo $Profile[\"City\"] ?></p>\r\n                                        <br>\r\n                                        <input type=\"text\" class=\"btn btn-outline-primary\" name=\"ID_User\"\r\n                                               value=\"<?php echo $Profile[\"ID_User\"] ?>\" hidden>\r\n                                        <input type=\"submit\" class=\"btn btn-outline-primary\" name=\"submit\"\r\n                                               value=\"Posted offers\">\r\n                                    </form>\r\n\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-8\">\r\n                        <div class=\"card mb-3\">\r\n                            <div class=\"card-body\">\r\n\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">Last Name :</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"FirstName\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">First Name :</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"LastName\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">Email :</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"Email\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">CIN :</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"CIN\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">Mobile :</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"Phone\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">City :</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"City\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-3\">\r\n                                        <h6 class=\"mb-0\">Address</h6>\r\n                                    </div>\r\n                                    <div class=\"col-sm-9 text-secondary\">\r\n                                        <?php echo $Profile[\"Address\"] ?>\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-12\">\r\n                                        <form action=\"Client_ProfileEdit.php\">\r\n                                            <input type=\"text\" name=\"ID_User\" value=\"<?php echo $Profile[\"ID_User\"] ?>\"\r\n                                                   hidden>\r\n                                            <input class=\"btn btn-info \" type=\"submit\" name=\"submit\" value=\"Edit\">\r\n                                        </form>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n        </body>\r\n\r\n        </html>\r\n        <?php\r\n    }\r\n}\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Client_Profile.php b/NeirAutoRental/Client_Profile.php
+--- a/NeirAutoRental/Client_Profile.php	
++++ b/NeirAutoRental/Client_Profile.php	
+@@ -43,7 +43,7 @@
+                                          alt="Admin"
+                                          class="rounded-circle" width="150">
+ 
+-                                    <form action="Partner_OfferList.php" method="post" class="mt-3">
++                                    <form action="Client_CurrentOffer.php" method="post" class="mt-3">
+                                         <h4><?php echo $Profile["FirstName"] . ' ' . $Profile["LastName"] ?></h4>
+                                         <p class="text-secondary mb-1"> <?php echo $Profile["UserType"] ?></p>
+                                         <p class="text-secondary mb-1"> <?php echo $Profile["City"] ?></p>
+Index: NeirAutoRental/nav_Connected.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\ninclude_once \"Scripts/S_ProfileManager.php\";\r\n$ID_User = $_SESSION[\"ID_User\"];\r\n?>\r\n    <!DOCTYPE html>\r\n    <html>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Homepage</title>\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Bitter:400,700\">\r\n    <link rel=\"stylesheet\" href=\"CSS/nav.css\">\r\n\r\n</head>\r\n\r\n<body>\r\n<div class=\"container-fluid\">\r\n    <div class=\"header-dark\">\r\n        <nav class=\"navbar navbar-dark navbar-expand-md navigation-clean-search\">\r\n            <div class=\"container\"><a class=\"navbar-brand\" href=\"<?php GetHomePage() ?>\">RentalX</a>\r\n                <button class=\"navbar-toggler\" data-toggle=\"collapse\" data-target=\"#navcol-1\"><span class=\"sr-only\">Toggle navigation</span><span\r\n                            class=\"navbar-toggler-icon\"></span></button>\r\n                <div class=\"collapse navbar-collapse\" id=\"navcol-1\">\r\n                    <ul class=\"nav navbar-nav\">\r\n                        <li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link\" href=\"#\">About</a></li>\r\n                        <li class=\"dropdown\">\r\n                            <a class=\"dropdown-toggle nav-link dropdown-toggle\" data-toggle=\"dropdown\"\r\n                               aria-expanded=\"false\" href=\"#\">Categories </a>\r\n                            <div class=\"dropdown-menu\" role=\"menu\">\r\n                                <a class=\"dropdown-item\" role=\"presentation\" href=\"#\">First Item</a>\r\n                                <a class=\"dropdown-item\" role=\"presentation\" href=\"#\">Second Item</a>\r\n                                <a class=\"dropdown-item\" role=\"presentation\" href=\"#\">Third Item</a>\r\n                            </div>\r\n                        </li>\r\n                    </ul>\r\n                    <form class=\"form-inline mr-auto\" target=\"_self\">\r\n                        <div class=\"form-group\"><label for=\"search-field\"><i class=\"fa fa-search\"></i></label>\r\n                            <input class=\"form-control search-field\" type=\"search\" name=\"search\" id=\"search-field\">\r\n                        </div>\r\n                    </form>\r\n                    <form action=\"<?php GetProfilePage() ?>\" method=\"post\">\r\n                        <input type=\"text\" name=\"ID_User\" value=\"<?php echo $ID_User ?>\" hidden>\r\n                        <input type=\"submit\" class=\"pdp img-circle\" value=\"\" name=\"submit\"\r\n                               style=\"background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');\">\r\n                    </form>\r\n                    <form action=\"Scripts/S_Logout.php\" method=\"post\">\r\n                        <input type=\"submit\" name=\"submit\" value=\"Logout\">\r\n                    </form>\r\n                </div>\r\n        </nav>\r\n\r\n    </div>\r\n</div>\r\n'\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js\"></script>\r\n</body>\r\n\r\n    </html><?php\r\n\r\nfunction GetHomePage() {\r\n    if ($_SESSION[\"UserType\"] == \"partner\") echo 'Partner_Index.php';\r\n    else if ($_SESSION[\"UserType\"] == \"client\") echo 'Client_Index.php';\r\n}\r\n\r\nfunction GetProfilePage() {\r\n    if ($_SESSION[\"UserType\"] == \"partner\") echo 'Partner_Profile.php';\r\n    else if ($_SESSION[\"UserType\"] == \"client\") echo 'Client_Profile.php';\r\n}\r\n\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/nav_Connected.php b/NeirAutoRental/nav_Connected.php
+--- a/NeirAutoRental/nav_Connected.php	
++++ b/NeirAutoRental/nav_Connected.php	
+@@ -9,61 +9,64 @@
+     <!DOCTYPE html>
+     <html>
+ 
+-<head>
+-    <meta charset="utf-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Homepage</title>
+-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+-    <link rel="stylesheet" href="CSS/nav.css">
++    <head>
++        <meta charset="utf-8">
++        <meta name="viewport" content="width=device-width, initial-scale=1.0">
++        <title>Homepage</title>
++        <link rel="stylesheet"
++              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
++        <link rel="stylesheet"
++              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
++        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
++        <link rel="stylesheet" href="CSS/nav.css">
+ 
+-</head>
++    </head>
+ 
+-<body>
+-<div class="container-fluid">
+-    <div class="header-dark">
+-        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+-            <div class="container"><a class="navbar-brand" href="<?php GetHomePage() ?>">RentalX</a>
+-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+-                            class="navbar-toggler-icon"></span></button>
+-                <div class="collapse navbar-collapse" id="navcol-1">
+-                    <ul class="nav navbar-nav">
+-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+-                        <li class="dropdown">
+-                            <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
+-                               aria-expanded="false" href="#">Categories </a>
+-                            <div class="dropdown-menu" role="menu">
+-                                <a class="dropdown-item" role="presentation" href="#">First Item</a>
+-                                <a class="dropdown-item" role="presentation" href="#">Second Item</a>
+-                                <a class="dropdown-item" role="presentation" href="#">Third Item</a>
+-                            </div>
+-                        </li>
+-                    </ul>
+-                    <form class="form-inline mr-auto" target="_self">
+-                        <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label>
+-                            <input class="form-control search-field" type="search" name="search" id="search-field">
+-                        </div>
+-                    </form>
+-                    <form action="<?php GetProfilePage() ?>" method="post">
+-                        <input type="text" name="ID_User" value="<?php echo $ID_User ?>" hidden>
+-                        <input type="submit" class="pdp img-circle" value="" name="submit"
+-                               style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
+-                    </form>
+-                    <form action="Scripts/S_Logout.php" method="post">
+-                        <input type="submit" name="submit" value="Logout">
+-                    </form>
+-                </div>
+-        </nav>
++    <body>
++    <div class="container-fluid">
++        <div class="header-dark">
++            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
++                <div class="container"><a class="navbar-brand" href="<?php GetHomePage() ?>">RentalX</a>
++                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
++                                class="navbar-toggler-icon"></span></button>
++                    <div class="collapse navbar-collapse" id="navcol-1">
++                        <ul class="nav navbar-nav">
++                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
++                            <li class="dropdown">
++                                <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
++                                   aria-expanded="false" href="#">Categories </a>
++                                <div class="dropdown-menu" role="menu">
++                                    <a class="dropdown-item" role="presentation" href="#">First Item</a>
++                                    <a class="dropdown-item" role="presentation" href="#">Second Item</a>
++                                    <a class="dropdown-item" role="presentation" href="#">Third Item</a>
++                                </div>
++                            </li>
++                        </ul>
++                        <form class="form-inline mr-auto" target="_self">
++                            <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label>
++                                <input class="form-control search-field" type="search" name="search" id="search-field">
++                            </div>
++                        </form>
++                        <form action="<?php GetProfilePage() ?>" method="post">
++                            <input type="text" name="ID_User" value="<?php echo $ID_User ?>" hidden>
++                            <input type="submit" class="pdp img-circle" value="" name="submit"
++                                   style="background-image: url('Ressources/Uploads/<?php echo GetProfileImage($ID_User) ?>');">
++                        </form>
++                        <form action="Scripts/S_Logout.php" method="post">
++                            <input type="submit" name="submit" value="Logout">
++                        </form>
++                    </div>
++            </nav>
+ 
+-    </div>
+-</div>
+-'
+-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+-</body>
++        </div>
++    </div>
++    '
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
++    </body>
+ 
+-    </html><?php
++    </html>
++<?php
+ 
+ function GetHomePage() {
+     if ($_SESSION["UserType"] == "partner") echo 'Partner_Index.php';
+@@ -74,5 +77,3 @@
+     if ($_SESSION["UserType"] == "partner") echo 'Partner_Profile.php';
+     else if ($_SESSION["UserType"] == "client") echo 'Client_Profile.php';
+ }
+-
+-?>
+\ No newline at end of file
+Index: NeirAutoRental/Database/neirautorental_offers.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>create table offers\r\n(\r\n    ID_Offer     int auto_increment\r\n        primary key,\r\n    ID_User      int                                                         not null,\r\n    ID_Car       int                                                         null,\r\n    Availability enum ('available', 'unavailable')       default 'available' not null,\r\n    City         varchar(100)                                                null,\r\n    Date_Start   date                                                        not null,\r\n    Date_End     date                                                        not null,\r\n    Hour_Start   time                                                        not null,\r\n    Hour_End     time                                                        not null,\r\n    Description  longtext                                                    null,\r\n    isVIP        enum ('noVIP', '1WeekVIP', '2WeeksVIP') default 'noVIP'     not null,\r\n    constraint offers_cars_ID_Car_fk\r\n        foreign key (ID_Car) references cars (ID_Car),\r\n    constraint offers_ibfk_2\r\n        foreign key (ID_User) references users (ID_User)\r\n)\r\n    engine = InnoDB\r\n    charset = utf8mb4;\r\n\r\ncreate index ID_User\r\n    on offers (ID_User);\r\n\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (1, 1, 1, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (10, 3, 3, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (11, 1, 4, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (12, 4, 5, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (13, 2, 6, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (14, 2, 7, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (15, 3, 8, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (16, 1, 9, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (17, 1, 10, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (18, 1, 24, 'available', 'TANGER', '2021-06-09', '2021-06-23', '13:16:00', '14:16:00', ' ', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (19, 1, 25, 'available', 'TANGER', '2021-06-09', '2021-06-23', '13:16:00', '14:16:00', ' ', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (20, 1, 26, 'available', 'TETOUAN', '2021-06-02', '2021-06-02', '14:20:00', '14:20:00', ' ', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (25, 1, 31, 'available', 'TETOUAN', '2021-06-02', '2021-06-02', '14:20:00', '14:20:00', ' ', 'noVIP');\r\nINSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (26, 1, 32, 'available', 'TANGER', '2021-06-16', '2021-06-20', '14:23:00', '14:26:00', ' ', 'noVIP');
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_offers.sql b/NeirAutoRental/Database/neirautorental_offers.sql
+--- a/NeirAutoRental/Database/neirautorental_offers.sql	
++++ b/NeirAutoRental/Database/neirautorental_offers.sql	
+@@ -1,39 +1,21 @@
+-create table offers
+-(
+-    ID_Offer     int auto_increment
+-        primary key,
+-    ID_User      int                                                         not null,
+-    ID_Car       int                                                         null,
+-    Availability enum ('available', 'unavailable')       default 'available' not null,
+-    City         varchar(100)                                                null,
+-    Date_Start   date                                                        not null,
+-    Date_End     date                                                        not null,
+-    Hour_Start   time                                                        not null,
+-    Hour_End     time                                                        not null,
+-    Description  longtext                                                    null,
+-    isVIP        enum ('noVIP', '1WeekVIP', '2WeeksVIP') default 'noVIP'     not null,
+-    constraint offers_cars_ID_Car_fk
+-        foreign key (ID_Car) references cars (ID_Car),
+-    constraint offers_ibfk_2
+-        foreign key (ID_User) references users (ID_User)
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+-create index ID_User
+-    on offers (ID_User);
+-
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (1, 1, 1, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (10, 3, 3, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (11, 1, 4, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (12, 4, 5, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (13, 2, 6, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (14, 2, 7, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (15, 3, 8, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (16, 1, 9, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (17, 1, 10, 'available', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (18, 1, 24, 'available', 'TANGER', '2021-06-09', '2021-06-23', '13:16:00', '14:16:00', ' ', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (19, 1, 25, 'available', 'TANGER', '2021-06-09', '2021-06-23', '13:16:00', '14:16:00', ' ', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (20, 1, 26, 'available', 'TETOUAN', '2021-06-02', '2021-06-02', '14:20:00', '14:20:00', ' ', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (25, 1, 31, 'available', 'TETOUAN', '2021-06-02', '2021-06-02', '14:20:00', '14:20:00', ' ', 'noVIP');
+-INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, City, Date_Start, Date_End, Hour_Start, Hour_End, Description, isVIP) VALUES (26, 1, 32, 'available', 'TANGER', '2021-06-16', '2021-06-20', '14:23:00', '14:26:00', ' ', 'noVIP');
+\ No newline at end of file
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (1, 1, 1, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (10, 1, 3, 'unavailable', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 1, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (11, 1, 4, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (12, 1, 5, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (13, 1, 6, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (14, 1, 7, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (15, 1, 8, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (16, 1, 9, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (17, 1, 10, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (27, 1, 11, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (28, 3, 12, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (29, 3, 13, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (30, 3, 14, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (31, 3, 15, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (32, 3, 16, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (33, 3, 17, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (34, 3, 18, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (35, 3, 19, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (36, 3, 20, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (37, 3, 21, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
++INSERT INTO neirautorental.offers (ID_Offer, ID_User, ID_Car, Availability, isVIP, City, Date_Start, Date_End, Hour_Start, Hour_End, Terminated_Client, Terminated_Partner, Description) VALUES (38, 3, 2, 'available', 'noVIP', null, '2021-05-18', '2021-05-15', '10:00:00', '23:00:00', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut eros quis urna mattis gravida sed vel tellus. Fusce vitae tincidunt justo, eu placerat sem. Sed fringilla orci sit amet blandit molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium, nibh non venenatis ultrices, neque velit pulvinar libero');
+\ No newline at end of file
+diff --git a/NeirAutoRental/Home.js b/NeirAutoRental/JS/Home.js
+rename from NeirAutoRental/Home.js
+rename to NeirAutoRental/JS/Home.js

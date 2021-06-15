@@ -1,0 +1,72 @@
+Index: NeirAutoRental/emailTest/client_comment_email.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\n$_SESSION[\"userEmail\"] = \"test\";\r\n?><!doctype html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>Contact Form</title>\r\n \r\n</head>\r\n<body>\r\n<form>\r\n      <button type=\"button\" onclick=\"send_client_Email()\" value=\"Send An Email\">Submit</button>\r\n    </form>\r\n    <script src=\"http://code.jquery.com/jquery-3.3.1.min.js\" integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\" crossorigin=\"anonymous\"></script>\r\n    <script type=\"text/javascript\">\r\n        function send_client_Email() {\r\n                $.ajax({\r\n                   url: 'send_client_Email.php',\r\n                   method: 'POST',\r\n                   dataType: 'json',\r\n                   data: {\r\n\r\n                   }, success: function (response) {\r\n                        if (response.status == \"success\")\r\n                            alert('Email Has Been Sent!');\r\n                        else {\r\n                            alert('Please Try Again!');\r\n                            console.log(response);\r\n                        }\r\n                   }\r\n                });\r\n            \r\n        }\r\n\r\n        function isNotEmpty(caller) {\r\n            if (caller.val() == \"\") {\r\n                caller.css('border', '1px solid red');\r\n                return false;\r\n            } else\r\n                caller.css('border', '');\r\n\r\n            return true;\r\n        }\r\n    </script>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</body>\r\n</html>
+===================================================================
+diff --git a/NeirAutoRental/emailTest/client_comment_email.php b/NeirAutoRental/emailTest/client_comment_email.php
+--- a/NeirAutoRental/emailTest/client_comment_email.php	
++++ b/NeirAutoRental/emailTest/client_comment_email.php	
+@@ -1,10 +1,4 @@
+-<?php
+-if (!isset($_SESSION)) {
+-    session_start();
+-}
+-
+-$_SESSION["userEmail"] = "test";
+-?><!doctype html>
++<!doctype html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+@@ -28,10 +22,10 @@
+                    data: {
+ 
+                    }, success: function (response) {
+-                        if (response.status == "success")
++                        if (response.status === "success")
+                             alert('Email Has Been Sent!');
+                         else {
+-                            alert('Please Try Again!');
++                            alert('Please Try Again! ' + response.status);
+                             console.log(response);
+                         }
+                    }
+@@ -40,7 +34,7 @@
+         }
+ 
+         function isNotEmpty(caller) {
+-            if (caller.val() == "") {
++            if (caller.val() === "") {
+                 caller.css('border', '1px solid red');
+                 return false;
+             } else
+Index: NeirAutoRental/emailTest/send_client_Email.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\necho \"hehe \" . $_SESSION[\"userEmail\"];\r\n\r\nuse PHPMailer\\PHPMailer\\PHPMailer;\r\n\r\n$name = \"Neirautorental\";\r\n$email = \"nia.16ma@gmail.com\"; //hada ghir bach kantesti\r\n$subject = \"Customer Service Evaluation\";\r\n$body = \"http://127.0.0.1:8080/niaProgs/projet%20web/ClientEvaluation_Form.php\";\r\n\r\nrequire_once \"PHPMailer/PHPMailer.php\";\r\nrequire_once \"PHPMailer/SMTP.php\";\r\nrequire_once \"PHPMailer/Exception.php\";\r\n\r\n$mail = new PHPMailer();\r\n\r\n//SMTP Settings\r\n$mail->isSMTP();\r\n$mail->Host = \"smtp.gmail.com\";\r\n$mail->SMTPAuth = true;\r\n$mail->Username = \"neirautorental@gmail.com\";\r\n$mail->Password = '987123AZWX';\r\n$mail->Port = 465;\r\n$mail->SMTPSecure = \"ssl\";\r\n\r\n//Email Settings\r\n$mail->isHTML(true);\r\n$mail->setFrom($email, $name);\r\n$mail->addAddress($email);\r\n$mail->Subject = (\"($subject)\");\r\n$mail->Body = $body;\r\n\r\nif ($mail->send()) {\r\n    $status = \"success\";\r\n    $response = \"Email is sent!\";\r\n} else {\r\n    $status = \"failed\";\r\n    $response = \"Something is wrong: <br><br>\" . $mail->ErrorInfo;\r\n}\r\n\r\nexit(json_encode(array(\"status\" => $status, \"response\" => $response)));\r\n\r\n?>\r\n
+===================================================================
+diff --git a/NeirAutoRental/emailTest/send_client_Email.php b/NeirAutoRental/emailTest/send_client_Email.php
+--- a/NeirAutoRental/emailTest/send_client_Email.php	
++++ b/NeirAutoRental/emailTest/send_client_Email.php	
+@@ -1,12 +1,6 @@
+ <?php
+ 
+-
+-if (!isset($_SESSION)) {
+-    session_start();
+-}
+-
+-echo "hehe " . $_SESSION["userEmail"];
+-
++header("Google.com");
+ use PHPMailer\PHPMailer\PHPMailer;
+ 
+ $name = "Neirautorental";
+@@ -14,6 +8,7 @@
+ $subject = "Customer Service Evaluation";
+ $body = "http://127.0.0.1:8080/niaProgs/projet%20web/ClientEvaluation_Form.php";
+ 
++
+ require_once "PHPMailer/PHPMailer.php";
+ require_once "PHPMailer/SMTP.php";
+ require_once "PHPMailer/Exception.php";

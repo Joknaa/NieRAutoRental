@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Client_CurrentOffer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
+    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="Added comments">
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_RequestsConfirmation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/css/Footer-Basic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/avatar1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/avatar2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/avatar3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/avatar4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/avatar5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/bg-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/car-rent-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/car-rent-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/car-rent-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/car-rent-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/car-rent-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/car-rent-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/carousel-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/carousel-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/gallery-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/gallery-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/gallery-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/gallery-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/avatars/gallery-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/car.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/img/sedan-car-front.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/assets3/js/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Client_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ProfileEdit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/24417-chocolat-au-lait-avec-amandes1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_RequestManager.php" afterDir="false" />
     </list>
+    <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +48,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Oknaa2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -73,8 +98,8 @@
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Scripts" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Scripts" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources" />
     </key>
@@ -85,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.nav_Connected.php" />
         <item itemvalue="PHP Script.nav_Connected.php" />
       </list>
     </recent_temporary>

@@ -1,0 +1,160 @@
+Index: NeirAutoRental/Database/neirautorental_comments.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_comments.sql b/NeirAutoRental/Database/neirautorental_comments.sql
+deleted file mode 100644
+--- a/NeirAutoRental/Database/neirautorental_comments.sql	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-create table comments
+-(
+-    ID_Comment int auto_increment
+-        primary key,
+-    Score      enum ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10') not null,
+-    Content    varchar(500)                                             not null,
+-    Type       enum ('positive', 'negative')                            not null
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+-INSERT INTO neirautorental.comments (ID_Comment, Score, Content, Type) VALUES (1, '2', 'test comment', 'positive');
+\ No newline at end of file
+Index: NeirAutoRental/Database/neirautorental_offercomments.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_offercomments.sql b/NeirAutoRental/Database/neirautorental_offercomments.sql
+deleted file mode 100644
+--- a/NeirAutoRental/Database/neirautorental_offercomments.sql	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-create table offercomments
+-(
+-    ID_OfferComment int auto_increment
+-        primary key,
+-    ID_Offer        int not null,
+-    ID_Comment      int not null,
+-    ID_User         int not null,
+-    constraint offercomments_ibfk_1
+-        foreign key (ID_Offer) references offers (ID_Offer),
+-    constraint offercomments_ibfk_2
+-        foreign key (ID_Comment) references comments (ID_Comment),
+-    constraint offercomments_ibfk_3
+-        foreign key (ID_User) references users (ID_User)
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+-create index ID_Comment
+-    on offercomments (ID_Comment);
+-
+-create index ID_Offer
+-    on offercomments (ID_Offer);
+-
+-create index ID_User
+-    on offercomments (ID_User);
+-
+Index: NeirAutoRental/Database/neirautorental_users.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_users.sql b/NeirAutoRental/Database/neirautorental_users.sql
+deleted file mode 100644
+--- a/NeirAutoRental/Database/neirautorental_users.sql	
++++ /dev/null	
+@@ -1,23 +0,0 @@
+-create table users
+-(
+-    ID_User   int auto_increment
+-        primary key,
+-    Email     varchar(50)                         not null,
+-    Password  varchar(50)                         not null,
+-    FirstName varchar(30)                         null,
+-    LastName  varchar(30)                         null,
+-    CIN       varchar(20)                         null,
+-    Phone     int(20)                             null,
+-    City      varchar(30)                         null,
+-    Address   varchar(60)                         null,
+-    userType  enum ('client', 'partner', 'admin') not null,
+-    Status    int                                 null
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (1, 'oknaa@a.a', 'oknaa', 'Mohammad', 'Laadidaoui', 'CIN22222', 303030302, 'city2', 'address22222', 'partner', null);
+-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (2, 'niaa@a.a', 'niaa', 'niama', 'mouradi', null, null, null, null, 'client', null);
+-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (3, 'med@a.a', 'med', 'mohamed', 'hamouyi', null, null, null, null, 'client', null);
+-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (4, 'houda@a.a', 'houda', 'houda', 'mzari', null, null, null, null, 'client', null);
+-INSERT INTO neirautorental.users (ID_User, Email, Password, FirstName, LastName, CIN, Phone, City, Address, userType, Status) VALUES (5, 'ibrahim@a.a', 'ibrahim', 'ibrahim', 'lhajj', null, null, null, null, 'client', null);
+\ No newline at end of file
+Index: NeirAutoRental/Database/neirautorental_profilecomments.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_profilecomments.sql b/NeirAutoRental/Database/neirautorental_profilecomments.sql
+deleted file mode 100644
+--- a/NeirAutoRental/Database/neirautorental_profilecomments.sql	
++++ /dev/null	
+@@ -1,15 +0,0 @@
+-create table profilecomments
+-(
+-    ID_ProfileComment int auto_increment
+-        primary key,
+-    ID_Comment        int not null,
+-    ID_User           int not null,
+-    constraint profilecomments_ibfk_2
+-        foreign key (ID_Comment) references comments (ID_Comment),
+-    constraint profilecomments_ibfk_3
+-        foreign key (ID_User) references users (ID_User)
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+-INSERT INTO neirautorental.profilecomments (ID_ProfileComment, ID_Comment, ID_User) VALUES (1, 1, 1);
+\ No newline at end of file
+Index: NeirAutoRental/Database/neirautorental_requests.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Database/neirautorental_requests.sql b/NeirAutoRental/Database/neirautorental_requests.sql
+deleted file mode 100644
+--- a/NeirAutoRental/Database/neirautorental_requests.sql	
++++ /dev/null	
+@@ -1,30 +0,0 @@
+-create table requests
+-(
+-    ID_Request int auto_increment
+-        primary key,
+-    ID_User    int                                                           not null,
+-    ID_Offer   int                                                           not null,
+-    Status     enum ('Waiting', 'InUse', 'Done', 'Denied') default 'Waiting' null,
+-    constraint requests_ibfk_1
+-        foreign key (ID_User) references users (ID_User),
+-    constraint requests_ibfk_2
+-        foreign key (ID_Offer) references offers (ID_Offer)
+-)
+-    engine = InnoDB
+-    charset = utf8mb4;
+-
+-create index ID_Offer
+-    on requests (ID_Offer);
+-
+-create index ID_User
+-    on requests (ID_User);
+-
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (1, 1, 1, 'Waiting');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (2, 3, 1, 'Denied');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (3, 2, 1, 'Denied');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (4, 1, 1, 'Waiting');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (5, 1, 1, 'Waiting');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (6, 1, 1, 'Waiting');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (14, 1, 1, 'Waiting');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (15, 1, 13, 'Waiting');
+-INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (16, 1, 11, 'Denied');
+\ No newline at end of file

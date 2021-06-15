@@ -1,0 +1,212 @@
+Index: NeirAutoRental/Partner_OfferInfo.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nif (!isset($_SESSION)) {\r\n    session_start();\r\n}\r\n\r\nif (!isset($_POST[\"ID_Offer\"])) {\r\n    header(\"refresh:1;url=Home.php\");\r\n    echo \"You shouldn't be here ! Redirecting to the Home page in a Sec ..\";\r\n} else {\r\n    if (!isset($_SESSION[\"ID_User\"])) {\r\n        $_SESSION[\"UserType\"] = \"visitor\";\r\n        include_once \"nav_Disconnected.php\";\r\n    } else\r\n        include_once \"nav_Connected.php\";\r\n\r\n    include_once \"Scripts/S_OfferManager.php\";\r\n    include_once \"Scripts/S_ProfileManager.php\";\r\n    include_once \"Scripts/S_RequestManager.php\";\r\n    include_once \"Scripts/S_CommentsManager.php\";\r\n    $ID_User = $_SESSION[\"ID_User\"];\r\n    $ID_Offer = $_POST[\"ID_Offer\"];\r\n    ?>\r\n\r\n    <!DOCTYPE html>\r\n    <html lang=\"en\">\r\n\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Document</title>\r\n        <link rel=\"stylesheet\" href=\"CSS/test2.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/tether/tether.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/bootstrap/css/bootstrap.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/bootstrap/css/bootstrap-grid.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/bootstrap/css/bootstrap-reboot.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/socicon/css/styles.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/theme/css/style.css\">\r\n\r\n        <script src=\"https://code.jquery.com/jquery-1.10.2.min.js\"></script>\r\n        <link href=\"https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\" rel=\"stylesheet\">\r\n        <script src=\"https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js\"></script>\r\n\r\n        <link rel=\"preload\"\r\n              href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\"\r\n              as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\">\r\n        <noscript>\r\n            <link rel=\"stylesheet\"\r\n                  href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap\">\r\n        </noscript>\r\n        <link rel=\"preload\" as=\"style\" href=\"assetss/mobirise/css/mbr-additional.css\">\r\n        <link rel=\"stylesheet\" href=\"assetss/mobirise/css/mbr-additional.css\" type=\"text/css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/tether/tether.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/bootstrap/css/bootstrap.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/bootstrap/css/bootstrap-grid.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/bootstrap/css/bootstrap-reboot.min.css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/socicon/css/styles.css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/theme/css/style.css\">\r\n        <link rel=\"preload\" as=\"style\" href=\"assets2/mobirise/css/mbr-additional.css\">\r\n        <link rel=\"stylesheet\" href=\"assets2/mobirise/css/mbr-additional.css\" type=\"text/css\">\r\n        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\r\n    </head>\r\n\r\n    <body>\r\n\r\n    <section>\r\n        <div>\r\n        </div>\r\n    </section>\r\n    <section>\r\n        <div style=\"margin-top:50px;\" class=\"containerr\">\r\n            <?php\r\n            list($offer, $car) = DisplayOffer($ID_Offer);\r\n            if (isset($_POST[\"submit_RequestOffer\"])) {\r\n                if ($_SESSION[\"UserType\"] == \"visitor\") {\r\n                    header(\"refresh:1;url=Login.php\");\r\n                } else {\r\n                    AddRequest($ID_Offer, $ID_User);\r\n                    $_POST[\"submit_RequestOffer\"] = null;\r\n                }\r\n            }\r\n            ?>\r\n\r\n            <div>\r\n                <img style=\"width:500px;height:340px;\" src=\"Ressources/Images/Cars/<?php echo $car[\"Image\"] ?>\"\r\n                     alt=\"oups\">\r\n            </div>\r\n            <form method=\"post\">\r\n                <input type=\"text\" name=\"ID_Offer\" value=\"<?php echo $offer[\"ID_Offer\"] ?>\" hidden>\r\n                <h1><?php echo $car[\"Brand\"] . ' ' . $car[\"Model\"] ?></h1>\r\n                <br>\r\n\r\n                <h5><strong>Category :</strong> <?php echo $car[\"Category\"] ?></h5>\r\n                <h5><strong>Fuel: </strong> <?php echo $car[\"Fuel\"] ?></h5>\r\n                <h5><strong>Color:</strong> <?php echo $car[\"Color\"] ?></h5>\r\n                <h5 style=\"color:red;\"><strong>Price:</strong> <?php echo $car[\"Price\"] ?> DH/Hour</h5>\r\n                <p style=\"width:70%;\"><h5><strong>Description :</strong>\r\n                </h5><?php echo $offer[\"Description\"] ?> </p>\r\n                <?php\r\n                if ($_SESSION[\"UserType\"] != \"partner\") {\r\n                    if (!Check_OfferOngoing($ID_Offer, $ID_User)) {\r\n                        ?>\r\n                        <input type=\"submit\" name=\"submit_RequestOffer\" value=\"Request Offer\">\r\n                        <?php\r\n                    }\r\n                } ?>\r\n            </form>\r\n\r\n\r\n        </div>\r\n        <br>\r\n\r\n        <div style=\"width: 100%\" class=\"wrapperr\">\r\n\r\n            <div style=\"width: 100%\" class=\"row\">\r\n                <div class=\"col-md-6\">\r\n                    <div class=\"card\">\r\n                        <div class=\"card-wrapperrr\">\r\n                            <div class=\"row align-items-center\">\r\n                                <div class=\"col-12 col-md-4\">\r\n                                    <div class=\"image-wrapperrr\">\r\n                                        <img src=\"Ressources/Images/facemodal.png\" alt=\"profile\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-12 col-md\">\r\n                                    <div class=\"card-box\">\r\n                                        <h1 class=\"h1\">\r\n                                            <?php $Profile = GetProfile($offer[\"ID_User\"]); ?>\r\n                                            <strong><?php echo $Profile[\"Firstname\"] . ' ' . $Profile[\"Lastname\"] ?></strong>\r\n                                        </h1>\r\n                                        <?php if ($_SESSION[\"UserType\"] == \"partner\") {\r\n                                            ?>\r\n                                            <br>\r\n                                            <h6 class=\"h6\"> Email:\r\n                                                <?php echo $Profile[\"Email\"] ?>                                        </h6>\r\n                                            <br>\r\n\r\n                                            <h6 class=\"h6\">City:\r\n                                                <?php echo $Profile[\"City\"] ?>                                        </h6>\r\n                                        <?php } ?>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n\r\n\r\n                <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\"\r\n                      rel=\"stylesheet\"\r\n                      integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\"\r\n                      crossorigin=\"anonymous\">\r\n                <div style=\"width: 100%\" class=\"col-md-6\">\r\n                    <div class=\"col-lg-12\">\r\n                        <div class=\"card g-mb-30 card-comment\">\r\n\r\n                            <div style=\"height:30px;font-family: 'Open Sans';background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);\"\r\n                                 class=\"card-body u-shadow-v18 g-bg-secondary g-pa-30\">\r\n                                <h2 style=\"font-family: 'Open Sans';font-size: 30px;text-align: center;margin-top:-10px;color: White;\">\r\n                                    Clients Comments :</h2>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <?php\r\n                    try {\r\n                        $commentIDs_Result = SQL_GetOfferCommentID(1);\r\n                        if ($commentIDs_Result->num_rows > 0) {\r\n                            $rows = $commentIDs_Result->num_rows;\r\n                            do {\r\n                                $commentIDs = $commentIDs_Result->fetch_assoc();\r\n\r\n                                $comment_result = SQL_GetComment($commentIDs[\"ID_Comment\"]);\r\n                                if ($comment_result->num_rows > 0) {\r\n                                    $comment = $comment_result->fetch_assoc();\r\n                                    $commentColor = 0;\r\n                                    if ($comment[\"Type\"] == \"positive\") $commentColor = 'style=\"color: #7aba57\"';\r\n                                    if ($comment[\"Type\"] == \"negative\") $commentColor = 'style=\"color: #ba5757\"';\r\n                                    ?>\r\n                                    <div class=\"col-lg-12\" >\r\n                                        <div class=\"card g-mb-30 card-comment\" >\r\n                                            <div class=\"card-body u-shadow-v18 g-bg-secondary g-pa-30\">\r\n                                                <div class=\"g-mb-15\" >\r\n                                                    <h5 class=\"h5 g-color-gray-dark-v1 mb-0\" <?php echo $commentColor; ?>>\r\n                                                        <b><?php echo $comment[\"fname\"] . ' ' . $comment[\"lname\"] ?></b>\r\n                                                    </h5>\r\n                                                </div>\r\n                                                <br>\r\n                                                <p <?php echo $commentColor; ?>><?php echo $comment[\"Content\"] ?></p>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n                                    <?php\r\n                                }\r\n                                $rows--;\r\n                            } while ($rows > 0);\r\n                        }\r\n                    } catch (Exception $e) {\r\n                        echo $e;\r\n                    }\r\n                    ?>\r\n\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n\r\n        <br><br><br>\r\n        <br><br><br><br><br><br>\r\n    </section>\r\n    <script type=\"text/javascript\"></script>\r\n    <?php include 'footer.php'; ?>\r\n\r\n    </body>\r\n    </html>\r\n\r\n    </body>\r\n    </html>\r\n    <?php\r\n\r\n\r\n}\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NeirAutoRental/Partner_OfferInfo.php b/NeirAutoRental/Partner_OfferInfo.php
+--- a/NeirAutoRental/Partner_OfferInfo.php	
++++ b/NeirAutoRental/Partner_OfferInfo.php	
+@@ -178,10 +178,10 @@
+                                     if ($comment["Type"] == "positive") $commentColor = 'style="color: #7aba57"';
+                                     if ($comment["Type"] == "negative") $commentColor = 'style="color: #ba5757"';
+                                     ?>
+-                                    <div class="col-lg-12" >
+-                                        <div class="card g-mb-30 card-comment" >
++                                    <div class="col-lg-12">
++                                        <div class="card g-mb-30 card-comment">
+                                             <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
+-                                                <div class="g-mb-15" >
++                                                <div class="g-mb-15">
+                                                     <h5 class="h5 g-color-gray-dark-v1 mb-0" <?php echo $commentColor; ?>>
+                                                         <b><?php echo $comment["fname"] . ' ' . $comment["lname"] ?></b>
+                                                     </h5>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8698f0cb-7ed8-4f75-a68a-75cb2d2616d8\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/Database/conments.sql\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/Exception.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/OAuth.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/PHPMailer.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/POP3.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/SMTP.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/client_comment_email.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/offer_comment_email.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/send_client_Email.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/NeirAutoRental/emailTest/send_offer_Email.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_comments.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offercomments.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_profilecomments.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/database.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NeirAutoRental/Scripts/database.php\" afterDir=\"false\" />\r\n    </list>\r\n    <list id=\"e7b2ab8a-62ce-4507-86f8-314df328ff87\" name=\"Changes by lily\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"Houda2\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"HARD\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP 8.0\" />\r\n  <component name=\"ProjectId\" id=\"1skmqXM9gIEW0zZCcurykism59y\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showExcludedFiles\" value=\"false\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"sortByType\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"database.data.extractors.current.export.id\" value=\"SQL Inserts\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/NeirAutoRental\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"io.unthrottled.amii.config.ui.PluginSettingsUI\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Includes\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Scripts\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Includes\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\CSS\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Ressources\\Images\" />\r\n      <recent name=\"O:\\MyStuff\\Files\\mySpace\\Projects\\ENSA\\WEB\\WEB 2\\NieRAutoRental\\NeirAutoRental\\Ressources\\Images\\Cars\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8698f0cb-7ed8-4f75-a68a-75cb2d2616d8\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1621425152705</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1621425152705</updated>\r\n      <workItem from=\"1621425153974\" duration=\"6409000\" />\r\n      <workItem from=\"1621433094745\" duration=\"160000\" />\r\n      <workItem from=\"1622621738667\" duration=\"7260000\" />\r\n      <workItem from=\"1622631465632\" duration=\"18348000\" />\r\n      <workItem from=\"1622705068522\" duration=\"4391000\" />\r\n      <workItem from=\"1623663180560\" duration=\"48000\" />\r\n      <workItem from=\"1623703569082\" duration=\"753000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,33 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Database/conments.sql" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/Exception.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/OAuth.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/PHPMailer.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/POP3.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/PHPMailer/SMTP.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/client_comment_email.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/offer_comment_email.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/send_client_Email.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/send_offer_Email.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
++    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="Added comments">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_comments.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offercomments.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_profilecomments.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/database.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/emailTest/client_comment_email.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/client_comment_email.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NeirAutoRental/emailTest/send_client_Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/emailTest/send_client_Email.php" afterDir="false" />
+     </list>
+     <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+@@ -88,11 +66,11 @@
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Scripts" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\CSS" />
+       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images" />
+-      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images\Cars" />
+     </key>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+@@ -109,8 +87,17 @@
+       <workItem from="1622631465632" duration="18348000" />
+       <workItem from="1622705068522" duration="4391000" />
+       <workItem from="1623663180560" duration="48000" />
+-      <workItem from="1623703569082" duration="753000" />
++      <workItem from="1623703569082" duration="5382000" />
++      <workItem from="1623755500849" duration="198000" />
+     </task>
++    <task id="LOCAL-00001" summary="Added comments">
++      <created>1623704455692</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1623704455692</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -127,6 +114,10 @@
+       </map>
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Added comments" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added comments" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: NeirAutoRental/Partner_RequestsConfirmation.php
+===================================================================
+diff --git a/NeirAutoRental/Partner_RequestsConfirmation.php b/NeirAutoRental/Partner_RequestsConfirmation.php
+new file mode 100644
+--- /dev/null	
++++ b/NeirAutoRental/Partner_RequestsConfirmation.php	
+@@ -0,0 +1,90 @@
++<!DOCTYPE html>
++<html>
++
++<head>
++    <meta charset="utf-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
++    <title>Table - Brand</title>
++    <link rel="stylesheet" href="assets3/bootstrap/css/bootstrap.min.css">
++    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
++    <link rel="stylesheet" href="assets3/css/Footer-Basic.css">
++</head>
++
++<body id="page-top">
++    <div id="wrapper">
++        <div class="d-flex flex-column" id="content-wrapper">
++            <div id="content">
++                <div class="container-fluid">
++                    <h1 class="text-dark mb-4" style="text-align: left;padding: 10px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Requests</h1>
++                    <div class="card shadow">
++                        <div class="card-header py-3">
++                            <p class="text-primary m-0 fw-bold" style="text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Requests Info</p>
++                        </div>
++                        <div class="card-body" style="text-align: center;">
++                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
++                                <table class="table my-0" id="dataTable">
++                                    <thead>
++                                        <tr>
++                                            <th style="text-align: center;">Client</th>
++                                            <th style="text-align: center;">Offer requested</th>
++                                            <th style="text-align: center;">Feedback<br></th>
++                                        </tr>
++                                    </thead>
++                                    <tbody>
++                                        <tr>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Client w</a></td>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Check the offer</a></td>
++                                            <td style="text-align: center;">
++                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button">Accept</button></div><a class="btn btn-outline-primary" role="button" href="#">Deny</a>
++                                            </td>
++                                        </tr>
++                                        <tr>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Client x</a></td>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Check the offer</a></td>
++                                            <td style="text-align: center;">
++                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button">Accept</button></div><a class="btn btn-outline-primary" role="button" href="#">Deny</a>
++                                            </td>
++                                        </tr>
++                                        <tr>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Client y</a></td>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Check the offer</a></td>
++                                            <td style="text-align: center;">
++                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button">Accept</button></div><a class="btn btn-outline-primary" role="button" href="#">Deny</a>
++                                            </td>
++                                        </tr>
++                                        <tr>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Client z</a></td>
++                                            <td style="text-align: center;"><a class="btn btn-outline-primary" role="button" href="#" style="text-align: center;">Check the offer</a></td>
++                                            <td style="text-align: center;">
++                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button">Accept</button></div><a class="btn btn-outline-primary" role="button" href="#">Deny</a>
++                                            </td>
++                                        </tr>
++                                    </tbody>
++                                    <tfoot>
++                                        <tr>
++                                            <td><strong>Client</strong></td>
++                                            <td><strong>Offer requested</strong></td>
++                                            <td style="text-align: center;"><strong>Feedback</strong></td>
++                                        </tr>
++                                    </tfoot>
++                                </table>
++                            </div>
++                        </div>
++                    </div>
++                </div>
++            </div>
++        </div>
++    </div>
++    <footer class="footer-basic" style="background: rgb(125,204,238);height: 120px;">
++        <ul class="list-inline" style="text-align: center;">
++            <li class="list-inline-item"><a href="#" style="color: var(--bs-dark);text-align: left;">About us</a></li>
++            <li class="list-inline-item"><a href="#">Services</a></li>
++            <li class="list-inline-item"><a href="#">Contact us</a></li>
++        </ul>
++        <p class="copyright" style="color: var(--bs-dark);">© Copyright 2026 . All Rights Reserved</p>
++    </footer>
++    <script src="assets3/bootstrap/js/bootstrap.min.js"></script>
++    <script src="assets3/js/theme.js"></script>
++</body>
++
++</html>
+\ No newline at end of file
