@@ -4,16 +4,8 @@ create table offercomments
         primary key,
     ID_Offer        int not null,
     ID_Comment      int not null,
-    ID_User         int not null,
-    constraint offercomments_ibfk_1
-        foreign key (ID_Offer) references offers (ID_Offer),
-    constraint offercomments_ibfk_2
-        foreign key (ID_Comment) references comments (ID_Comment),
-    constraint offercomments_ibfk_3
-        foreign key (ID_User) references users (ID_User)
-)
-    engine = InnoDB
-    charset = utf8mb4;
+    ID_User         int not null
+);
 
 create index ID_Comment
     on offercomments (ID_Comment);
@@ -24,3 +16,8 @@ create index ID_Offer
 create index ID_User
     on offercomments (ID_User);
 
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (1, 1, 1, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (2, 2, 2, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (3, 1, 3, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (4, 1, 4, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (5, 1, 5, 1);

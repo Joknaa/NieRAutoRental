@@ -2,22 +2,24 @@ create table cars
 (
     ID_Car   int auto_increment
         primary key,
-    Brand    varchar(50)                                not null,
-    Model    varchar(50)                                null,
-    Price    float                                      not null,
-    Fuel     enum ('Diesel', 'Gasoline', 'Electricity') null,
-    Mileage  int         default 0                      null,
-    Color    varchar(50)                                null,
-    Category varchar(50) default 'car'                  not null,
-    Image    longtext                                   null
-)
-    engine = InnoDB
-    charset = utf8mb4;
+    Brand    varchar(50)                                                not null,
+    Model    varchar(50)                                                not null,
+    Price    float                                                      not null,
+    Fuel     enum ('Diesel', 'Gasoline', 'Electricity')                 not null,
+    Mileage  int                                    default 0           null,
+    Color    varchar(50)                                                not null,
+    Category enum ('FamilyCar', 'SportsCar', 'Van') default 'FamilyCar' null,
+    Image    longtext                                                   null
+);
 
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (22, 'Chevrolet-corvette', '2019', 200, 'Diesel', 0, 'grey', 'SportsCar', '2019-chevrolet-corvette.jpg');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (23, 'Audi-r8', '2018', 350, 'Diesel', 0, 'green', 'FamilyCar', '2018-audi-r8.jpg');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (24, 'Mini-countryman', '2021', 400, 'Diesel', 0, 'white', 'FamilyCar', '2021-mini-countryman.jpg');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (25, 'Jeep Grand Cherokee ', '2017', 250, 'Diesel', 0, 'white', 'FamilyCar', 'JeepGrandCherokee2017.png ');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (1, 'Audi', 'E_Tron', 300, 'Electricity', 0, 'Blue', 'FamilyCar', 'Audi e-tron.jpg');
-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (2, 'Chevrolet', 'Camaro SS', 599, 'Diesel', 0, 'Red', 'FamilyCar', 'Camaro SS .png');
-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (3, 'Challenger', 'SRT-8', 500, 'Diesel', 0, 'Orange', 'FamilyCar', 'Challenger SRT-8.png');
-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (4, 'Corvette', 'Stingray Z51', 600, 'Diesel', 0, 'Black', 'FamilyCar', 'Corvette Stingray Z51.png');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (2, 'Chevrolet', 'Camaro SS', 599, 'Diesel', 0, 'Red', 'SportsCar', 'Camaro SS .png');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (3, 'Challenger', 'SRT-8', 500, 'Diesel', 0, 'Orange', 'SportsCar', 'Challenger SRT-8.png');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (4, 'Corvette', 'Stingray Z51', 600, 'Diesel', 0, 'Black', 'SportsCar', 'Corvette Stingray Z51.png');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (5, 'Hyundai', 'i20', 150, 'Diesel', 0, 'Red', 'FamilyCar', 'Hyundai i20.jpeg');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (6, 'Hyundai', 'Kona Electric', 200, 'Diesel', 0, 'White', 'FamilyCar', 'Hyundai Kona Electric.jpg');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (7, 'Hyundai', 'Venue', 200, 'Diesel', 0, 'Dark-Blue', 'FamilyCar', 'Hyundai Venue.jpeg');
@@ -28,7 +30,7 @@ INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Col
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (12, 'Mahindra', 'XUV300', 300, 'Gasoline', 0, 'Red', 'FamilyCar', 'Mahindra XUV300.jpeg');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (13, 'Mercedes-Benz', 'EQC', 300, 'Electricity', 0, 'Silver', 'FamilyCar', 'Mercedes-Benz EQC.jpeg');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (14, 'MG', 'ZS EV', 150, 'Electricity', 0, 'Sky-Blue', 'FamilyCar', 'MG ZS EV.jpeg');
-INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (15, 'Mustang', 'GT', 599, 'Diesel', 0, 'Gray', 'FamilyCar', 'Mustang GT.png');
+INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (15, 'Mustang', 'GT', 599, 'Diesel', 0, 'Gray', 'SportsCar', 'Mustang GT.png');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (16, 'Nissan', 'Magnite', 300, 'Diesel', 0, 'Red', 'FamilyCar', 'Nissan Magnite.jpeg');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (17, 'Tata', 'Nexon', 150, 'Diesel', 0, 'Red', 'FamilyCar', 'Tata Nexon.jpeg');
 INSERT INTO neirautorental.cars (ID_Car, Brand, Model, Price, Fuel, Mileage, Color, Category, Image) VALUES (18, 'Tata', 'Nexon EV', 150, 'Diesel', 0, 'Blue', 'FamilyCar', 'Tata Nexon EV.jpeg');
