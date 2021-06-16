@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="Added comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_RequestsConfirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_RequestsConfirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
     </list>
     <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
     <option name="SHOW_DIALOG" value="false" />

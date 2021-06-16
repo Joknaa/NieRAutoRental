@@ -19,7 +19,7 @@ function DisplayAllOffers()
                     echo '
                         <div class="col-xs-6 col-md-4">
                             <div class="product tumbnail thumbnail-3">
-                            <form method="post" action="Partner_OfferInfo2.php">
+                            <form method="post" action="Partner_OfferInfo.php">
                             <input type="text" name="ID_User" value="' . $offer["ID_User"] . '" hidden>
                             <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
                             <input type="image" alt="car image" name="submit" style="width: 100%" src="Ressources/Images/Cars/' . $car["Image"] . '">
@@ -216,7 +216,7 @@ function DisplayPartnerOffers($ID_User)
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-3">
                                     <div class="image-wrapper">
-                                        <img src="Ressources/Images/' . $car["Image"] . '" alt="Car Image" title="">
+                                        <img src="Ressources/Images/Cars/' . $car["Image"] . '" alt="Car Image" title="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md">
