@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="Added comments">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Add_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/ClientEvaluation_Form.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/ClientEvaluation_Form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Modify_offer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/OfferEvaluation_Form.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/OfferEvaluation_Form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_Offers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/S_ClientComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_ClientComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/S_OfferComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_offerAdd.php" afterDir="false" />
     </list>
     <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +80,7 @@
       <workItem from="1622631465632" duration="18348000" />
       <workItem from="1622705068522" duration="4391000" />
       <workItem from="1623663180560" duration="48000" />
-      <workItem from="1623877196541" duration="4038000" />
+      <workItem from="1623877196541" duration="5714000" />
     </task>
     <servers />
   </component>

@@ -15,7 +15,7 @@ create table users
     Image     varchar(400)               null
 );
 
-INSERT INTO neirautorental.users (ID_User, Email, Password, Firstname, Lastname, CIN, Phone, City, Address, UserType, Status, Image) VALUES (1, 'oknaa@a.a', 'hehe', 'mohammad2222', 'Laadidaoui222', 'CIN22222', 303030302, 'city2', 'address2', 'client', null, 'craig-mckay-jmURdhtm7Ng-unsplash(1).png');
+INSERT INTO neirautorental.users (ID_User, Email, Password, Firstname, Lastname, CIN, Phone, City, Address, UserType, Status, Image) VALUES (1, 'oknaa@a.a', 'hehe', 'mohammad', 'Laadidaoui', 'CIN22222', 303030302, 'city2', 'address2', 'client', null, 'craig-mckay-jmURdhtm7Ng-unsplash(1).png');
 INSERT INTO neirautorental.users (ID_User, Email, Password, Firstname, Lastname, CIN, Phone, City, Address, UserType, Status, Image) VALUES (2, 'niaa@.', 'niaa', 'niama', 'mouradi', null, null, null, null, 'client', null, null);
 INSERT INTO neirautorental.users (ID_User, Email, Password, Firstname, Lastname, CIN, Phone, City, Address, UserType, Status, Image) VALUES (3, 'med@.', 'med', 'mohamed', 'hamouyi', null, null, null, null, 'client', null, null);
 INSERT INTO neirautorental.users (ID_User, Email, Password, Firstname, Lastname, CIN, Phone, City, Address, UserType, Status, Image) VALUES (4, 'houda@a.a', 'houda', 'Houda', 'Mzari', 'CIN7676', 87878787, 'RABAT', 'RABAT-AGDAL', 'partner', null, 'pdp(1).png');

@@ -16,8 +16,20 @@ create index ID_Offer
 create index ID_User
     on offercomments (ID_User);
 
-INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (1, 1, 1, 1);
-INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (2, 2, 2, 1);
-INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (3, 1, 3, 1);
-INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (4, 1, 4, 1);
-INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (5, 1, 5, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (1, 1, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (2, 2, 9, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (4, 1, 10, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (5, 4, 11, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (6, 2, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (7, 3, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (8, 5, 9, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (9, 6, 10, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (10, 7, 9, 9);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (11, 8, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (12, 9, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (13, 10, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (14, 11, 11, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (15, 12, 11, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (16, 13, 8, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (17, 14, 9, 1);
+INSERT INTO neirautorental.offercomments (ID_OfferComment, ID_Offer, ID_Comment, ID_User) VALUES (18, 15, 10, 1);
