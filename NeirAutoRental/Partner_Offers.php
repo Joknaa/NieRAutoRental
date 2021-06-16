@@ -1,4 +1,8 @@
-<?php require "Scripts/S_OfferManager.php";
+<?php
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
+
+require "Scripts/S_OfferManager.php";
 
 if (!isset($_SESSION)) {
     session_start();

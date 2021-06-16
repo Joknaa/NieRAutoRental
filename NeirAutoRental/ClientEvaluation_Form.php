@@ -59,7 +59,7 @@
     <span class="fa fa-star"></span>
 </center><br>
 <div>
-    <form action="S_ClientComment.php" method="post" enctype='multipart/form-data'>
+    <form action="Scripts/S_ClientComment.php" method="post" enctype='multipart/form-data'>
         <label for="fname">First Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name..">
 

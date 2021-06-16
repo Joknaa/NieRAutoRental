@@ -46,7 +46,11 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
         <section style="background-color:#e0cfc0;" class="features10 cid-sz72N5KVZr" id="features11-1">
             <?php
             include_once "nav_Connected.php";
-            if (isset($_POST["submit_MoreInfo"])) header("Location: Partner_OfferInfo.php");
+            if (isset($_POST["submit_MoreInfo"])) {
+                $_SESSION["ID_Offer"] = $_POST["ID_Offer"];
+                echo $_SESSION["ID_Offer"];
+                //header("Location: Partner_OfferInfo.php");
+            }
             if (isset($_POST["submit_TerminateContract"])) TerminateContract($UserType, $_POST["ID_Offer"]);
             ?>
 

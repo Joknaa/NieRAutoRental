@@ -365,10 +365,10 @@ function SQL_GetRequestStatus($ID_Offer)
 //</editor-fold>
 
 //<editor-fold desc="Update Offer">
-function UpdateOffer()
+function UpdateOffer2($ID_Offer)
 {
     try {
-        $ID_Car = SQL_GetCarID($_POST["ID_Offer"]);
+        $ID_Car = SQL_GetCarID($ID_Offer);
         SQL_UpdateCar($ID_Car);
         SQL_UpdateOffer();
     } catch (Exception $e) {
@@ -386,10 +386,10 @@ function SQL_UpdateOffer()
     $stmt->execute();
 }
 
-function SQL_GetCarID($ID_Car)
+function SQL_GetCarID($ID_Offer)
 {
     $stmt = $GLOBALS["Connection"]->prepare("SELECT ID_CAR FROM neirautorental.offers WHERE ID_Offer = ?");
-    $stmt->bind_param("i", $ID_Car);
+    $stmt->bind_param("i", $ID_Offer);
     $stmt->execute();
     $stmt_result = $stmt->get_result();
     return $stmt_result->fetch_assoc()["ID_Car"];
@@ -398,7 +398,7 @@ function SQL_GetCarID($ID_Car)
 function SQL_UpdateCar($ID_Car)
 {
     $stmt = $GLOBALS["Connection"]
-        ->prepare("UPDATE neirautorental.cars SET Brand = ?, Model = ?, Price = ?, Mileage = ?,Color = ?, Category = ?  WHERE ID_Car = ?");
+        ->prepare("UPDATE neirautorental.cars SET Brand = ?, Category = ?  WHERE ID_Car = ?");
     $stmt->bind_param("siii", $_POST["Brand"], $_POST["Model"], $_POST["Price"],
         $_POST["Mileage"], $_POST["Color"], $_POST["Category"], $ID_Car);
     $stmt->execute();
