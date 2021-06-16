@@ -57,7 +57,6 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                         <tr>
                                             <th style="text-align: center;">Client</th>
                                             <th style="text-align: center;">Offer requested</th>
-                                            <th style="text-align: center;">Status<br></th>
                                             <th style="text-align: center;">Feedback<br></th>
                                         </tr>
                                         </thead>
@@ -74,40 +73,40 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
                                                         $user = $user_result->fetch_assoc();
                                                         ?>
                                                         <tr>
-                                                            <form method="post">
-                                                                <td style="text-align: center;">
-                                                                    <a class="btn btn-outline-primary" role="button"
-                                                                       href="Partner_ClientPreview.php"
-                                                                       style="text-align: center;">' .
-                                                                        $user["FirstName"] . ' ' . $user["LastName"] .
-                                                                        '</a>
-                                                                </td>
-                                                                <td style="text-align: center;">
-                                                                    <input type="submit" name="submit_Accept"
-                                                                           class="btn btn-primary" value="Accept">
+                                                            <td style="text-align: center;">
+                                                                <form method="post" action="Partner_ClientPreview.php">
+                                                                    <input type="text" class="button" name="ID_User" value="<?php echo $requests["ID_User"] ?>" hidden>
+                                                                    <input type="submit" class="btn btn-outline-primary" name="submit_ProfilePreview" value="<?php echo $user["Firstname"] . ' ' . $user["Lastname"] ?>">
+                                                                </form>
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <form method="post" action="Partner_OfferInfo.php">
+                                                                    <input type="text" class="button" name="ID_Offer"
+                                                                           value="<?php echo $requests["ID_Offer"] ?>"
+                                                                           hidden>
+                                                                    <input type="submit" name="submit_CheckOffer"
+                                                                           class="btn btn-outline-primary"
+                                                                           value="Check the offer">
+                                                                </form>
 
-                                                                    <a class="btn btn-outline-primary" role="button"
-                                                                       href="Partner_OfferInfo.php"
-                                                                       style="text-align: center;">Check the offer</a>
-                                                                </td>
-                                                                <td style="text-align: center;">
-                                                                    ' . $requests["Status"] . '
-                                                                </td>
-                                                                <td style="text-align: center;">
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <form method="post">
+                                                                    <input type="text" class="button" name="ID_Request"
+                                                                           value="<?php echo $requests["ID_Request"] ?>"
+                                                                           hidden>
                                                                     <div class="btn-group" role="group">
-                                                                        <input type="input" class="button"
-                                                                               name="ID_Request" value="' . $requests["
-                                                                               ID_Request"] . '" hidden>
                                                                         <input type="submit" name="submit_Accept"
                                                                                class="btn btn-primary" value="Accept">
                                                                         <input type="submit" name="submit_Deny"
                                                                                class="btn btn-outline-primary"
                                                                                value="Deny">
                                                                     </div>
-                                                                </td>
-                                                            </form>
+                                                                </form>
+
+                                                            </td>
                                                         </tr>
-                                                    <?php
+                                                        <?php
                                                     }
                                                     $rows--;
                                                 } while ($rows > 0);

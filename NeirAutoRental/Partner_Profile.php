@@ -62,6 +62,12 @@ $Profile = GetProfile($ID_User);
                                 <input style="background-color:#66AAA7;color:white;" type="submit" class="btn" name="submit"
                                        value="Posted offers">
                             </form>
+                            <form action="Partner_RequestsConfirmation.php" method="post" class="mt-3">
+                                <input type="text" class="btn btn-outline-primary" name="ID_User"
+                                       value="<?php echo $Profile["ID_User"] ?>" hidden>
+                                <input style="background-color:#66AAA7;color:white;" type="submit" class="btn" name="submit"
+                                       value="Requests">
+                            </form>
 
                         </div>
                     </div>

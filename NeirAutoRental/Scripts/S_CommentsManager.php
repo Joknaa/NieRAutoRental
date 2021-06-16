@@ -1,28 +1,6 @@
 <?php require "DatabaseConfig.php";
 
 //<editor-fold desc="Display Profile Comment">
-function DisplayProfileComments($ID_Client, $CommentType) {
-    try {
-        $commentIDs_Result = SQL_GetProfileCommentID($ID_Client);
-        if ($commentIDs_Result->num_rows > 0) {
-            $rows = $commentIDs_Result->num_rows;
-            do {
-                $commentIDs = $commentIDs_Result->fetch_assoc();
-                echo implode("  ", $commentIDs);
-
-                $comment_result = SQL_GetComment($commentIDs["ID_Comment"], $CommentType);
-                if ($comment_result->num_rows > 0) {
-                    $comment = $comment_result->fetch_assoc();
-                    echo implode("  ", $comment);
-                }
-                $rows--;
-            } while ($rows > 0);
-        }
-    } catch (Exception $e) {
-        echo $e;
-    }
-}
-
 function SQL_GetProfileCommentID($ID_User) {
     $stmt = $GLOBALS["Connection"]
         ->prepare("SELECT ID_Comment FROM neirautorental.profilecomments WHERE ID_User = ?");
