@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="" />
+    <list default="true" id="8698f0cb-7ed8-4f75-a68a-75cb2d2616d8" name="Default Changelist" comment="Added comments">
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Audi e-tron.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Camaro SS .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Challenger SRT-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Corvette Stingray Z51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai Kona Electric.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai Venue.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai Verna.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai creta.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Hyundai i20.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/IMG_6439(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/IMG_6439.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Jaguar I-Pace.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Kia Seltos.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Kia Sonet.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/ME.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/MG ZS EV.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mahindra Thar.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mahindra XUV300.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mercedes-Benz EQC.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Mustang GT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Nissan Magnite.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tata Nexon EV.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tata Nexon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tata Safari.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Tesla Model 3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Toyota Fortuner.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/Toyota Innova Crysta .jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/about.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/avatar7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/badreview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/car3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/card2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/craig-mckay-jmURdhtm7Ng-unsplash(1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/craig-mckay-jmURdhtm7Ng-unsplash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/facemodal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/index.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/pdp(1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/pdpp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars/venue-exterior-right-front-three-quarter-2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc566672-f9ce-454f-a9c0-fc9d538fce31.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_cars.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_offers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_requests.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Database/neirautorental_users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Includes/VIPSlider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_ClientPreview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Partner_OfferInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/DatabaseConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_CommentsManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/S_OfferManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeirAutoRental/Scripts/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/NeirAutoRental/Scripts/database.php" afterDir="false" />
+    </list>
+    <list id="e7b2ab8a-62ce-4507-86f8-314df328ff87" name="Changes by lily" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +96,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/NeirAutoRental" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NeirAutoRental/Ressources/Images/Cars" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -50,6 +107,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Ressources\Images\Cars" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental" />
       <recent name="O:\MyStuff\Files\mySpace\Projects\ENSA\WEB\WEB 2\NieRAutoRental\NeirAutoRental\Includes" />
     </key>

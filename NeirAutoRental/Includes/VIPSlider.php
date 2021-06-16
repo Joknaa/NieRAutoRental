@@ -1,10 +1,10 @@
-<?php include_once "Scripts/S_OfferManager.php"?>
+<?php include_once "Scripts/S_OfferManager.php" ?>
 <?php
 //condb
-$con= mysqli_connect("localhost","root","1234","neirautorental") or die("Error: " . mysqli_error($con));
+$con = mysqli_connect("localhost", "root", "oknaa", "neirautorental") or die("Error: " . mysqli_error($con));
 mysqli_query($con, "SET NAMES 'utf8' ");
 //query
-$query = "SELECT * FROM slider ORDER BY ID DESC" or die("Error:" . mysqli_error());
+$query = "SELECT c.Brand, c.Model, c.Image ,o.Description FROM neirautorental.offers o JOIN neirautorental.cars c on o.ID_Car = c.ID_Car WHERE isVIP != 'novip'" or die("Error:" . mysqli_error());
 $result = mysqli_query($con, $query);
 //.com
 ?>
@@ -30,61 +30,62 @@ $result = mysqli_query($con, $query);
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 
 </head>
-<header >
-<div style="padding:0;" class="col-md-12 col-xs-12">
-          <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
+<header>
+    <div style="padding:0;" class="col-md-12 col-xs-12">
+        <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
             <ol class="carousel-indicators">
-              <?php
-              $i=0;
-              foreach($result as $row){
-              $actives='';
-              if($i==0){
-              $actives='active';
-              }
-              ?>
-              <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i;?>" class="<?php echo $actives;?> ">
-                
-              </li>
-              <?php $i++;} ?>
+                <?php
+                $i = 0;
+                foreach ($result as $row) {
+                    $actives = '';
+                    if ($i == 0) {
+                        $actives = 'active';
+                    }
+                    ?>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i; ?>" class="<?php echo $actives; ?> ">
+
+                    </li>
+                    <?php $i++;
+                } ?>
             </ol>
             <div class="carousel-inner">
-              <?php
-              $i=0;
-              foreach($result as $row){
-              $actives='';
-              if($i==0){
-              $actives='active';
-              }
-              ?>
-              <div class="carousel-item <?php echo $actives;?>">
-                <a href="" target="_blank">
-      
-                        <h2 style="width:100%;height:73%;position:absolute;Z-index:99;color:white;display:flex;align-items:flex-end;justify-content:center;" class="display-4"><?php echo $row['Name'];?></h2>
-                        
-                        <div style="width:100%;height:93%;color:white;position:absolute;Z-index:99;display:flex;align-items:flex-end;justify-content:center;font-size:25px;text-align:center;">
-                        <p style="width:50%;" class="lead"><?php echo $row['Description'];?></p>
-                        </div>
-                        <img style="bottom:5px;position:absolute;" class="d-block w-100" src="<?php echo $row['Image_path'];?>" alt="devbanban">
-                </a>
-              </div>
-              <?php 
-              $i++;}
-              mysqli_close($con);
-              //.com
-              ?>
+                <?php
+                $i = 0;
+                foreach ($result as $row) {
+                    $actives = '';
+                    if ($i == 0) {
+                        $actives = 'active';
+                    }
+                    ?>
+                    <div class="carousel-item <?php echo $actives; ?>" >
+                        <a href="" target="_blank">
+
+                            <h2 style="width:100%;height:73%;position:absolute;Z-index:99;color:white;display:flex;align-items:flex-end;justify-content:center;"
+                                class="display-4"><?php echo $row['Brand'] . " " . $row["Model"]; ?></h2>
+
+                            <div style="width:100%;height:93%;color:white;position:absolute;Z-index:99;display:flex;align-items:flex-end;justify-content:center;font-size:25px;text-align:center;">
+                                <p style="width:50%;" class="lead"><?php echo $row['Description']; ?></p>
+                            </div>
+                            <img style="bottom:5px;position:absolute; height: 100%; width: 100%;" class="d-block w-100" src="Ressources/Uploads/<?php echo $row['Image']; ?>" alt="devbanban">
+                        </a>
+                    </div>
+                    <?php
+                    $i++;
+                }
+                mysqli_close($con);
+                //.com
+                ?>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
             </a>
-          </div>
-          
         </div>
-      </div>
+
     </div>
 </header>
 

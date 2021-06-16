@@ -143,54 +143,47 @@ if (!isset($_POST["ID_Offer"])) {
                 </div>
 
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-                    <div style="width: 100%" class="col-md-6">
-                    <div class="col-lg-12">
-                        <div class="card g-mb-30 card-comment">
+                    <?php
+                    try {
+                        $commentIDs_Result = SQL_GetOfferCommentID($ID_Offer);
+                        if ($commentIDs_Result->num_rows > 0) {
+                            $rows = $commentIDs_Result->num_rows;
+                            do {
+                                $commentIDs = $commentIDs_Result->fetch_assoc();
 
-                            <div style="height:30px;font-family: 'Open Sans';background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);" class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
-                                <h2 style="font-family: 'Open Sans';font-size: 30px;text-align: center;margin-top:-10px;color: White;">Clients Comments :</h2>
-                            </div>
-                        </div>
-                    </div>
-        <div class="col-lg-12">
-            <div class="card g-mb-30 card-comment">
-                <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
-                    <div class="g-mb-15">
-                        <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                        <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
-                    </div>
-
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-                        felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-
-
-                </div>
-            </div>
-        </div>
-
-
-
-                    <div class="col-lg-12">
-            <div class="card g-mb-30 card-comment">
-
-                <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
-                    <div class="g-mb-15">
-                        <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                        <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
-                    </div>
-
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-                        felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-
-
-                </div>
-            </div>
+                                $comment_result = SQL_GetComment($commentIDs["ID_Comment"]);
+                                if ($comment_result->num_rows > 0) {
+                                    $comment = $comment_result->fetch_assoc();
+                                    $commentColor = 0;
+                                    if ($comment["Type"] == "positive") $commentColor = 'style="color: #7aba57"';
+                                    if ($comment["Type"] == "negative") $commentColor = 'style="color: #ba5757"';
+                                    ?>
+                                    <div class="col-lg-12" >
+                                        <div class="card g-mb-30 card-comment" >
+                                            <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
+                                                <div class="g-mb-15" >
+                                                    <h5 class="h5 g-color-gray-dark-v1 mb-0" <?php echo $commentColor; ?>>
+                                                        <b><?php echo $comment["Firstname"] . ' ' . $comment["Lastname"] ?></b>
+                                                    </h5>
+                                                </div>
+                                                <br>
+                                                <p <?php echo $commentColor; ?>><?php echo $comment["Content"] ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                $rows--;
+                            } while ($rows > 0);
+                        }
+                    } catch (Exception $e) {
+                        echo $e;
+                    }
+                    ?>
         </div>
     </div>
 
-                </div>
-            </div>
+
 
 <br><br><br>
         <br><br><br><br><br><br>

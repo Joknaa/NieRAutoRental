@@ -2,5 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$USER_HOME$/Documents/neirautorental_cars.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Scripts/S_CommentsManager.php" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

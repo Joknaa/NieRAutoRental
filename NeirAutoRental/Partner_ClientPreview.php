@@ -1,4 +1,5 @@
 <?php include_once 'Scripts/S_ProfileManager.php';
+include_once 'Scripts/S_CommentsManager.php';
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -118,7 +119,43 @@ if (!isset($_SESSION["ID_User"]) || !isset($_SESSION["UserType"])) {
 
                 </div>
             </div>
+            <?php
+            try {
+                $commentIDs_Result = SQL_GetProfileCommentID($ID_User);
+                if ($commentIDs_Result->num_rows > 0) {
+                    $rows = $commentIDs_Result->num_rows;
+                    do {
+                        $commentIDs = $commentIDs_Result->fetch_assoc();
 
+                        $comment_result = SQL_GetComment($commentIDs["ID_Comment"]);
+                        if ($comment_result->num_rows > 0) {
+                            $comment = $comment_result->fetch_assoc();
+                            $commentColor = 0;
+                            if ($comment["Type"] == "positive") $commentColor = 'style="color: #7aba57"';
+                            if ($comment["Type"] == "negative") $commentColor = 'style="color: #ba5757"';
+                            ?>
+                            <div class="col-lg-12" >
+                                <div class="card g-mb-30 card-comment" >
+                                    <div class="card-body u-shadow-v18 g-bg-secondary g-pa-30">
+                                        <div class="g-mb-15" >
+                                            <h5 class="h5 g-color-gray-dark-v1 mb-0" <?php echo $commentColor; ?>>
+                                                <b><?php echo $comment["Firstname"] . ' ' . $comment["Lastname"] ?></b>
+                                            </h5>
+                                        </div>
+                                        <br>
+                                        <p <?php echo $commentColor; ?>><?php echo $comment["Content"] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        $rows--;
+                    } while ($rows > 0);
+                }
+            } catch (Exception $e) {
+                echo $e;
+            }
+            ?>
             <br><br><br>
             <br><br><br><br><br><br>
             <script type="text/javascript" ></script>

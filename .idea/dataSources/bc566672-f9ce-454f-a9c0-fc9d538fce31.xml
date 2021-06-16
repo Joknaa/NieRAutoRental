@@ -775,161 +775,136 @@ SELECT|sys.sys_config
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="241" parent="11" name="cars">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <table id="242" parent="11" name="comments">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <table id="243" parent="11" name="offercomments">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <table id="244" parent="11" name="offers">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <table id="245" parent="11" name="profilecomments">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <table id="246" parent="11" name="requests">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <table id="247" parent="11" name="users">
-      <Engine>InnoDB</Engine>
-      <Collation>utf8mb4_general_ci</Collation>
-    </table>
-    <column id="248" parent="241" name="ID_Car">
+    <table id="241" parent="11" name="cars"/>
+    <table id="242" parent="11" name="comments"/>
+    <table id="243" parent="11" name="offercomments"/>
+    <table id="244" parent="11" name="offers"/>
+    <table id="245" parent="11" name="profilecomments"/>
+    <table id="246" parent="11" name="requests"/>
+    <table id="247" parent="11" name="slider"/>
+    <table id="248" parent="11" name="users"/>
+    <column id="249" parent="241" name="ID_Car">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="249" parent="241" name="Brand">
+    <column id="250" parent="241" name="Brand">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="250" parent="241" name="Model">
+    <column id="251" parent="241" name="Model">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="251" parent="241" name="Price">
+    <column id="252" parent="241" name="Price">
       <Position>4</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="252" parent="241" name="Fuel">
+    <column id="253" parent="241" name="Fuel">
       <Position>5</Position>
       <DataType>enum(&apos;Diesel&apos;, &apos;Gasoline&apos;, &apos;Electricity&apos;)|0e</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="253" parent="241" name="Mileage">
+    <column id="254" parent="241" name="Mileage">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="254" parent="241" name="Color">
+    <column id="255" parent="241" name="Color">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
-    </column>
-    <column id="255" parent="241" name="Category">
-      <Position>8</Position>
-      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;car&apos;</DefaultExpression>
     </column>
-    <column id="256" parent="241" name="Image">
+    <column id="256" parent="241" name="Category">
+      <Position>8</Position>
+      <DataType>enum(&apos;FamilyCar&apos;, &apos;SportsCar&apos;, &apos;Van&apos;)|0e</DataType>
+      <DefaultExpression>&apos;FamilyCar&apos;</DefaultExpression>
+    </column>
+    <column id="257" parent="241" name="Image">
       <Position>9</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <key id="257" parent="241" name="PRIMARY">
+    <key id="258" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_Car</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="258" parent="242" name="ID_Comment">
+    <column id="259" parent="242" name="ID_Comment">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="259" parent="242" name="Score">
+    <column id="260" parent="242" name="Score">
       <Position>2</Position>
       <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;, &apos;6&apos;, &apos;7&apos;, &apos;8&apos;, &apos;9&apos;, &apos;10&apos;)|0e</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="260" parent="242" name="Content">
+    <column id="261" parent="242" name="Content">
       <Position>3</Position>
       <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="261" parent="242" name="Type">
+    <column id="262" parent="242" name="Type">
       <Position>4</Position>
       <DataType>enum(&apos;positive&apos;, &apos;negative&apos;)|0e</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="262" parent="242" name="PRIMARY">
+    <column id="263" parent="242" name="Firstname">
+      <Position>5</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="264" parent="242" name="Lastname">
+      <Position>6</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <key id="265" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_Comment</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="263" parent="243" name="ID_OfferComment">
+    <column id="266" parent="243" name="ID_OfferComment">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="264" parent="243" name="ID_Offer">
+    <column id="267" parent="243" name="ID_Offer">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="265" parent="243" name="ID_Comment">
+    <column id="268" parent="243" name="ID_Comment">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="266" parent="243" name="ID_User">
+    <column id="269" parent="243" name="ID_User">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="267" parent="243" name="ID_Offer">
+    <index id="270" parent="243" name="ID_Offer">
       <ColNames>ID_Offer</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="268" parent="243" name="ID_Comment">
+    <index id="271" parent="243" name="ID_Comment">
       <ColNames>ID_Comment</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="269" parent="243" name="ID_User">
+    <index id="272" parent="243" name="ID_User">
       <ColNames>ID_User</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="270" parent="243" name="PRIMARY">
+    <key id="273" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_OfferComment</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="271" parent="243" name="offercomments_ibfk_1">
-      <ColNames>ID_Offer</ColNames>
-      <RefTableName>offers</RefTableName>
-      <RefColNames>ID_Offer</RefColNames>
-    </foreign-key>
-    <foreign-key id="272" parent="243" name="offercomments_ibfk_2">
-      <ColNames>ID_Comment</ColNames>
-      <RefTableName>comments</RefTableName>
-      <RefColNames>ID_Comment</RefColNames>
-    </foreign-key>
-    <foreign-key id="273" parent="243" name="offercomments_ibfk_3">
-      <ColNames>ID_User</ColNames>
-      <RefTableName>users</RefTableName>
-      <RefColNames>ID_User</RefColNames>
-    </foreign-key>
     <column id="274" parent="244" name="ID_Offer">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
@@ -945,41 +920,39 @@ SELECT|sys.sys_config
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="277" parent="244" name="isVIP">
+    <column id="277" parent="244" name="Availability">
       <Position>4</Position>
-      <DataType>tinyint(1)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-    </column>
-    <column id="278" parent="244" name="Availability">
-      <Position>5</Position>
       <DataType>enum(&apos;available&apos;, &apos;unavailable&apos;)|0e</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;available&apos;</DefaultExpression>
     </column>
-    <column id="279" parent="244" name="Date_Start">
+    <column id="278" parent="244" name="Date_Start">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="279" parent="244" name="Date_End">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="280" parent="244" name="Date_End">
+    <column id="280" parent="244" name="Hour_Start">
       <Position>7</Position>
-      <DataType>date|0s</DataType>
+      <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="281" parent="244" name="Hour_Start">
+    <column id="281" parent="244" name="Hour_End">
       <Position>8</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="282" parent="244" name="Hour_End">
+    <column id="282" parent="244" name="Description">
       <Position>9</Position>
-      <DataType>time|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="283" parent="244" name="Description">
-      <Position>10</Position>
       <DataType>longtext|0s</DataType>
+    </column>
+    <column id="283" parent="244" name="isVIP">
+      <Position>10</Position>
+      <DataType>enum(&apos;novip&apos;, &apos;1weekvip&apos;, &apos;2weeksvip&apos;)|0e</DataType>
     </column>
     <index id="284" parent="244" name="ID_User">
       <ColNames>ID_User</ColNames>
@@ -990,144 +963,141 @@ SELECT|sys.sys_config
       <ColNames>ID_Offer</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="286" parent="244" name="offers_ibfk_2">
-      <ColNames>ID_User</ColNames>
-      <RefTableName>users</RefTableName>
-      <RefColNames>ID_User</RefColNames>
-    </foreign-key>
-    <column id="287" parent="245" name="ID_ProfileComment">
+    <column id="286" parent="245" name="ID_ProfileComment">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="288" parent="245" name="ID_Comment">
+    <column id="287" parent="245" name="ID_Comment">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="289" parent="245" name="ID_User">
+    <column id="288" parent="245" name="ID_User">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="290" parent="245" name="profilecomments_ibfk_2">
+    <index id="289" parent="245" name="profilecomments_ibfk_2">
       <ColNames>ID_Comment</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="291" parent="245" name="profilecomments_ibfk_3">
+    <index id="290" parent="245" name="profilecomments_ibfk_3">
       <ColNames>ID_User</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="292" parent="245" name="PRIMARY">
+    <key id="291" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_ProfileComment</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="293" parent="245" name="profilecomments_ibfk_2">
-      <ColNames>ID_Comment</ColNames>
-      <RefTableName>comments</RefTableName>
-      <RefColNames>ID_Comment</RefColNames>
-    </foreign-key>
-    <foreign-key id="294" parent="245" name="profilecomments_ibfk_3">
-      <ColNames>ID_User</ColNames>
-      <RefTableName>users</RefTableName>
-      <RefColNames>ID_User</RefColNames>
-    </foreign-key>
-    <column id="295" parent="246" name="ID_Request">
+    <column id="292" parent="246" name="ID_Request">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="296" parent="246" name="ID_User">
+    <column id="293" parent="246" name="ID_User">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="297" parent="246" name="ID_Offer">
+    <column id="294" parent="246" name="ID_Offer">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="298" parent="246" name="Status">
+    <column id="295" parent="246" name="Status">
       <Position>4</Position>
       <DataType>enum(&apos;Waiting&apos;, &apos;InUse&apos;, &apos;Done&apos;, &apos;Denied&apos;)|0e</DataType>
       <DefaultExpression>&apos;Waiting&apos;</DefaultExpression>
     </column>
-    <index id="299" parent="246" name="ID_User">
+    <index id="296" parent="246" name="ID_User">
       <ColNames>ID_User</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="300" parent="246" name="ID_Offer">
+    <index id="297" parent="246" name="ID_Offer">
       <ColNames>ID_Offer</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="301" parent="246" name="PRIMARY">
+    <key id="298" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_Request</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="302" parent="246" name="requests_ibfk_1">
-      <ColNames>ID_User</ColNames>
-      <RefTableName>users</RefTableName>
-      <RefColNames>ID_User</RefColNames>
-    </foreign-key>
-    <foreign-key id="303" parent="246" name="requests_ibfk_2">
-      <ColNames>ID_Offer</ColNames>
-      <RefTableName>offers</RefTableName>
-      <RefColNames>ID_Offer</RefColNames>
-    </foreign-key>
-    <column id="304" parent="247" name="ID_User">
+    <column id="299" parent="247" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="305" parent="247" name="Email">
+    <column id="300" parent="247" name="Image_path">
       <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(450)|0s</DataType>
     </column>
-    <column id="306" parent="247" name="Password">
+    <column id="301" parent="247" name="Name">
       <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(45)|0s</DataType>
     </column>
-    <column id="307" parent="247" name="Firstname">
+    <column id="302" parent="247" name="Description">
       <Position>4</Position>
-      <DataType>varchar(30)|0s</DataType>
+      <DataType>varchar(500)|0s</DataType>
     </column>
-    <column id="308" parent="247" name="Lastname">
-      <Position>5</Position>
-      <DataType>varchar(30)|0s</DataType>
-    </column>
-    <column id="309" parent="247" name="CIN">
-      <Position>6</Position>
-      <DataType>varchar(20)|0s</DataType>
-    </column>
-    <column id="310" parent="247" name="Phone">
-      <Position>7</Position>
-      <DataType>int(20)|0s</DataType>
-    </column>
-    <column id="311" parent="247" name="City">
-      <Position>8</Position>
-      <DataType>varchar(30)|0s</DataType>
-    </column>
-    <column id="312" parent="247" name="Address">
-      <Position>9</Position>
-      <DataType>varchar(60)|0s</DataType>
-    </column>
-    <column id="313" parent="247" name="UserType">
-      <Position>10</Position>
-      <DataType>enum(&apos;client&apos;, &apos;partner&apos;, &apos;admin&apos;)|0e</DataType>
+    <key id="303" parent="247" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="304" parent="248" name="ID_User">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="314" parent="247" name="Status">
+    <column id="305" parent="248" name="Email">
+      <Position>2</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="306" parent="248" name="Password">
+      <Position>3</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="307" parent="248" name="Firstname">
+      <Position>4</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="308" parent="248" name="Lastname">
+      <Position>5</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="309" parent="248" name="CIN">
+      <Position>6</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="310" parent="248" name="Phone">
+      <Position>7</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="311" parent="248" name="City">
+      <Position>8</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="312" parent="248" name="Address">
+      <Position>9</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </column>
+    <column id="313" parent="248" name="UserType">
+      <Position>10</Position>
+      <DataType>enum(&apos;partner&apos;, &apos;client&apos;)|0e</DataType>
+    </column>
+    <column id="314" parent="248" name="Status">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <key id="315" parent="247" name="PRIMARY">
+    <column id="315" parent="248" name="Image">
+      <Position>12</Position>
+      <DataType>varchar(400)|0s</DataType>
+    </column>
+    <key id="316" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_User</ColNames>
       <Primary>1</Primary>

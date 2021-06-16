@@ -19,7 +19,7 @@ function DisplayAllOffers()
                     echo '
                         <div class="col-xs-6 col-md-4">
                             <div class="product tumbnail thumbnail-3">
-                            <form method="post" action="Partner_OfferInfo.php">
+                            <form method="post" action="Partner_OfferInfo2.php">
                             <input type="text" name="ID_User" value="' . $offer["ID_User"] . '" hidden>
                             <input type="text" name="ID_Offer" value="' . $offer["ID_Offer"] . '" hidden>
                             <input type="image" alt="car image" name="submit" style="width: 100%" src="Ressources/Images/Cars/' . $car["Image"] . '">
@@ -211,7 +211,7 @@ function DisplayPartnerOffers($ID_User)
                 if ($car_result->num_rows > 0) {
                     $car = $car_result->fetch_assoc();
                     echo '
-                    <div class="card">
+                    <div style="margin-bottom: 20px;background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);" class="card">
                         <div class="card-wrapper">
                             <div class="row align-items-center">
                                 <div class="col-12 col-md-3">
@@ -236,10 +236,9 @@ function DisplayPartnerOffers($ID_User)
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <input type="submit" name="submit_MoreInfo" value="More Info"> 
+                                                <input type="submit" style="width:150px;height:50px;margin-left:580px;background-color:#02356C;color: white;" name="submit_MoreInfo" value="More Info"> 
                                                
-                                                <input type="submit" name="submit_EditOffer" value="Edit">
-';
+                                                <input type="submit" style="width:100px;height:50px;background-color:#02356C;color: white;"  name="submit_EditOffer" value="Edit"> ';
 
                     if ($offer["Availability"] == 'unavailable') echo '<input type="submit" name="submit_TerminateContract" value="Terminate this contract">';
                     echo '

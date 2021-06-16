@@ -22,3 +22,9 @@ create index ID_User
 INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (1, 1, 1, 'Waiting');
 INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (2, 3, 1, 'Denied');
 INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (3, 2, 1, 'Denied');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (4, 1, 1, 'Waiting');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (5, 1, 1, 'Waiting');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (6, 1, 1, 'Waiting');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (14, 1, 1, 'Waiting');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (15, 1, 13, 'Waiting');
+INSERT INTO neirautorental.requests (ID_Request, ID_User, ID_Offer, Status) VALUES (16, 1, 11, 'Denied');

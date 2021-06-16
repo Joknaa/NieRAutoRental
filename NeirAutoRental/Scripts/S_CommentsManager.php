@@ -31,9 +31,9 @@ function SQL_GetProfileCommentID($ID_User) {
     return $stmt->get_result();
 }
 
-function SQL_GetComment($ID_Comment, $CommentType) {
+function SQL_GetComment($ID_Comment) {
     $stmt = $GLOBALS["Connection"]
-        ->prepare("SELECT * FROM neirautorental.comments WHERE ID_Comment = ? AND Type = $CommentType");
+        ->prepare("SELECT * FROM neirautorental.comments WHERE ID_Comment = ?");
     $stmt->bind_param("i", $ID_Comment);
     $stmt->execute();
     return $stmt->get_result();
@@ -53,13 +53,10 @@ function DisplayOfferComments($ID_Offer, $CommentType) {
                 $comment_result = SQL_GetComment($commentIDs["ID_Comment"], $CommentType);
                 if ($comment_result->num_rows > 0) {
                     $comment = $comment_result->fetch_assoc();
-                    echo'
-                    <div class="single-item">
+                    echo'<div class="single-item">
                         <h4>Name</h4>
                         <p>'. $comment["Content"] .'</p>
-                    </div>
-                        ';
-                    echo implode("  ", $comment);
+                    </div>';
                 }
                 $rows--;
             } while ($rows > 0);
